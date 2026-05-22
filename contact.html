@@ -7,71 +7,81 @@
     <style>
         :root {
             --blue: #003087;
-            --gold: #c9a227;
+            --darkblue: #001f3f;
+            --gold: #d4af37;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
-        
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #333; background: #f8f9fa; }
+
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 40px;
+            padding: 1.2rem 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 1.8rem; font-weight: bold; color: var(--blue); }
+        .logo { font-size: 2rem; font-weight: bold; color: var(--blue); }
 
         .contact-container {
             max-width: 1200px;
             margin: 80px auto;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
         }
         .contact-info {
-            background: var(--blue);
+            background: linear-gradient(135deg, var(--blue), var(--darkblue));
             color: white;
-            padding: 90px 60px;
+            padding: 100px 70px;
             flex: 1;
-            min-width: 350px;
+            min-width: 380px;
         }
         .contact-form {
-            padding: 90px 60px;
+            padding: 100px 70px;
             flex: 1;
-            min-width: 350px;
+            min-width: 380px;
         }
         input, textarea {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             margin: 12px 0;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px;
+            font-size: 1.05rem;
         }
         button {
             background: var(--gold);
             color: #000;
-            padding: 16px 50px;
+            padding: 18px 55px;
             border: none;
-            border-radius: 4px;
+            border-radius: 50px;
             font-weight: bold;
+            font-size: 1.15rem;
             cursor: pointer;
+            transition: all 0.4s;
+            margin-top: 15px;
+        }
+        button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212,175,55,0.4);
         }
         footer {
-            background: #001F3F;
+            background: var(--darkblue);
             color: #ccc;
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
     </style>
 </head>
@@ -80,17 +90,17 @@
         <nav>
             <div class="logo">ترانزیت گلد</div>
             <div>
-                <a href="index.html" style="margin:0 20px; color:#333; text-decoration:none;">خانه</a>
-                <a href="tracking.html" style="margin:0 20px; color:#333; text-decoration:none;">پیگیری بار</a>
-                <a href="contact.html" style="margin:0 20px; color:#333; text-decoration:none;">تماس با ما</a>
+                <a href="index.html" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">خانه</a>
+                <a href="tracking.html" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
     <div class="contact-container">
         <div class="contact-info">
-            <h2>اطلاعات تماس</h2>
-            <p style="margin: 35px 0; font-size: 1.25rem;">
+            <h2>در ارتباط باشیم</h2>
+            <p style="margin: 40px 0; font-size: 1.3rem;">
                 📍 دفتر مرکزی: مشهد، ایران<br><br>
                 📞 تلفن: <a href="tel:+989155291700" style="color:white;">+98 915 529 1700</a><br>
                 📱 واتساپ: <a href="https://wa.me/989151269099" style="color:white;">+98 915 126 9099</a><br><br>
@@ -99,12 +109,12 @@
         </div>
 
         <div class="contact-form">
-            <h2>ارسال درخواست حمل بار</h2>
+            <h2>ارسال درخواست</h2>
             <form action="https://formspree.io/f/your-email-here" method="POST">
                 <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
                 <input type="tel" name="phone" placeholder="شماره تماس" required>
                 <input type="email" name="email" placeholder="ایمیل">
-                <textarea name="message" rows="7" placeholder="جزئیات بار (مبدا، مقصد، نوع بار، وزن تقریبی، ...)" required></textarea>
+                <textarea name="message" rows="7" placeholder="جزئیات بار (نوع بار، مبدا، مقصد، وزن و ...)" required></textarea>
                 <button type="submit">ارسال درخواست</button>
             </form>
         </div>
