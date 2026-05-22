@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیگیری بار - حمل و نقل بین‌المللی مشهد</title>
+    <style>
+        :root {
+            --primary: #003087;
+            --secondary: #ff6600;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Tahoma, sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #0066cc);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.8rem; font-weight: bold; }
+        .nav-links a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+        }
+
+        .tracking-box {
+            max-width: 700px;
+            margin: 80px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        button {
+            background: var(--secondary);
+            color: white;
+            padding: 18px 60px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">حمل و نقل بین‌المللی</div>
+            <div class="nav-links">
+                <a href="index.html">خانه</a>
+                <a href="contact.html">تماس با ما</a>
+                <a href="tracking.html">پیگیری بار</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="tracking-box">
+        <h2>پیگیری بار خود را وارد کنید</h2>
+        <p style="margin: 20px 0; font-size: 1.2rem;">شماره بارنامه یا کد پیگیری را وارد کنید</p>
+        
+        <input type="text" id="trackingCode" placeholder="مثال: ۱۴۰۴۱۲۳۴۵۶۷۸۹" />
+        <button onclick="trackShipment()">پیگیری بار</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <footer style="background:#002255; color:white; text-align:center; padding:40px; margin-top:100px;">
+        <p>© ۱۴۰۴ - شرکت حمل و نقل بین‌المللی مشهد</p>
+    </footer>
+
+    <script>
+        function trackShipment() {
+            const code = document.getElementById('trackingCode').value.trim();
+            const result = document.getElementById('result');
+            
+            if (code.length < 5) {
+                result.style.display = 'block';
+                result.innerHTML = `<p style="color:red;">لطفاً کد پیگیری معتبر وارد کنید</p>`;
+                return;
+            }
+            
+            result.style.display = 'block';
+            result.innerHTML = `
+                <h3>وضعیت بارنامه: ${code}</h3>
+                <p><strong>وضعیت فعلی:</strong> در حال حمل به مقصد</p>
+                <p><strong>موقعیت:</strong> مرز بازرگان - در حال خروج از ایران</p>
+                <p><strong>زمان تخمینی تحویل:</strong> ۴۸ ساعت دیگر</p>
+                <p style="margin-top:20px; color:#0066cc;">این بخش فعلاً آزمایشی است. بعداً به سیستم واقعی وصل می‌شود.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
