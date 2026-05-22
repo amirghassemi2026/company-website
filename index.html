@@ -7,55 +7,91 @@
     <style>
         :root {
             --blue: #003087;
-            --gold: #c9a227;
+            --darkblue: #001f3f;
+            --gold: #d4af37;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; }
-        
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #333; }
+
         header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 40px;
+            padding: 1.2rem 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 1.8rem; font-weight: bold; color: var(--blue); }
+        .logo { font-size: 2rem; font-weight: bold; color: var(--blue); letter-spacing: -1px; }
 
         .hero {
-            background: linear-gradient(rgba(0,48,135,0.85), rgba(0,48,135,0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c83137') center/cover;
-            height: 80vh;
+            background: linear-gradient(rgba(0,31,63,0.75), rgba(0,31,63,0.75)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c83137') center/cover no-repeat;
+            height: 90vh;
             display: flex;
             align-items: center;
             color: white;
             text-align: center;
         }
-        .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.4rem; margin-bottom: 1rem; }
+        .hero-content { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1.2rem; text-shadow: 0 4px 15px rgba(0,0,0,0.6); }
+        .hero p { font-size: 1.5rem; margin-bottom: 2.5rem; }
 
-        section { padding: 100px 20px; max-width: 1400px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.6rem; color: var(--blue); margin-bottom: 60px; }
-
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        .btn {
+            background: var(--gold);
+            color: #000;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(212,175,55,0.3);
         }
-        .card img { width: 100%; height: 240px; object-fit: cover; }
-        .card-content { padding: 25px; text-align: center; background: white; }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212,175,55,0.4);
+        }
+
+        section { padding: 120px 20px; max-width: 1400px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.8rem; color: var(--blue); margin-bottom: 70px; position: relative; }
+        h2:after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 35px; }
+        .card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transition: all 0.5s ease;
+            background: white;
+        }
+        .card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+        }
+        .card img { width: 100%; height: 260px; object-fit: cover; }
+        .card-content { padding: 35px; text-align: center; }
+        .card-content h3 { color: var(--blue); margin-bottom: 15px; font-size: 1.6rem; }
 
         footer {
-            background: #001F3F;
+            background: var(--darkblue);
             color: #ccc;
-            padding: 80px 20px 40px;
+            padding: 90px 20px 50px;
         }
     </style>
 </head>
@@ -64,19 +100,19 @@
         <nav>
             <div class="logo">ترانزیت گلد</div>
             <div>
-                <a href="index.html" style="margin:0 20px; color:#333; text-decoration:none;">خانه</a>
-                <a href="#services" style="margin:0 20px; color:#333; text-decoration:none;">خدمات</a>
-                <a href="tracking.html" style="margin:0 20px; color:#333; text-decoration:none;">پیگیری بار</a>
-                <a href="contact.html" style="margin:0 20px; color:#333; text-decoration:none;">تماس با ما</a>
+                <a href="index.html" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">خانه</a>
+                <a href="#services" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">خدمات</a>
+                <a href="tracking.html" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 22px; color:#333; text-decoration:none; font-weight:500;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>حمل و نقل بین‌المللی حرفه‌ای</h1>
-            <p style="font-size:1.4rem;">واردات از چین و دبی • ترانزیت زمینی • صادرات پتروشیمی</p>
-            <a href="contact.html" style="background:#c9a227; color:#000; padding:16px 45px; border-radius:4px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:20px;">دریافت قیمت</a>
+            <h1>بار شما، اطمینان ما</h1>
+            <p>واردات دریایی از چین و دبی • ترانزیت زمینی • صادرات سوخت و پتروشیمی</p>
+            <a href="contact.html" class="btn">درخواست قیمت فوری</a>
         </div>
     </section>
 
@@ -87,41 +123,32 @@
                 <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c83137" alt="حمل دریایی">
                 <div class="card-content">
                     <h3>حمل دریایی</h3>
-                    <p>از چین و امارات به بنادر ایران</p>
+                    <p>از بنادر چین و امارات به ایران</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05" alt="حمل هوایی">
                 <div class="card-content">
                     <h3>حمل هوایی</h3>
-                    <p>حمل سریع بارهای فوری</p>
+                    <p>حمل سریع و ایمن بارهای فوری</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1494411657268-5b9f9a5c5e0d" alt="حمل زمینی">
                 <div class="card-content">
-                    <h3>حمل زمینی (تریلی)</h3>
-                    <p>ترانزیت به عراق، ترکیه، افغانستان و ...</p>
+                    <h3>حمل زمینی</h3>
+                    <p>تریلی به کشورهای همسایه</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; padding: 0 40px;">
-            <div>
-                <h4 style="color: white; margin-bottom: 20px;">تماس با ما</h4>
-                <p style="margin: 10px 0;">📞 <a href="tel:+989155291700" style="color:#ccc; text-decoration:none;">+98 915 529 1700</a></p>
-                <p style="margin: 10px 0;">📱 واتساپ: <a href="https://wa.me/989151269099" style="color:#ccc; text-decoration:none;">+98 915 126 9099</a></p>
-            </div>
-            <div>
-                <h4 style="color: white; margin-bottom: 20px;">دفتر مرکزی</h4>
-                <p style="margin: 10px 0;">مشهد، ایران</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid #334455;">
-            © ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی
-        </div>
+        <p style="text-align:center; font-size:1.1rem;">© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی مشهد</p>
+        <p style="text-align:center; margin-top:15px;">
+            📞 +98 915 529 1700 &nbsp; | &nbsp; 
+            📱 واتساپ: +98 915 126 9099
+        </p>
     </footer>
 </body>
 </html>
