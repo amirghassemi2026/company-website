@@ -7,7 +7,6 @@
     <style>
         :root {
             --blue: #003087;
-            --lightblue: #0066cc;
             --gold: #c9a227;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -49,27 +48,14 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-10px); }
         .card img { width: 100%; height: 240px; object-fit: cover; }
         .card-content { padding: 25px; text-align: center; background: white; }
-        .card-content h3 { color: var(--blue); margin-bottom: 10px; }
-
-        .stats {
-            background: #f8f9fa;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .stat-number { font-size: 3rem; font-weight: bold; color: var(--blue); }
 
         footer {
             background: #001F3F;
             color: #ccc;
-            padding: 70px 20px 40px;
+            padding: 80px 20px 40px;
         }
     </style>
 </head>
@@ -89,7 +75,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>حمل و نقل بین‌المللی حرفه‌ای</h1>
-            <p style="font-size:1.4rem;">واردات از چین و دبی • ترانزیت زمینی • صادرات پتروشیمی و سوخت</p>
+            <p style="font-size:1.4rem;">واردات از چین و دبی • ترانزیت زمینی • صادرات پتروشیمی</p>
             <a href="contact.html" style="background:#c9a227; color:#000; padding:16px 45px; border-radius:4px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:20px;">دریافت قیمت</a>
         </div>
     </section>
@@ -102,8 +88,6 @@
                 <div class="card-content">
                     <h3>حمل دریایی</h3>
                     <p>از چین و امارات به بنادر ایران</p>
-                    <button style="margin:10px 5px; padding:10px 20px;">Read more</button>
-                    <button style="background:#003087; color:white; padding:10px 20px;">Talk to an expert</button>
                 </div>
             </div>
             <div class="card">
@@ -111,8 +95,6 @@
                 <div class="card-content">
                     <h3>حمل هوایی</h3>
                     <p>حمل سریع بارهای فوری</p>
-                    <button style="margin:10px 5px; padding:10px 20px;">Read more</button>
-                    <button style="background:#003087; color:white; padding:10px 20px;">Talk to an expert</button>
                 </div>
             </div>
             <div class="card">
@@ -120,66 +102,26 @@
                 <div class="card-content">
                     <h3>حمل زمینی (تریلی)</h3>
                     <p>ترانزیت به عراق، ترکیه، افغانستان و ...</p>
-                    <button style="margin:10px 5px; padding:10px 20px;">Read more</button>
-                    <button style="background:#003087; color:white; padding:10px 20px;">Talk to an expert</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats">
-        <div>
-            <div class="stat-number">۱۰+</div>
-            <p>سال تجربه</p>
-        </div>
-        <div>
-            <div class="stat-number">۷</div>
-            <p>کشور هدف</p>
-        </div>
-        <div>
-            <div class="stat-number">۱۰۰+</div>
-            <p>پروژه موفق</p>
-        </div>
-    </section>
-
-    <footer style="background: #001F3F; color: #ccc; padding: 80px 20px 40px;">
-    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; padding: 0 40px;">
-        
-        <div>
-            <h4 style="color: white; margin-bottom: 20px;">خدمات</h4>
-            <p style="margin: 10px 0;"><a href="#" style="color:#ccc; text-decoration:none;">حمل دریایی</a></p>
-            <p style="margin: 10px 0;"><a href="#" style="color:#ccc; text-decoration:none;">حمل زمینی</a></p>
-            <p style="margin: 10px 0;"><a href="#" style="color:#ccc; text-decoration:none;">حمل هوایی</a></p>
-            <p style="margin: 10px 0;"><a href="#" style="color:#ccc; text-decoration:none;">ترخیص گمرکی</a></p>
-        </div>
-
-        <div>
-            <h4 style="color: white; margin-bottom: 20px;">شرکت</h4>
-            <p style="margin: 10px 0;"><a href="#" style="color:#ccc; text-decoration:none;">درباره ما</a></p>
-            <p style="margin: 10px 0;"><a href="contact.html" style="color:#ccc; text-decoration:none;">تماس با ما</a></p>
-        </div>
-
-        <div>
-            <h4 style="color: white; margin-bottom: 20px;">منابع</h4>
-            <p style="margin: 10px 0;"><a href="tracking.html" style="color:#ccc; text-decoration:none;">پیگیری بار</a></p>
-        </div>
-
-        <div>
-            <h4 style="color: white; margin-bottom: 20px;">Can't find what you're looking for?</h4>
-            <div style="margin-top: 15px;">
-                <input type="text" id="searchInput" placeholder="جستجو در سایت..." 
-                       style="padding: 12px 15px; width: 100%; border-radius: 4px; border: none; max-width: 280px;">
-                <button onclick="performSearch()" 
-                        style="margin-top: 10px; padding: 12px 25px; background: var(--gold); color: #000; border: none; border-radius: 4px; cursor: pointer;">
-                    جستجو
-                </button>
+    <footer>
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; padding: 0 40px;">
+            <div>
+                <h4 style="color: white; margin-bottom: 20px;">تماس با ما</h4>
+                <p style="margin: 10px 0;">📞 <a href="tel:+989155291700" style="color:#ccc; text-decoration:none;">+98 915 529 1700</a></p>
+                <p style="margin: 10px 0;">📱 واتساپ: <a href="https://wa.me/989151269099" style="color:#ccc; text-decoration:none;">+98 915 126 9099</a></p>
+            </div>
+            <div>
+                <h4 style="color: white; margin-bottom: 20px;">دفتر مرکزی</h4>
+                <p style="margin: 10px 0;">مشهد، ایران</p>
             </div>
         </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 70px; padding-top: 25px; border-top: 1px solid #334455; font-size: 0.95rem;">
-        © ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی مشهد
-    </div>
-</footer>
+        <div style="text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid #334455;">
+            © ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی
+        </div>
+    </footer>
 </body>
 </html>
