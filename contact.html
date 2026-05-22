@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تماس با ما - حمل و نقل بین‌المللی</title>
+    <title>تماس با ما - ترانزیت گلد</title>
     <style>
         :root {
-            --primary: #001F3F;
-            --gold: #D4AF37;
-            --dark: #0A0A0A;
+            --blue: #003087;
+            --lightblue: #0066cc;
+            --gold: #c9a227;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #eee; background: var(--dark); }
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
         
         header {
-            background: rgba(0, 31, 63, 0.95);
-            backdrop-filter: blur(10px);
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -23,59 +23,57 @@
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 30px;
+            padding: 1rem 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 2.1rem; font-weight: bold; color: var(--gold); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--blue); }
 
         .contact-container {
             max-width: 1200px;
             margin: 80px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
             display: flex;
             flex-wrap: wrap;
-            background: #111;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
         }
         .contact-info {
-            background: linear-gradient(135deg, var(--primary), #002b5c);
+            background: var(--blue);
+            color: white;
             padding: 80px 60px;
             flex: 1;
-            min-width: 320px;
+            min-width: 340px;
         }
         .contact-form {
             padding: 80px 60px;
             flex: 1;
-            min-width: 320px;
+            min-width: 340px;
         }
         input, textarea {
             width: 100%;
-            padding: 16px;
+            padding: 15px;
             margin: 12px 0;
-            background: #222;
-            border: 1px solid #444;
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
         button {
             background: var(--gold);
             color: #000;
             padding: 16px 50px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
+            border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
+            font-size: 1.1rem;
         }
         footer {
-            background: #000;
-            color: #aaa;
+            background: #001F3F;
+            color: #ccc;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
     </style>
 </head>
@@ -83,39 +81,39 @@
     <header>
         <nav>
             <div class="logo">ترانزیت گلد</div>
-            <div class="nav-links">
-                <a href="index.html" style="margin:0 20px; color:white; text-decoration:none;">خانه</a>
-                <a href="tracking.html" style="margin:0 20px; color:white; text-decoration:none;">پیگیری بار</a>
-                <a href="contact.html" style="margin:0 20px; color:white; text-decoration:none;">تماس با ما</a>
+            <div>
+                <a href="index.html" style="margin:0 20px; color:#333; text-decoration:none;">خانه</a>
+                <a href="tracking.html" style="margin:0 20px; color:#333; text-decoration:none;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 20px; color:#333; text-decoration:none;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
     <div class="contact-container">
         <div class="contact-info">
-            <h2 style="color: var(--gold);">اطلاعات تماس</h2>
-            <p style="margin: 35px 0; font-size: 1.25rem;">
+            <h2>اطلاعات تماس</h2>
+            <p style="margin: 30px 0; font-size: 1.2rem;">
                 📍 دفتر مرکزی: مشهد، ایران<br><br>
                 📞 تلفن:<br>
-                📱 واتساپ و تلگرام:<br><br>
+                📱 واتساپ:<br><br>
                 🕒 پاسخگویی ۲۴ ساعته
             </p>
         </div>
 
         <div class="contact-form">
-            <h2 style="color: var(--gold);">درخواست حمل بار</h2>
+            <h2>ارسال درخواست حمل بار</h2>
             <form action="https://formspree.io/f/your-email-here" method="POST">
                 <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
                 <input type="tel" name="phone" placeholder="شماره تماس" required>
                 <input type="email" name="email" placeholder="ایمیل">
-                <textarea name="message" rows="6" placeholder="جزئیات بار (مبدا، مقصد، نوع بار، وزن تقریبی و ...)" required></textarea>
+                <textarea name="message" rows="7" placeholder="جزئیات بار (مبدا، مقصد، نوع بار، وزن و ...)" required></textarea>
                 <button type="submit">ارسال درخواست</button>
             </form>
         </div>
     </div>
 
     <footer>
-        <p>© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی</p>
+        <p>© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی مشهد</p>
     </footer>
 </body>
 </html>
