@@ -61,7 +61,7 @@
         .result {
             margin-top: 40px;
             padding: 30px;
-            background: #f8f9fa;
+            background: #f0f4f8;
             border-radius: 8px;
             display: none;
             text-align: right;
@@ -88,7 +88,7 @@
 
     <div class="tracking-container">
         <h2 style="color: var(--blue);">پیگیری بار</h2>
-        <p style="font-size: 1.3rem; margin: 20px 0;">شماره بارنامه یا کد پیگیری را وارد کنید</p>
+        <p style="font-size: 1.3rem; margin: 25px 0;">شماره بارنامه یا کد پیگیری خود را وارد کنید</p>
         
         <input type="text" id="trackingCode" placeholder="مثال: TG-۱۴۰۴۱۲۳۴۵۶" />
         <button onclick="trackShipment()">پیگیری بار</button>
@@ -107,16 +107,17 @@
             
             if (code.length < 4) {
                 result.style.display = 'block';
-                result.innerHTML = `<p style="color: red;">لطفاً کد معتبر وارد کنید</p>`;
+                result.innerHTML = `<p style="color: red;">لطفاً کد پیگیری معتبر وارد کنید</p>`;
                 return;
             }
             
             result.style.display = 'block';
             result.innerHTML = `
                 <h3>بارنامه: ${code}</h3>
-                <p><strong>وضعیت:</strong> در حال حمل</p>
-                <p><strong>موقعیت فعلی:</strong> بندرعباس / مرز زمینی</p>
+                <p><strong>وضعیت فعلی:</strong> در حال حمل</p>
+                <p><strong>موقعیت:</strong> بندرعباس / مرز زمینی</p>
                 <p><strong>زمان تخمینی تحویل:</strong> ۳ تا ۷ روز</p>
+                <p style="margin-top:20px; color:#666;">این بخش فعلاً آزمایشی است.</p>
             `;
         }
     </script>
