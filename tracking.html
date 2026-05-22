@@ -3,109 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پیگیری بار - حمل و نقل بین‌المللی مشهد</title>
+    <title>پیگیری بار - ترانزیت گلد</title>
     <style>
         :root {
-            --primary: #003087;
-            --secondary: #ff6600;
+            --primary: #001F3F;
+            --gold: #D4AF37;
+            --dark: #0A0A0A;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #eee; background: var(--dark); }
         
         header {
-            background: linear-gradient(135deg, var(--primary), #0066cc);
-            color: white;
+            background: rgba(0, 31, 63, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         nav {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 20px;
+            padding: 1.2rem 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
-        .logo { font-size: 1.9rem; font-weight: bold; }
-        .nav-links a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .nav-links a:hover { color: var(--secondary); }
+        .logo { font-size: 2.1rem; font-weight: bold; color: var(--gold); }
 
         .tracking-box {
             max-width: 800px;
-            margin: 80px auto;
-            background: white;
-            padding: 60px 40px;
+            margin: 100px auto;
+            background: #111;
+            padding: 70px 50px;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             text-align: center;
+            border: 1px solid #333;
         }
         input {
             width: 100%;
-            padding: 18px;
-            font-size: 1.3rem;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            margin: 25px 0;
+            padding: 20px;
+            font-size: 1.4rem;
+            background: #222;
+            border: 1px solid #555;
+            border-radius: 12px;
+            color: white;
             text-align: center;
+            margin: 25px 0;
         }
         button {
-            background: var(--secondary);
-            color: white;
-            padding: 16px 60px;
+            background: var(--gold);
+            color: #000;
+            padding: 18px 70px;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: bold;
             cursor: pointer;
         }
         .result {
             margin-top: 40px;
-            padding: 25px;
-            background: #f0f8ff;
+            padding: 30px;
+            background: #1a1a1a;
             border-radius: 12px;
             display: none;
             text-align: right;
+            border: 1px solid var(--gold);
         }
         footer {
-            background: #002255;
-            color: white;
+            background: #000;
+            color: #aaa;
             text-align: center;
-            padding: 50px 20px;
-            margin-top: 80px;
+            padding: 60px 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">حمل و نقل بین‌المللی</div>
+            <div class="logo">ترانزیت گلد</div>
             <div class="nav-links">
-                <a href="index.html">خانه</a>
-                <a href="tracking.html">پیگیری بار</a>
-                <a href="contact.html">تماس با ما</a>
+                <a href="index.html" style="margin:0 20px; color:white; text-decoration:none;">خانه</a>
+                <a href="tracking.html" style="margin:0 20px; color:white; text-decoration:none;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 20px; color:white; text-decoration:none;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
     <div class="tracking-box">
-        <h2>پیگیری بار</h2>
-        <p style="font-size: 1.3rem; margin: 20px 0;">شماره بارنامه یا کد پیگیری را وارد کنید</p>
+        <h2 style="color: var(--gold);">پیگیری بار</h2>
+        <p style="font-size: 1.3rem; margin: 25px 0;">شماره بارنامه یا کد پیگیری را وارد کنید</p>
         
-        <input type="text" id="trackingCode" placeholder="مثال: ۱۴۰۴۱۲۳۴۵۶۷۸۹" />
-        <button onclick="trackShipment()">پیگیری</button>
+        <input type="text" id="trackingCode" placeholder="مثال: TG-۱۴۰۴۱۲۳۴۵۶" />
+        <button onclick="trackShipment()">پیگیری بار</button>
 
         <div id="result" class="result"></div>
     </div>
 
     <footer>
-        <p>© ۱۴۰۴ - شرکت حمل و نقل بین‌المللی مشهد</p>
+        <p>© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی</p>
     </footer>
 
     <script>
@@ -115,19 +111,18 @@
             
             if (code.length < 4) {
                 result.style.display = 'block';
-                result.innerHTML = `<p style="color: red;">لطفاً کد پیگیری معتبر وارد کنید</p>`;
+                result.innerHTML = `<p style="color: #ff6666;">لطفاً کد پیگیری معتبر وارد کنید</p>`;
                 return;
             }
             
             result.style.display = 'block';
             result.innerHTML = `
-                <h3>بارنامه: ${code}</h3>
-                <p><strong>وضعیت:</strong> در حال حمل</p>
-                <p><strong>موقعیت فعلی:</strong> مرز بازرگان - در حال خروج</p>
-                <p><strong>زمان تخمینی تحویل:</strong> ۲ تا ۵ روز</p>
-                <p style="margin-top: 20px; color: #0066cc; font-size: 0.95rem;">
-                    این بخش فعلاً آزمایشی است.<br>
-                    بعداً به سیستم واقعی پیگیری وصل خواهد شد.
+                <h3 style="color: var(--gold);">بارنامه: ${code}</h3>
+                <p><strong>وضعیت فعلی:</strong> در حال حمل</p>
+                <p><strong>موقعیت:</strong> بندرعباس / مرز زمینی</p>
+                <p><strong>زمان تخمینی تحویل:</strong> ۳ تا ۷ روز</p>
+                <p style="margin-top: 25px; color: #aaa; font-size: 0.95rem;">
+                    این بخش فعلاً آزمایشی است و بعداً به سیستم واقعی متصل خواهد شد.
                 </p>
             `;
         }
