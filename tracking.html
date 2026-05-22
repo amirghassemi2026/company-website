@@ -6,16 +6,16 @@
     <title>پیگیری بار - ترانزیت گلد</title>
     <style>
         :root {
-            --primary: #001F3F;
-            --gold: #D4AF37;
-            --dark: #0A0A0A;
+            --blue: #003087;
+            --lightblue: #0066cc;
+            --gold: #c9a227;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #eee; background: var(--dark); }
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
         
         header {
-            background: rgba(0, 31, 63, 0.95);
-            backdrop-filter: blur(10px);
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -23,58 +23,54 @@
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 30px;
+            padding: 1rem 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 2.1rem; font-weight: bold; color: var(--gold); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--blue); }
 
-        .tracking-box {
+        .tracking-container {
             max-width: 800px;
             margin: 100px auto;
-            background: #111;
+            background: white;
             padding: 70px 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             text-align: center;
-            border: 1px solid #333;
         }
         input {
             width: 100%;
-            padding: 20px;
-            font-size: 1.4rem;
-            background: #222;
-            border: 1px solid #555;
-            border-radius: 12px;
-            color: white;
-            text-align: center;
+            padding: 18px;
+            font-size: 1.3rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
             margin: 25px 0;
+            text-align: center;
         }
         button {
             background: var(--gold);
             color: #000;
-            padding: 18px 70px;
+            padding: 16px 60px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.3rem;
+            border-radius: 4px;
             font-weight: bold;
+            font-size: 1.2rem;
             cursor: pointer;
         }
         .result {
             margin-top: 40px;
             padding: 30px;
-            background: #1a1a1a;
-            border-radius: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
             display: none;
             text-align: right;
-            border: 1px solid var(--gold);
         }
         footer {
-            background: #000;
-            color: #aaa;
+            background: #001F3F;
+            color: #ccc;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
     </style>
 </head>
@@ -82,17 +78,17 @@
     <header>
         <nav>
             <div class="logo">ترانزیت گلد</div>
-            <div class="nav-links">
-                <a href="index.html" style="margin:0 20px; color:white; text-decoration:none;">خانه</a>
-                <a href="tracking.html" style="margin:0 20px; color:white; text-decoration:none;">پیگیری بار</a>
-                <a href="contact.html" style="margin:0 20px; color:white; text-decoration:none;">تماس با ما</a>
+            <div>
+                <a href="index.html" style="margin:0 20px; color:#333; text-decoration:none;">خانه</a>
+                <a href="tracking.html" style="margin:0 20px; color:#333; text-decoration:none;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 20px; color:#333; text-decoration:none;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
-    <div class="tracking-box">
-        <h2 style="color: var(--gold);">پیگیری بار</h2>
-        <p style="font-size: 1.3rem; margin: 25px 0;">شماره بارنامه یا کد پیگیری را وارد کنید</p>
+    <div class="tracking-container">
+        <h2 style="color: var(--blue);">پیگیری بار</h2>
+        <p style="font-size: 1.3rem; margin: 20px 0;">شماره بارنامه یا کد پیگیری را وارد کنید</p>
         
         <input type="text" id="trackingCode" placeholder="مثال: TG-۱۴۰۴۱۲۳۴۵۶" />
         <button onclick="trackShipment()">پیگیری بار</button>
@@ -101,7 +97,7 @@
     </div>
 
     <footer>
-        <p>© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی</p>
+        <p>© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی مشهد</p>
     </footer>
 
     <script>
@@ -111,19 +107,16 @@
             
             if (code.length < 4) {
                 result.style.display = 'block';
-                result.innerHTML = `<p style="color: #ff6666;">لطفاً کد پیگیری معتبر وارد کنید</p>`;
+                result.innerHTML = `<p style="color: red;">لطفاً کد معتبر وارد کنید</p>`;
                 return;
             }
             
             result.style.display = 'block';
             result.innerHTML = `
-                <h3 style="color: var(--gold);">بارنامه: ${code}</h3>
-                <p><strong>وضعیت فعلی:</strong> در حال حمل</p>
-                <p><strong>موقعیت:</strong> بندرعباس / مرز زمینی</p>
+                <h3>بارنامه: ${code}</h3>
+                <p><strong>وضعیت:</strong> در حال حمل</p>
+                <p><strong>موقعیت فعلی:</strong> بندرعباس / مرز زمینی</p>
                 <p><strong>زمان تخمینی تحویل:</strong> ۳ تا ۷ روز</p>
-                <p style="margin-top: 25px; color: #aaa; font-size: 0.95rem;">
-                    این بخش فعلاً آزمایشی است و بعداً به سیستم واقعی متصل خواهد شد.
-                </p>
             `;
         }
     </script>
