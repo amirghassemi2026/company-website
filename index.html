@@ -10,7 +10,7 @@
             --secondary: #ff6600;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, sans-serif; line-height: 1.7; color: #333; }
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; }
         
         header {
             background: linear-gradient(135deg, var(--primary), #0066cc);
@@ -18,6 +18,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         nav {
             max-width: 1300px;
@@ -26,51 +27,64 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
-        .logo { font-size: 1.8rem; font-weight: bold; }
+        .logo { font-size: 1.9rem; font-weight: bold; }
         .nav-links a {
             color: white;
-            margin-left: 30px;
+            margin: 0 15px;
             text-decoration: none;
             font-weight: 500;
         }
+        .nav-links a:hover { color: var(--secondary); }
+
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c83137') center/cover no-repeat;
-            height: 90vh;
+            background: linear-gradient(rgba(0,48,135,0.75), rgba(0,48,135,0.75)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c83137') center/cover no-repeat;
+            height: 85vh;
             display: flex;
             align-items: center;
             text-align: center;
             color: white;
         }
         .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.8rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.5rem; margin-bottom: 2rem; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2rem; }
+
         .btn {
             background: var(--secondary);
             color: white;
-            padding: 18px 50px;
+            padding: 16px 45px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.2rem;
             font-weight: bold;
+            font-size: 1.2rem;
         }
-        section { padding: 100px 20px; max-width: 1300px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.8rem; color: var(--primary); margin-bottom: 50px; }
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        section { padding: 90px 20px; max-width: 1300px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.6rem; color: var(--primary); margin-bottom: 50px; }
+
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .card {
             background: white;
-            border-radius: 20px;
-            padding: 40px 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 18px;
+            padding: 35px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
             transition: 0.3s;
         }
-        .card:hover { transform: translateY(-15px); }
+        .card:hover { transform: translateY(-10px); }
+
         footer {
             background: #002255;
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
+        }
+        .footer-links a { color: #ccc; margin: 0 15px; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .nav-links { margin-top: 15px; }
         }
     </style>
 </head>
@@ -88,11 +102,10 @@
         </nav>
     </header>
 
-    <!-- بقیه کد همان قبلی است (hero + services + about + footer) -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>بار شما را با اطمینان به مقصد می‌رسانیم</h1>
-            <p>حمل جاده‌ای، دریایی، هوایی و ترخیص گمرکی از مشهد به تمام جهان</p>
+            <p>حمل جاده‌ای، دریایی، هوایی و ترخیص گمرکی از مشهد به تمام نقاط جهان</p>
             <a href="contact.html" class="btn">درخواست قیمت حمل بار</a>
         </div>
     </section>
@@ -100,7 +113,7 @@
     <section id="services">
         <h2>خدمات ما</h2>
         <div class="services">
-            <div class="card"><h3>🚛 حمل جاده‌ای</h3><p>به کشورهای همسایه با کامیون‌های مجهز</p></div>
+            <div class="card"><h3>🚛 حمل جاده‌ای</h3><p>به کشورهای همسایه با کامیون‌های مجهز و ایمن</p></div>
             <div class="card"><h3>🚢 حمل دریایی</h3><p>کانتینر و بار فله به تمام بنادر جهان</p></div>
             <div class="card"><h3>✈️ حمل هوایی</h3><p>حمل سریع بارهای فوری و حساس</p></div>
             <div class="card"><h3>📋 ترخیص گمرکی</h3><p>ترخیص حرفه‌ای و سریع در تمام مرزها</p></div>
@@ -109,15 +122,20 @@
 
     <section id="about" style="background: #f8f9fa;">
         <h2>درباره شرکت</h2>
-        <p style="text-align: center; font-size: 1.4rem; max-width: 900px; margin: 0 auto;">
-            شرکت حمل و نقل بین‌المللی مستقر در مشهد با سال‌ها تجربه در عرصه حمل و نقل بین‌المللی.<br>
-            ما متعهد به ارائه خدمات سریع، ایمن و اقتصادی هستیم.
+        <p style="text-align: center; font-size: 1.35rem; max-width: 900px; margin: 0 auto;">
+            شرکت حمل و نقل بین‌المللی مستقر در مشهد با تجربه چندین ساله در عرصه حمل بار بین‌المللی.<br>
+            ما متعهد به ارائه خدمات سریع، ایمن، شفاف و اقتصادی هستیم.
         </p>
     </section>
 
     <footer>
-        <p>© ۱۴۰۴ - شرکت حمل و نقل بین‌المللی مشهد</p>
-        <p>در حال توسعه • نسخه اولیه</p>
+        <p style="margin-bottom: 15px;">© ۱۴۰۴ - شرکت حمل و نقل بین‌المللی مشهد</p>
+        <div class="footer-links">
+            <a href="index.html">خانه</a>
+            <a href="tracking.html">پیگیری بار</a>
+            <a href="contact.html">تماس با ما</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem;">در حال توسعه • نسخه اولیه</p>
     </footer>
 </body>
 </html>
