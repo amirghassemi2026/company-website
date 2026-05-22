@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حمل و نقل بین‌المللی | واردات از چین و دبی - صادرات پتروشیمی</title>
+    <title>ترانزیت گلد | حمل و نقل بین‌المللی</title>
     <style>
         :root {
-            --primary: #001F3F;
-            --gold: #D4AF37;
-            --dark: #0A0A0A;
+            --blue: #003087;
+            --lightblue: #0066cc;
+            --gold: #c9a227;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #eee; background: var(--dark); }
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; }
         
         header {
-            background: rgba(0, 31, 63, 0.95);
-            backdrop-filter: blur(10px);
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -23,53 +23,53 @@
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.2rem 30px;
+            padding: 1rem 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo { font-size: 2.1rem; font-weight: bold; color: var(--gold); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--blue); }
 
         .hero {
-            background: linear-gradient(rgba(0,31,63,0.85), rgba(0,31,63,0.85)), url('https://images.unsplash.com/photo-1494411657268-5b9f9a5c5e0d') center/cover;
-            height: 100vh;
+            background: linear-gradient(rgba(0,48,135,0.85), rgba(0,48,135,0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c83137') center/cover;
+            height: 85vh;
             display: flex;
             align-items: center;
+            color: white;
             text-align: center;
         }
-        .hero-content { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.8rem; margin-bottom: 1.5rem; color: white; }
-        .hero p { font-size: 1.5rem; margin-bottom: 2.5rem; }
+        .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.2rem; }
+        .hero p { font-size: 1.4rem; margin-bottom: 2rem; }
 
         .btn {
             background: var(--gold);
             color: #000;
-            padding: 18px 55px;
-            border-radius: 50px;
+            padding: 16px 45px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
         }
 
-        section { padding: 110px 20px; max-width: 1400px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.8rem; color: var(--gold); margin-bottom: 60px; }
+        section { padding: 100px 20px; max-width: 1400px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.6rem; color: var(--blue); margin-bottom: 50px; }
 
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 45px 30px;
+            background: white;
+            border: 1px solid #eee;
+            padding: 40px;
+            border-radius: 8px;
             text-align: center;
-            transition: 0.4s;
+            transition: 0.3s;
         }
-        .card:hover { border-color: var(--gold); transform: translateY(-15px); }
+        .card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
         footer {
-            background: #000;
-            color: #aaa;
-            text-align: center;
-            padding: 70px 20px;
+            background: #001F3F;
+            color: #ccc;
+            padding: 60px 20px 30px;
         }
     </style>
 </head>
@@ -77,47 +77,45 @@
     <header>
         <nav>
             <div class="logo">ترانزیت گلد</div>
-            <div class="nav-links" style="color:white;">
-                <a href="index.html" style="margin:0 20px; color:white; text-decoration:none;">خانه</a>
-                <a href="#services" style="margin:0 20px; color:white; text-decoration:none;">خدمات</a>
-                <a href="tracking.html" style="margin:0 20px; color:white; text-decoration:none;">پیگیری بار</a>
-                <a href="contact.html" style="margin:0 20px; color:white; text-decoration:none;">تماس با ما</a>
+            <div>
+                <a href="index.html" style="margin:0 20px; color:#333; text-decoration:none;">خانه</a>
+                <a href="#services" style="margin:0 20px; color:#333; text-decoration:none;">خدمات</a>
+                <a href="tracking.html" style="margin:0 20px; color:#333; text-decoration:none;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 20px; color:#333; text-decoration:none;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>حمل و نقل بین‌المللی حرفه‌ای</h1>
-            <p>واردات دریایی از چین و دبی • ترانزیت زمینی به کشورهای همسایه • صادرات سوخت و پتروشیمی</p>
-            <a href="contact.html" class="btn">درخواست قیمت فوری</a>
+            <h1>حمل و نقل بین‌المللی هوشمند</h1>
+            <p>واردات از چین و دبی • ترانزیت به کشورهای همسایه • صادرات پتروشیمی و سوخت</p>
+            <a href="contact.html" class="btn">دریافت قیمت</a>
         </div>
     </section>
 
     <section id="services">
-        <h2>خدمات تخصصی ما</h2>
+        <h2>خدمات ما</h2>
         <div class="services">
             <div class="card">
-                <h3>🌊 واردات دریایی</h3>
-                <p>از بنادر چین و امارات (دبی) به بندرعباس و بوشهر</p>
+                <h3>حمل دریایی</h3>
+                <p>از چین و امارات به ایران</p>
             </div>
             <div class="card">
-                <h3>🚛 ترانزیت زمینی</h3>
-                <p>به عراق، ترکیه، افغانستان، پاکستان، آذربایجان و ترکمنستان</p>
+                <h3>حمل زمینی</h3>
+                <p>تریلی به عراق، ترکیه، افغانستان و ...</p>
             </div>
             <div class="card">
-                <h3>⛽ صادرات سوخت و پتروشیمی</h3>
-                <p>صادرات به کشورهای هدف منطقه‌ای با هماهنگی کامل گمرکی</p>
-            </div>
-            <div class="card">
-                <h3>📋 ترخیص و لجستیک کامل</h3>
-                <p>ترخیص سریع، انبارداری و حمل door-to-door</p>
+                <h3>صادرات پتروشیمی</h3>
+                <p>سوخت و مواد شیمیایی ایران به منطقه</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p style="font-size:1.3rem; color:var(--gold);">دفتر مرکزی: مشهد • آماده خدمت‌رسانی ۲۴ ساعته</p>
+        <div style="max-width:1400px; margin:0 auto; text-align:center;">
+            <p style="font-size:1.1rem;">© ۱۴۰۴ - ترانزیت گلد | حمل و نقل بین‌المللی مشهد</p>
+        </div>
     </footer>
 </body>
 </html>
