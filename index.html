@@ -3,139 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حمل و نقل بین‌المللی مشهد | بار شما، اطمینان ما</title>
+    <title>حمل و نقل بین‌المللی | واردات از چین و دبی - صادرات پتروشیمی</title>
     <style>
         :root {
-            --primary: #003087;
-            --secondary: #ff6600;
+            --primary: #001F3F;
+            --gold: #D4AF37;
+            --dark: #0A0A0A;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.7; color: #333; }
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.8; color: #eee; background: var(--dark); }
         
         header {
-            background: linear-gradient(135deg, var(--primary), #0066cc);
-            color: white;
+            background: rgba(0, 31, 63, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         nav {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 20px;
+            padding: 1.2rem 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
-        .logo { font-size: 1.9rem; font-weight: bold; }
-        .nav-links a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .nav-links a:hover { color: var(--secondary); }
+        .logo { font-size: 2.1rem; font-weight: bold; color: var(--gold); }
 
         .hero {
-            background: linear-gradient(rgba(0,48,135,0.75), rgba(0,48,135,0.75)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c83137') center/cover no-repeat;
-            height: 85vh;
+            background: linear-gradient(rgba(0,31,63,0.85), rgba(0,31,63,0.85)), url('https://images.unsplash.com/photo-1494411657268-5b9f9a5c5e0d') center/cover;
+            height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
-            color: white;
         }
-        .hero-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.4rem; margin-bottom: 2rem; }
+        .hero-content { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 1.5rem; color: white; }
+        .hero p { font-size: 1.5rem; margin-bottom: 2.5rem; }
 
         .btn {
-            background: var(--secondary);
-            color: white;
-            padding: 16px 45px;
+            background: var(--gold);
+            color: #000;
+            padding: 18px 55px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
 
-        section { padding: 90px 20px; max-width: 1300px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.6rem; color: var(--primary); margin-bottom: 50px; }
+        section { padding: 110px 20px; max-width: 1400px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.8rem; color: var(--gold); margin-bottom: 60px; }
 
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .card {
-            background: white;
-            border-radius: 18px;
-            padding: 35px 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 45px 30px;
             text-align: center;
-            transition: 0.3s;
+            transition: 0.4s;
         }
-        .card:hover { transform: translateY(-10px); }
+        .card:hover { border-color: var(--gold); transform: translateY(-15px); }
 
         footer {
-            background: #002255;
-            color: white;
+            background: #000;
+            color: #aaa;
             text-align: center;
-            padding: 50px 20px;
-        }
-        .footer-links a { color: #ccc; margin: 0 15px; text-decoration: none; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .nav-links { margin-top: 15px; }
+            padding: 70px 20px;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">حمل و نقل بین‌المللی</div>
-            <div class="nav-links">
-                <a href="index.html">خانه</a>
-                <a href="#services">خدمات</a>
-                <a href="#about">درباره ما</a>
-                <a href="tracking.html">پیگیری بار</a>
-                <a href="contact.html">تماس با ما</a>
+            <div class="logo">ترانزیت گلد</div>
+            <div class="nav-links" style="color:white;">
+                <a href="index.html" style="margin:0 20px; color:white; text-decoration:none;">خانه</a>
+                <a href="#services" style="margin:0 20px; color:white; text-decoration:none;">خدمات</a>
+                <a href="tracking.html" style="margin:0 20px; color:white; text-decoration:none;">پیگیری بار</a>
+                <a href="contact.html" style="margin:0 20px; color:white; text-decoration:none;">تماس با ما</a>
             </div>
         </nav>
     </header>
 
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <h1>بار شما را با اطمینان به مقصد می‌رسانیم</h1>
-            <p>حمل جاده‌ای، دریایی، هوایی و ترخیص گمرکی از مشهد به تمام نقاط جهان</p>
-            <a href="contact.html" class="btn">درخواست قیمت حمل بار</a>
+            <h1>حمل و نقل بین‌المللی حرفه‌ای</h1>
+            <p>واردات دریایی از چین و دبی • ترانزیت زمینی به کشورهای همسایه • صادرات سوخت و پتروشیمی</p>
+            <a href="contact.html" class="btn">درخواست قیمت فوری</a>
         </div>
     </section>
 
     <section id="services">
-        <h2>خدمات ما</h2>
+        <h2>خدمات تخصصی ما</h2>
         <div class="services">
-            <div class="card"><h3>🚛 حمل جاده‌ای</h3><p>به کشورهای همسایه با کامیون‌های مجهز و ایمن</p></div>
-            <div class="card"><h3>🚢 حمل دریایی</h3><p>کانتینر و بار فله به تمام بنادر جهان</p></div>
-            <div class="card"><h3>✈️ حمل هوایی</h3><p>حمل سریع بارهای فوری و حساس</p></div>
-            <div class="card"><h3>📋 ترخیص گمرکی</h3><p>ترخیص حرفه‌ای و سریع در تمام مرزها</p></div>
+            <div class="card">
+                <h3>🌊 واردات دریایی</h3>
+                <p>از بنادر چین و امارات (دبی) به بندرعباس و بوشهر</p>
+            </div>
+            <div class="card">
+                <h3>🚛 ترانزیت زمینی</h3>
+                <p>به عراق، ترکیه، افغانستان، پاکستان، آذربایجان و ترکمنستان</p>
+            </div>
+            <div class="card">
+                <h3>⛽ صادرات سوخت و پتروشیمی</h3>
+                <p>صادرات به کشورهای هدف منطقه‌ای با هماهنگی کامل گمرکی</p>
+            </div>
+            <div class="card">
+                <h3>📋 ترخیص و لجستیک کامل</h3>
+                <p>ترخیص سریع، انبارداری و حمل door-to-door</p>
+            </div>
         </div>
-    </section>
-
-    <section id="about" style="background: #f8f9fa;">
-        <h2>درباره شرکت</h2>
-        <p style="text-align: center; font-size: 1.35rem; max-width: 900px; margin: 0 auto;">
-            شرکت حمل و نقل بین‌المللی مستقر در مشهد با تجربه چندین ساله در عرصه حمل بار بین‌المللی.<br>
-            ما متعهد به ارائه خدمات سریع، ایمن، شفاف و اقتصادی هستیم.
-        </p>
     </section>
 
     <footer>
-        <p style="margin-bottom: 15px;">© ۱۴۰۴ - شرکت حمل و نقل بین‌المللی مشهد</p>
-        <div class="footer-links">
-            <a href="index.html">خانه</a>
-            <a href="tracking.html">پیگیری بار</a>
-            <a href="contact.html">تماس با ما</a>
-        </div>
-        <p style="margin-top: 20px; font-size: 0.9rem;">در حال توسعه • نسخه اولیه</p>
+        <p style="font-size:1.3rem; color:var(--gold);">دفتر مرکزی: مشهد • آماده خدمت‌رسانی ۲۴ ساعته</p>
     </footer>
 </body>
 </html>
