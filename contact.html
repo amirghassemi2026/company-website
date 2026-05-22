@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما - حمل و نقل بین‌المللی مشهد</title>
+    <style>
+        :root {
+            --primary: #003087;
+            --secondary: #ff6600;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Tahoma, sans-serif; line-height: 1.7; color: #333; background: #f8f9fa; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #0066cc);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.8rem; font-weight: bold; }
+        .nav-links a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .contact-info {
+            background: var(--primary);
+            color: white;
+            padding: 60px 40px;
+        }
+        .contact-form {
+            padding: 60px 40px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: Tahoma;
+        }
+        button {
+            background: var(--secondary);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        footer {
+            background: #002255;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">حمل و نقل بین‌المللی</div>
+            <div class="nav-links">
+                <a href="index.html">خانه</a>
+                <a href="contact.html">تماس با ما</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div style="display: flex; flex-wrap: wrap;">
+            <div class="contact-info" style="flex: 1; min-width: 300px;">
+                <h2>اطلاعات تماس</h2>
+                <p style="margin: 25px 0; font-size: 1.2rem;">
+                    📍 دفتر مرکزی: مشهد، ایران<br><br>
+                    📞 تلفن:<br>
+                    📱 واتساپ و تلگرام:<br><br>
+                    🕒 ساعات کاری: ۲۴ ساعته
+                </p>
+                <p><strong>آماده پاسخگویی فوری هستیم</strong></p>
+            </div>
+
+            <div class="contact-form" style="flex: 1; min-width: 300px;">
+                <h2>ارسال پیام</h2>
+                <form action="https://formspree.io/f/your-email-here" method="POST">
+                    <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
+                    <input type="tel" name="phone" placeholder="شماره تماس" required>
+                    <input type="email" name="email" placeholder="ایمیل">
+                    <textarea name="message" rows="6" placeholder="جزئیات درخواست حمل بار (نوع بار، مبدا، مقصد، وزن و ...)" required></textarea>
+                    <button type="submit">ارسال پیام</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© ۱۴۰۴ - شرکت حمل و نقل بین‌المللی مشهد</p>
+    </footer>
+</body>
+</html>
