@@ -456,106 +456,203 @@ footer{background:var(--text);padding:3.5rem 0 1.5rem}
     attributionControl: true
   }).setView([25, 55], 3);
 
-  /* تایل تمیز بدون label */
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap © CARTO',
     maxZoom: 10, minZoom: 2
   }).addTo(map);
 
-  /* ===== مسیرهای دریایی واردات → دبی → بندرعباس (سبز) ===== */
-  var seaIn = [
-    /* آمریکای شمالی → دور آفریقا → دبی */
-    [[-8.8,-13.4],[3.8,9.5],[4.1,9.7],[-1.3,8.5],[-34.8,18.5],[11.8,43.1],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
-    /* برزیل → دور آفریقا → دبی */
-    [[-23.5,-46.6],[-33.9,18.5],[11.8,43.1],[25.2,55.3],[27.1,56.3]],
-    /* اروپا (آلمان/انگلیس) → کانال سوئز → دبی */
-    [[51.5,-0.1],[36.8,10.2],[30.1,32.3],[12.8,43.6],[25.2,55.3],[27.1,56.3]],
-    /* چین → تنگه مالاکا → دبی */
-    [[31.2,121.5],[22.3,114.2],[1.3,103.8],[5.9,80.7],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
-    /* کره جنوبی → تنگه مالاکا → دبی */
-    [[37.5,126.9],[22.3,114.2],[1.3,103.8],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
-    /* ژاپن → تنگه مالاکا → دبی */
-    [[35.7,139.7],[22.3,114.2],[1.3,103.8],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
-    /* استرالیا → تنگه مالاکا → دبی */
-    [[-33.9,151.2],[1.3,103.8],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
-    /* کانادا → دور آفریقا → دبی */
-    [[43.7,-79.4],[-33.9,18.5],[11.8,43.1],[25.2,55.3],[27.1,56.3]],
+  /* تابع رسم خط منحنی بین دو نقطه */
+  function curvedLine(p1, p2, color, dash, weight){
+    var lats = [], lngs = [];
+    var steps = 60;
+    /* میانی منحنی — کشیده شده به سمت بالا */
+    var midLat = (p1[0]+p2[0])/2 + Math.abs(p2[1]-p1[1])*0.18;
+    var midLng = (p1[1]+p2[1])/2;
+    for(var i=0;i<=steps;i++){
+      var t=i/steps;
+      var lat = (1-t)*(1-t)*p1[0] + 2*(1-t)*t*midLat + t*t*p2[0];
+      var lng = (1-t)*(1-t)*p1[1] + 2*(1-t)*t*midLng + t*t*p2[1];
+      lats.push([lat,lng]);
+    }
+    return L.polyline(lats,{color:color,weight:weight||2,opacity:.8,dashArray:dash}).addTo(map);
+  }
+
+  /* ===== دریایی سبز — منحنی روی آب ===== */
+  var seaPairs = [
+    [[51.5,-0.1],[25.2,55.3]],   /* لندن → دبی */
+    [[53.5,10.0],[25.2,55.3]],   /* هامبورگ → دبی */
+    [[31.2,121.5],[25.2,55.3]],  /* شانگهای → دبی */
+    [[37.5,126.9],[25.2,55.3]],  /* سئول → دبی */
+    [[35.7,139.7],[25.2,55.3]],  /* توکیو → دبی */
+    [[-33.9,151.2],[25.2,55.3]], /* سیدنی → دبی */
+    [[-23.5,-46.6],[25.2,55.3]], /* سائوپائولو → دبی */
+    [[43.7,-79.4],[25.2,55.3]],  /* تورنتو → دبی */
+    [[25.2,55.3],[27.1,56.3]],   /* دبی → بندرعباس */
   ];
-  seaIn.forEach(function(r){
-    L.polyline(r,{color:'#059669',weight:2,opacity:.75,dashArray:'6,8'}).addTo(map);
+  seaPairs.forEach(function(p){
+    curvedLine(p[0],p[1],'#059669','6,9',2);
   });
 
-  /* ===== مسیرهای زمینی صادرات از بندرعباس/تهران (آبی) ===== */
-  var landOut = [
-    [[27.1,56.3],[35.7,51.4]],              /* بندرعباس → تهران */
-    [[35.7,51.4],[33.3,44.4]],              /* تهران → بغداد */
-    [[35.7,51.4],[39.9,32.8]],              /* تهران → آنکارا */
-    [[35.7,51.4],[34.5,69.2]],              /* تهران → کابل */
-    [[35.7,51.4],[30.3,67.0]],              /* تهران → کویته */
-    [[35.7,51.4],[40.2,44.5]],              /* تهران → ایروان */
-    [[35.7,51.4],[40.4,49.9]],              /* تهران → باکو */
-    [[35.7,51.4],[37.9,58.4]],              /* تهران → عشق‌آباد */
-    [[35.7,51.4],[41.7,44.8]],              /* تهران → تفلیس */
-    /* مشهد هم مسیر دارد */
-    [[36.2,59.6],[34.5,69.2]],              /* مشهد → کابل */
-    [[36.2,59.6],[37.9,58.4]],              /* مشهد → عشق‌آباد */
+  /* ===== زمینی آبی — کانتینر ===== */
+  var landPairs = [
+    [[27.1,56.3],[35.7,51.4]],
+    [[35.7,51.4],[33.3,44.4]],
+    [[35.7,51.4],[39.9,32.8]],
+    [[35.7,51.4],[34.5,69.2]],
+    [[35.7,51.4],[30.3,67.0]],
+    [[35.7,51.4],[40.2,44.5]],
+    [[35.7,51.4],[40.4,49.9]],
+    [[35.7,51.4],[37.9,58.4]],
+    [[35.7,51.4],[41.7,44.8]],
+    [[36.2,59.6],[34.5,69.2]],
+    [[36.2,59.6],[37.9,58.4]],
   ];
-  landOut.forEach(function(r){
-    L.polyline(r,{color:'#1976d2',weight:2.5,opacity:.85,dashArray:'9,5'}).addTo(map);
+  landPairs.forEach(function(p){
+    curvedLine(p[0],p[1],'#1976d2','9,6',2.5);
   });
 
-  /* ===== سوخت و گاز به همسایگان (نارنجی) ===== */
-  var fuel = [
-    [[35.7,51.4],[33.3,44.4]],    /* → عراق */
-    [[35.7,51.4],[40.2,44.5]],    /* → ارمنستان */
-    [[35.7,51.4],[39.9,32.8]],    /* → ترکیه */
-    [[35.7,51.4],[34.5,69.2]],    /* → افغانستان */
-    [[36.2,59.6],[34.5,69.2]],    /* مشهد → افغانستان */
+  /* ===== سوخت نارنجی ===== */
+  var fuelPairs = [
+    [[35.7,51.4],[33.3,44.4]],
+    [[35.7,51.4],[40.2,44.5]],
+    [[35.7,51.4],[39.9,32.8]],
+    [[35.7,51.4],[34.5,69.2]],
+    [[36.2,59.6],[34.5,69.2]],
   ];
-  fuel.forEach(function(r){
-    L.polyline(r,{color:'#f97316',weight:3,opacity:.9,dashArray:'2,5'}).addTo(map);
+  fuelPairs.forEach(function(p){
+    curvedLine(p[0],p[1],'#f97316','2,6',3);
   });
 
-  /* ===== نقاط اصلی ===== */
+  /* ===== نقاط شهر ===== */
   var pts = [
-    {ll:[27.1,56.3], col:'#1976d2', r:9,  tip:'Bandar Abbas'},
-    {ll:[35.7,51.4], col:'#1976d2', r:10, tip:'Tehran'},
-    {ll:[36.2,59.6], col:'#1976d2', r:8,  tip:'Mashhad'},
-    {ll:[25.2,55.3], col:'#059669', r:8,  tip:'Dubai'},
-    {ll:[33.3,44.4], col:'#f97316', r:7,  tip:'Baghdad'},
-    {ll:[39.9,32.8], col:'#1976d2', r:7,  tip:'Ankara'},
-    {ll:[40.2,44.5], col:'#f97316', r:6,  tip:'Yerevan'},
-    {ll:[40.4,49.9], col:'#1976d2', r:6,  tip:'Baku'},
-    {ll:[37.9,58.4], col:'#1976d2', r:6,  tip:'Ashgabat'},
-    {ll:[34.5,69.2], col:'#f97316', r:6,  tip:'Kabul'},
-    {ll:[30.3,67.0], col:'#1976d2', r:6,  tip:'Karachi'},
-    {ll:[51.5,-0.1], col:'#059669', r:7,  tip:'London'},
-    {ll:[53.5,10.0], col:'#059669', r:7,  tip:'Hamburg'},
-    {ll:[31.2,121.5],col:'#059669', r:7,  tip:'Shanghai'},
-    {ll:[37.5,126.9],col:'#059669', r:6,  tip:'Seoul'},
-    {ll:[35.7,139.7],col:'#059669', r:6,  tip:'Tokyo'},
-    {ll:[-33.9,151.2],col:'#059669',r:6, tip:'Sydney'},
-    {ll:[-23.5,-46.6],col:'#059669',r:6, tip:'São Paulo'},
-    {ll:[43.7,-79.4], col:'#059669',r:6, tip:'Toronto'},
-    {ll:[18.9,72.8],  col:'#059669',r:6, tip:'Mumbai'},
-    {ll:[1.3,103.8],  col:'#059669',r:5, tip:'Singapore'},
+    {ll:[27.1,56.3],col:'#1976d2',r:9, tip:'Bandar Abbas'},
+    {ll:[35.7,51.4],col:'#1976d2',r:11,tip:'Tehran'},
+    {ll:[36.2,59.6],col:'#1976d2',r:8, tip:'Mashhad'},
+    {ll:[25.2,55.3],col:'#059669',r:9, tip:'Dubai'},
+    {ll:[33.3,44.4],col:'#f97316',r:7, tip:'Baghdad'},
+    {ll:[39.9,32.8],col:'#1976d2',r:7, tip:'Ankara'},
+    {ll:[40.2,44.5],col:'#f97316',r:6, tip:'Yerevan'},
+    {ll:[40.4,49.9],col:'#1976d2',r:6, tip:'Baku'},
+    {ll:[37.9,58.4],col:'#1976d2',r:6, tip:'Ashgabat'},
+    {ll:[34.5,69.2],col:'#f97316',r:6, tip:'Kabul'},
+    {ll:[30.3,67.0],col:'#1976d2',r:6, tip:'Karachi'},
+    {ll:[51.5,-0.1],col:'#059669',r:7, tip:'London'},
+    {ll:[53.5,10.0],col:'#059669',r:7, tip:'Hamburg'},
+    {ll:[31.2,121.5],col:'#059669',r:7,tip:'Shanghai'},
+    {ll:[37.5,126.9],col:'#059669',r:6,tip:'Seoul'},
+    {ll:[35.7,139.7],col:'#059669',r:6,tip:'Tokyo'},
+    {ll:[-33.9,151.2],col:'#059669',r:6,tip:'Sydney'},
+    {ll:[-23.5,-46.6],col:'#059669',r:6,tip:'São Paulo'},
+    {ll:[43.7,-79.4],col:'#059669',r:6,tip:'Toronto'},
+    {ll:[18.9,72.8],col:'#059669',r:6,tip:'Mumbai'},
+    {ll:[1.3,103.8],col:'#059669',r:5,tip:'Singapore'},
   ];
   pts.forEach(function(p){
+    /* حلقه چشمک‌زن برای شهرهای اصلی */
+    if(p.r>=9){
+      L.circleMarker(p.ll,{
+        radius:p.r+5,color:p.col,weight:1.5,
+        fillColor:p.col,fillOpacity:0,
+        className:'pulse-ring'
+      }).addTo(map);
+    }
     L.circleMarker(p.ll,{
-      radius:p.r, color:'#fff', weight:2,
-      fillColor:p.col, fillOpacity:1
+      radius:p.r,color:'#fff',weight:2,
+      fillColor:p.col,fillOpacity:1
     }).addTo(map).bindTooltip(p.tip,{
-      permanent:false, direction:'top', className:'mtip'
+      permanent:false,direction:'top',className:'mtip'
     });
   });
+
+  /* ===== آیکون‌های متحرک روی مسیر ===== */
+  function movingIcon(points, emoji, durationMs){
+    var el = L.divIcon({
+      html:'<div class="micon">'+emoji+'</div>',
+      iconSize:[28,28], iconAnchor:[14,14], className:''
+    });
+    var marker = L.marker(points[0], {icon:el, zIndexOffset:1000}).addTo(map);
+    var step=0, total=points.length;
+    function animate(){
+      step=(step+1)%total;
+      marker.setLatLng(points[step]);
+    }
+    setInterval(animate, durationMs/total);
+    return marker;
+  }
+
+  /* مسیر کشتی: لندن → دبی → بندرعباس */
+  var shipPath=[];
+  (function(){
+    var p1=[51.5,-0.1], p2=[25.2,55.3];
+    var steps=80;
+    var midLat=(p1[0]+p2[0])/2+Math.abs(p2[1]-p1[1])*0.18;
+    var midLng=(p1[1]+p2[1])/2;
+    for(var i=0;i<=steps;i++){
+      var t=i/steps;
+      shipPath.push([(1-t)*(1-t)*p1[0]+2*(1-t)*t*midLat+t*t*p2[0],
+                     (1-t)*(1-t)*p1[1]+2*(1-t)*t*midLng+t*t*p2[1]]);
+    }
+    /* دبی → بندرعباس */
+    var p3=[27.1,56.3];
+    for(var i=0;i<=20;i++){var t=i/20;shipPath.push([p2[0]+(p3[0]-p2[0])*t,p2[1]+(p3[1]-p2[1])*t]);}
+  })();
+  movingIcon(shipPath,'🚢', 18000);
+
+  /* مسیر تریلی: تهران → بغداد */
+  var truckPath=[];
+  (function(){
+    var p1=[35.7,51.4],p2=[33.3,44.4];
+    var steps=40;
+    var midLat=(p1[0]+p2[0])/2+2, midLng=(p1[1]+p2[1])/2;
+    for(var i=0;i<=steps;i++){
+      var t=i/steps;
+      truckPath.push([(1-t)*(1-t)*p1[0]+2*(1-t)*t*midLat+t*t*p2[0],
+                      (1-t)*(1-t)*p1[1]+2*(1-t)*t*midLng+t*t*p2[1]]);
+    }
+  })();
+  movingIcon(truckPath,'🚛',10000);
+
+  /* مسیر تریلی ۲: تهران → کابل */
+  var truckPath2=[];
+  (function(){
+    var p1=[35.7,51.4],p2=[34.5,69.2];
+    var steps=40;
+    var midLat=(p1[0]+p2[0])/2+3, midLng=(p1[1]+p2[1])/2;
+    for(var i=0;i<=steps;i++){
+      var t=i/steps;
+      truckPath2.push([(1-t)*(1-t)*p1[0]+2*(1-t)*t*midLat+t*t*p2[0],
+                       (1-t)*(1-t)*p1[1]+2*(1-t)*t*midLng+t*t*p2[1]]);
+    }
+  })();
+  movingIcon(truckPath2,'🚛',13000);
+
+  /* مسیر کشتی ۲: شانگهای → دبی */
+  var shipPath2=[];
+  (function(){
+    var p1=[31.2,121.5],p2=[25.2,55.3];
+    var steps=80;
+    var midLat=(p1[0]+p2[0])/2+Math.abs(p2[1]-p1[1])*0.15;
+    var midLng=(p1[1]+p2[1])/2;
+    for(var i=0;i<=steps;i++){
+      var t=i/steps;
+      shipPath2.push([(1-t)*(1-t)*p1[0]+2*(1-t)*t*midLat+t*t*p2[0],
+                      (1-t)*(1-t)*p1[1]+2*(1-t)*t*midLng+t*t*p2[1]]);
+    }
+  })();
+  movingIcon(shipPath2,'🚢',22000);
+
 })();
 </script>
 <style>
-#imap .leaflet-tile-pane{filter:grayscale(15%) brightness(1.02)}
+#imap .leaflet-tile-pane{filter:grayscale(10%) brightness(1.02)}
 .mtip{background:#0d1b2e!important;color:#fff!important;border:none!important;border-radius:6px!important;font-size:12px!important;font-weight:600!important;padding:4px 10px!important;box-shadow:0 2px 8px rgba(0,0,0,.3)!important}
 .mtip::before{display:none!important}
 .leaflet-control-zoom{border:none!important;box-shadow:0 2px 12px rgba(0,0,0,.1)!important;border-radius:8px!important}
 .leaflet-control-zoom a{color:#1976d2!important;font-weight:700!important}
+.micon{font-size:20px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.pulse-ring{animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{opacity:.7;stroke-width:1.5}70%{opacity:0;stroke-width:4}100%{opacity:0}}
 </style>
 
     </div>
