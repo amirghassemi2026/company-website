@@ -563,11 +563,123 @@ footer{background:var(--text);padding:3.5rem 0 1.5rem}
         <div class="section-eye" data-i="se3">Why Transit Gold</div>
         <h2 class="section-title" data-i="st3">The Difference is in the <span>Details</span></h2>
         <p class="section-desc" data-i="sd3">A decade of on-the-ground expertise at Iran's busiest border crossings — built on trusted relationships, speed and zero-compromise reliability.</p>
-        <div class="why-feats">
-          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="why-feat-t" data-i="wf1t">Full Cargo Insurance</div><div class="why-feat-d" data-i="wf1d">Every shipment covered all-risk from pickup to final delivery, with rapid international claims processing.</div></div></div>
-          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="why-feat-t" data-i="wf2t">Real-Time GPS Tracking</div><div class="why-feat-d" data-i="wf2d">Live location for all trucks and trains. WhatsApp, SMS and web portal updates around the clock.</div></div></div>
-          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div><div><div class="why-feat-t" data-i="wf3t">Priority Border Clearance</div><div class="why-feat-d" data-i="wf3d">Dedicated agents at Bazargan, Mehran, Islam Qala and Mirjaveh for faster clearance and fewer delays.</div></div></div>
-          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div><div class="why-feat-t" data-i="wf4t">Dedicated Account Management</div><div class="why-feat-d" data-i="wf4d">Volume discounts, a named account manager and priority scheduling for long-term partners.</div></div></div>
+        <p class="section-desc" data-i="sd3">A decade of on-the-ground expertise at Iran's busiest border crossings — built on trusted relationships, speed and zero-compromise reliability.</p>
+
+<style>
+.sw-wrap{margin-top:2rem;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--border)}
+.sw-slides{display:flex;transition:transform 0.5s cubic-bezier(.4,0,.2,1)}
+.sw-slide{min-width:100%;position:relative;height:380px;overflow:hidden;flex-shrink:0}
+.sw-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.sw-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,30,60,.9) 0%,rgba(10,30,60,.35) 55%,transparent 100%)}
+.sw-body{position:absolute;bottom:0;left:0;right:0;padding:1.8rem 2rem 1.6rem;color:#fff;direction:inherit;text-align:inherit}
+.sw-icon{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem}
+.sw-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2}
+.sw-title{font-family:var(--fH);font-weight:700;font-size:1.2rem;margin:0 0 .5rem;line-height:1.2}
+.sw-desc{font-size:.87rem;color:rgba(255,255,255,.78);line-height:1.75;margin:0;max-width:500px}
+.sw-num{position:absolute;top:1rem;right:1.2rem;font-size:.72rem;color:rgba(255,255,255,.65);background:rgba(0,0,0,.3);border-radius:50px;padding:3px 10px}
+[dir=rtl] .sw-num{right:auto;left:1.2rem}
+.sw-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10}
+.sw-btn:hover{background:rgba(255,255,255,.3)}
+.sw-prev{left:1rem}.sw-next{right:1rem}
+.sw-btn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5}
+.sw-dots{display:flex;justify-content:center;gap:6px;padding:.9rem 0 0}
+.sw-dot{width:7px;height:7px;border-radius:50%;background:var(--border2);cursor:pointer;transition:all .25s;border:none}
+.sw-dot.on{width:20px;border-radius:50px;background:var(--sky)}
+</style>
+
+<div class="sw-wrap">
+  <div class="sw-slides" id="swSlides">
+
+    <div class="sw-slide">
+      <img src="https://images.unsplash.com/photo-1566232392379-afd9298e6a46?w=1200&q=80" alt="Cargo Insurance" loading="lazy">
+      <div class="sw-ov"></div>
+      <div class="sw-num">1 / 4</div>
+      <div class="sw-body">
+        <div class="sw-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="sw-title" data-i="wf1t">Full Cargo Insurance</div>
+        <p class="sw-desc" data-i="wf1d">Every shipment covered all-risk from pickup to final delivery, with rapid international claims processing.</p>
+      </div>
+    </div>
+
+    <div class="sw-slide">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="GPS Tracking" loading="lazy">
+      <div class="sw-ov"></div>
+      <div class="sw-num">2 / 4</div>
+      <div class="sw-body">
+        <div class="sw-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="sw-title" data-i="wf2t">Real-Time GPS Tracking</div>
+        <p class="sw-desc" data-i="wf2d">Live location for all trucks and trains. WhatsApp, SMS and web portal updates around the clock.</p>
+      </div>
+    </div>
+
+    <div class="sw-slide">
+      <img src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?w=1200&q=80" alt="Customs Clearance" loading="lazy">
+      <div class="sw-ov"></div>
+      <div class="sw-num">3 / 4</div>
+      <div class="sw-body">
+        <div class="sw-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <div class="sw-title" data-i="wf3t">Priority Border Clearance</div>
+        <p class="sw-desc" data-i="wf3d">Dedicated agents at Bazargan, Mehran, Islam Qala and Mirjaveh for faster clearance and fewer delays.</p>
+      </div>
+    </div>
+
+    <div class="sw-slide">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80" alt="Account Management" loading="lazy">
+      <div class="sw-ov"></div>
+      <div class="sw-num">4 / 4</div>
+      <div class="sw-body">
+        <div class="sw-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="sw-title" data-i="wf4t">Dedicated Account Management</div>
+        <p class="sw-desc" data-i="wf4d">Volume discounts, a named account manager and priority scheduling for long-term partners.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="sw-btn sw-prev" id="swPrev" aria-label="Previous">
+    <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+  </button>
+  <button class="sw-btn sw-next" id="swNext" aria-label="Next">
+    <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+  </button>
+</div>
+
+<div class="sw-dots" id="swDots">
+  <button class="sw-dot on" aria-label="Slide 1"></button>
+  <button class="sw-dot" aria-label="Slide 2"></button>
+  <button class="sw-dot" aria-label="Slide 3"></button>
+  <button class="sw-dot" aria-label="Slide 4"></button>
+</div>
+
+<script>
+(function(){
+  var cur=0,total=4;
+  var sl=document.getElementById('swSlides');
+  var dots=document.querySelectorAll('.sw-dot');
+  function go(n){
+    cur=(n+total)%total;
+    sl.style.transform='translateX('+(-cur*100)+'%)';
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur);});
+    /* جهت متن از html بگیر */
+    var dir=document.documentElement.getAttribute('dir')||'ltr';
+    document.querySelectorAll('.sw-body').forEach(function(b){
+      b.style.direction=dir;
+      b.style.textAlign=dir==='rtl'?'right':'left';
+    });
+  }
+  document.getElementById('swPrev').onclick=function(){go(cur-1);};
+  document.getElementById('swNext').onclick=function(){go(cur+1);};
+  dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);});});
+  var timer=setInterval(function(){go(cur+1);},5000);
+  var wrap=document.querySelector('.sw-wrap');
+  wrap.addEventListener('mouseenter',function(){clearInterval(timer);});
+  wrap.addEventListener('mouseleave',function(){timer=setInterval(function(){go(cur+1);},5000);});
+  /* اجرای اول */
+  go(0);
+})();
+</script>
+
+
         </div>
       </div>
     </div>
