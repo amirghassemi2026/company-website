@@ -457,8 +457,8 @@ footer{background:var(--text);padding:3.5rem 0 1.5rem}
   }).setView([25, 55], 3);
 
   /* تایل تمیز بدون label */
-  L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_background/{z}/{x}/{y}{r}.png', {
-    attribution: '© Stadia Maps © Stamen Design © OpenStreetMap',
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CARTO',
     maxZoom: 10, minZoom: 2
   }).addTo(map);
 
