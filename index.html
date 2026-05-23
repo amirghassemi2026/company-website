@@ -445,78 +445,118 @@ footer{background:var(--text);padding:3.5rem 0 1.5rem}
         <div class="leg-item"><div class="leg-line leg-rail"></div><span data-i="l2">Rail · INSTC / Silk Road</span></div>
         <div class="leg-item"><div class="leg-line leg-sea"></div><span data-i="l3">Sea · Persian Gulf / Indian Ocean</span></div>
       </div>
-      <div id="imap" style="width:100%;height:480px;border-radius:0 0 20px 20px"></div>
+     <div id="imap" style="width:100%;height:500px;border-radius:0 0 20px 20px"></div>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function(){
-  var map=L.map('imap',{zoomControl:true,scrollWheelZoom:false}).setView([32,54],4);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution:'© OpenStreetMap',maxZoom:10,minZoom:2
+  var map = L.map('imap', {
+    zoomControl: true,
+    scrollWheelZoom: false,
+    attributionControl: true
+  }).setView([25, 55], 3);
+
+  /* تایل تمیز بدون label */
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_background/{z}/{x}/{y}{r}.png', {
+    attribution: '© Stadia Maps © Stamen Design © OpenStreetMap',
+    maxZoom: 10, minZoom: 2
   }).addTo(map);
 
-  /* مسیرهای جاده‌ای — آبی */
-  var road=[
-    [[35.7,51.4],[39.9,32.8]],   /* تهران → آنکارا */
-    [[35.7,51.4],[33.3,44.4]],   /* تهران → بغداد */
-    [[35.7,51.4],[34.5,69.2]],   /* تهران → کابل */
-    [[35.7,51.4],[40.2,44.5]],   /* تهران → ایروان */
-    [[35.7,51.4],[37.9,58.4]],   /* تهران → عشق‌آباد */
-    [[35.7,51.4],[30.3,66.9]],   /* تهران → کویته (پاکستان) */
-    [[39.9,32.8],[48.8,2.3]],    /* آنکارا → پاریس */
+  /* ===== مسیرهای دریایی واردات → دبی → بندرعباس (سبز) ===== */
+  var seaIn = [
+    /* آمریکای شمالی → دور آفریقا → دبی */
+    [[-8.8,-13.4],[3.8,9.5],[4.1,9.7],[-1.3,8.5],[-34.8,18.5],[11.8,43.1],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
+    /* برزیل → دور آفریقا → دبی */
+    [[-23.5,-46.6],[-33.9,18.5],[11.8,43.1],[25.2,55.3],[27.1,56.3]],
+    /* اروپا (آلمان/انگلیس) → کانال سوئز → دبی */
+    [[51.5,-0.1],[36.8,10.2],[30.1,32.3],[12.8,43.6],[25.2,55.3],[27.1,56.3]],
+    /* چین → تنگه مالاکا → دبی */
+    [[31.2,121.5],[22.3,114.2],[1.3,103.8],[5.9,80.7],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
+    /* کره جنوبی → تنگه مالاکا → دبی */
+    [[37.5,126.9],[22.3,114.2],[1.3,103.8],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
+    /* ژاپن → تنگه مالاکا → دبی */
+    [[35.7,139.7],[22.3,114.2],[1.3,103.8],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
+    /* استرالیا → تنگه مالاکا → دبی */
+    [[-33.9,151.2],[1.3,103.8],[12.5,44.0],[25.2,55.3],[27.1,56.3]],
+    /* کانادا → دور آفریقا → دبی */
+    [[43.7,-79.4],[-33.9,18.5],[11.8,43.1],[25.2,55.3],[27.1,56.3]],
   ];
-  road.forEach(function(r){
-    L.polyline(r,{color:'#1976d2',weight:2.5,opacity:.8,dashArray:'8,5'}).addTo(map);
+  seaIn.forEach(function(r){
+    L.polyline(r,{color:'#059669',weight:2,opacity:.75,dashArray:'6,8'}).addTo(map);
   });
 
-  /* مسیرهای ریلی — بنفش */
-  var rail=[
-    [[35.7,51.4],[55.7,37.6]],   /* تهران → مسکو (INSTC) */
-    [[35.7,51.4],[37.9,58.4],[41.3,69.2],[39.6,66.9],[43.2,76.8],[39.9,116.4]], /* جاده ابریشم → پکن */
-    [[18.9,72.8],[35.7,51.4],[55.7,37.6]], /* INSTC: مومبای → مسکو */
+  /* ===== مسیرهای زمینی صادرات از بندرعباس/تهران (آبی) ===== */
+  var landOut = [
+    [[27.1,56.3],[35.7,51.4]],              /* بندرعباس → تهران */
+    [[35.7,51.4],[33.3,44.4]],              /* تهران → بغداد */
+    [[35.7,51.4],[39.9,32.8]],              /* تهران → آنکارا */
+    [[35.7,51.4],[34.5,69.2]],              /* تهران → کابل */
+    [[35.7,51.4],[30.3,67.0]],              /* تهران → کویته */
+    [[35.7,51.4],[40.2,44.5]],              /* تهران → ایروان */
+    [[35.7,51.4],[40.4,49.9]],              /* تهران → باکو */
+    [[35.7,51.4],[37.9,58.4]],              /* تهران → عشق‌آباد */
+    [[35.7,51.4],[41.7,44.8]],              /* تهران → تفلیس */
+    /* مشهد هم مسیر دارد */
+    [[36.2,59.6],[34.5,69.2]],              /* مشهد → کابل */
+    [[36.2,59.6],[37.9,58.4]],              /* مشهد → عشق‌آباد */
   ];
-  rail.forEach(function(r){
-    L.polyline(r,{color:'#7c3aed',weight:2.5,opacity:.75,dashArray:'12,5'}).addTo(map);
+  landOut.forEach(function(r){
+    L.polyline(r,{color:'#1976d2',weight:2.5,opacity:.85,dashArray:'9,5'}).addTo(map);
   });
 
-  /* مسیرهای دریایی — سبز */
-  var sea=[
-    [[27.1,56.3],[18.9,72.8]],   /* بندرعباس → مومبای */
-    [[27.1,56.3],[25.2,55.3]],   /* بندرعباس → دبی */
-    [[27.1,56.3],[22.3,114.2]],  /* بندرعباس → هنگ‌کنگ */
+  /* ===== سوخت و گاز به همسایگان (نارنجی) ===== */
+  var fuel = [
+    [[35.7,51.4],[33.3,44.4]],    /* → عراق */
+    [[35.7,51.4],[40.2,44.5]],    /* → ارمنستان */
+    [[35.7,51.4],[39.9,32.8]],    /* → ترکیه */
+    [[35.7,51.4],[34.5,69.2]],    /* → افغانستان */
+    [[36.2,59.6],[34.5,69.2]],    /* مشهد → افغانستان */
   ];
-  sea.forEach(function(r){
-    L.polyline(r,{color:'#059669',weight:2.5,opacity:.75,dashArray:'4,8'}).addTo(map);
+  fuel.forEach(function(r){
+    L.polyline(r,{color:'#f97316',weight:3,opacity:.9,dashArray:'2,5'}).addTo(map);
   });
 
-  /* نقاط شهرها */
-  var cities=[
-    {ll:[35.7,51.4],  name:'Tehran (HQ)',    col:'#1976d2', main:true},
-    {ll:[36.2,59.6],  name:'Mashhad',        col:'#1976d2', main:true},
-    {ll:[27.1,56.3],  name:'Bandar Abbas',   col:'#059669', main:false},
-    {ll:[33.3,44.4],  name:'Baghdad',        col:'#1976d2', main:false},
-    {ll:[39.9,32.8],  name:'Ankara',         col:'#1976d2', main:false},
-    {ll:[40.2,44.5],  name:'Yerevan',        col:'#1976d2', main:false},
-    {ll:[37.9,58.4],  name:'Ashgabat',       col:'#7c3aed', main:false},
-    {ll:[34.5,69.2],  name:'Kabul',          col:'#1976d2', main:false},
-    {ll:[30.3,66.9],  name:'Karachi',        col:'#1976d2', main:false},
-    {ll:[18.9,72.8],  name:'Mumbai',         col:'#059669', main:false},
-    {ll:[55.7,37.6],  name:'Moscow',         col:'#7c3aed', main:false},
-    {ll:[39.9,116.4], name:'Beijing',        col:'#7c3aed', main:false},
-    {ll:[25.2,55.3],  name:'Dubai',          col:'#059669', main:false},
-    {ll:[48.8,2.3],   name:'Europe',         col:'#1976d2', main:false},
-    {ll:[41.0,28.9],  name:'Istanbul',       col:'#1976d2', main:false},
+  /* ===== نقاط اصلی ===== */
+  var pts = [
+    {ll:[27.1,56.3], col:'#1976d2', r:9,  tip:'Bandar Abbas'},
+    {ll:[35.7,51.4], col:'#1976d2', r:10, tip:'Tehran'},
+    {ll:[36.2,59.6], col:'#1976d2', r:8,  tip:'Mashhad'},
+    {ll:[25.2,55.3], col:'#059669', r:8,  tip:'Dubai'},
+    {ll:[33.3,44.4], col:'#f97316', r:7,  tip:'Baghdad'},
+    {ll:[39.9,32.8], col:'#1976d2', r:7,  tip:'Ankara'},
+    {ll:[40.2,44.5], col:'#f97316', r:6,  tip:'Yerevan'},
+    {ll:[40.4,49.9], col:'#1976d2', r:6,  tip:'Baku'},
+    {ll:[37.9,58.4], col:'#1976d2', r:6,  tip:'Ashgabat'},
+    {ll:[34.5,69.2], col:'#f97316', r:6,  tip:'Kabul'},
+    {ll:[30.3,67.0], col:'#1976d2', r:6,  tip:'Karachi'},
+    {ll:[51.5,-0.1], col:'#059669', r:7,  tip:'London'},
+    {ll:[53.5,10.0], col:'#059669', r:7,  tip:'Hamburg'},
+    {ll:[31.2,121.5],col:'#059669', r:7,  tip:'Shanghai'},
+    {ll:[37.5,126.9],col:'#059669', r:6,  tip:'Seoul'},
+    {ll:[35.7,139.7],col:'#059669', r:6,  tip:'Tokyo'},
+    {ll:[-33.9,151.2],col:'#059669',r:6, tip:'Sydney'},
+    {ll:[-23.5,-46.6],col:'#059669',r:6, tip:'São Paulo'},
+    {ll:[43.7,-79.4], col:'#059669',r:6, tip:'Toronto'},
+    {ll:[18.9,72.8],  col:'#059669',r:6, tip:'Mumbai'},
+    {ll:[1.3,103.8],  col:'#059669',r:5, tip:'Singapore'},
   ];
-  cities.forEach(function(c){
-    var r=c.main?9:6;
-    L.circleMarker(c.ll,{
-      radius:r,color:'#fff',weight:2,
-      fillColor:c.col,fillOpacity:1
-    }).addTo(map).bindTooltip(c.name,{permanent:false,direction:'top',className:'map-tip'});
+  pts.forEach(function(p){
+    L.circleMarker(p.ll,{
+      radius:p.r, color:'#fff', weight:2,
+      fillColor:p.col, fillOpacity:1
+    }).addTo(map).bindTooltip(p.tip,{
+      permanent:false, direction:'top', className:'mtip'
+    });
   });
 })();
 </script>
 <style>
+#imap .leaflet-tile-pane{filter:grayscale(15%) brightness(1.02)}
+.mtip{background:#0d1b2e!important;color:#fff!important;border:none!important;border-radius:6px!important;font-size:12px!important;font-weight:600!important;padding:4px 10px!important;box-shadow:0 2px 8px rgba(0,0,0,.3)!important}
+.mtip::before{display:none!important}
+.leaflet-control-zoom{border:none!important;box-shadow:0 2px 12px rgba(0,0,0,.1)!important;border-radius:8px!important}
+.leaflet-control-zoom a{color:#1976d2!important;font-weight:700!important}
+</style>
 .map-tip{background:#0d1b2e;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;padding:4px 10px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .map-tip::before{display:none}
 .leaflet-control-zoom{border:none!important;box-shadow:var(--shadow)!important}
