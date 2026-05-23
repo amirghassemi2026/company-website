@@ -2,1387 +2,797 @@
 <html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Transit Gold | International Logistics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Syne:wght@700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-/* ========== DESIGN SYSTEM ========== */
-:root {
-  --bg: #080c14;
-  --bg2: #0d1420;
-  --bg3: #111927;
-  --surface: #141e2e;
-  --surface2: #1a2540;
-  --border: rgba(41,98,255,0.15);
-  --border2: rgba(41,98,255,0.3);
-  --blue: #2962ff;
-  --blue2: #5c8aff;
-  --blue3: #82aaff;
-  --cyan: #00d4ff;
-  --cyan2: #00aacc;
-  --text: #e8edf5;
-  --text2: #8899bb;
-  --text3: #4a5a7a;
-  --accent: #2962ff;
-  --glow: 0 0 40px rgba(41,98,255,0.25);
+:root{
+  --sky:#1976d2;--sky2:#42a5f5;--sky3:#0d47a1;--pale:#e3f2fd;--ultra:#f0f8ff;
+  --white:#fff;--off:#f7fafd;--text:#0d1b2e;--text2:#37516b;--text3:#7a95b0;
+  --border:#cce0f5;--border2:#90caf9;
+  --shadow:0 4px 20px rgba(25,118,210,.10);--shadowL:0 12px 44px rgba(25,118,210,.16);
+  --fL:'Barlow','Helvetica Neue',Arial,sans-serif;
+  --fH:'Barlow Condensed','Barlow','Helvetica Neue',Arial,sans-serif;
+  --fA:'Noto Sans Arabic',Arial,sans-serif;
+  --fZ:'Noto Sans SC','PingFang SC',sans-serif;
+  --fK:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;
+  --fJ:'Noto Sans JP','Hiragino Sans',sans-serif;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  font-family:'Inter', sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-  line-height:1.6;
-}
+[data-lang=fa],[data-lang=ar],[data-lang=ur]{font-family:var(--fA);direction:rtl}
+[data-lang=zh]{font-family:var(--fZ)}
+[data-lang=ko]{font-family:var(--fK)}
+[data-lang=ja]{font-family:var(--fJ)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fL);background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--pale)}
+::-webkit-scrollbar-thumb{background:var(--sky);border-radius:3px}
 
-/* RTL support per language */
-[data-lang="fa"], [data-lang="ar"] { direction:rtl; font-family:'Noto Sans Arabic','Inter',sans-serif; }
-[data-lang="zh"] { font-family:'Noto Sans SC','Inter',sans-serif; }
-[data-lang="ko"] { font-family:'Noto Sans KR','Inter',sans-serif; }
-[data-lang="ja"] { font-family:'Noto Sans JP','Inter',sans-serif; }
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);box-shadow:0 2px 12px rgba(25,118,210,.07);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 4px 24px rgba(25,118,210,.13)}
+nav{max-width:1360px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:1.2rem;height:68px}
+.logo{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.logo-mark{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--sky),var(--sky3));display:flex;align-items:center;justify-content:center;font-family:var(--fH);font-weight:900;font-size:.95rem;color:#fff;letter-spacing:-.5px}
+.logo-name{font-family:var(--fH);font-weight:800;font-size:1.1rem;letter-spacing:.3px;color:var(--text)}
+.logo-name span{color:var(--sky)}
+.logo-sub{font-size:.58rem;font-weight:600;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase}
+.logo-txt{display:flex;flex-direction:column;line-height:1.1}
+.nav-links{display:flex;gap:.1rem;margin:0 auto}
+.nav-links a{font-family:var(--fL);font-weight:600;font-size:.82rem;letter-spacing:.2px;color:var(--text2);padding:.42rem .85rem;border-radius:8px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--sky);background:var(--pale)}
+.nav-cta{background:var(--sky)!important;color:#fff!important;border-radius:8px;padding:.42rem 1.1rem!important;font-weight:700!important;font-size:.82rem!important;white-space:nowrap;box-shadow:0 2px 10px rgba(25,118,210,.25);transition:all .2s!important}
+.nav-cta:hover{background:var(--sky3)!important;box-shadow:0 4px 18px rgba(25,118,210,.38)!important}
 
-/* ========== SCROLLBAR ========== */
-::-webkit-scrollbar { width:6px; }
-::-webkit-scrollbar-track { background:var(--bg); }
-::-webkit-scrollbar-thumb { background:var(--blue); border-radius:3px; }
+/* LANG */
+.lang-wrap{display:flex;align-items:center;gap:.35rem;flex-shrink:0}
+.lang-primary{display:flex;align-items:center;gap:.3rem;background:var(--pale);border:1px solid var(--border2);color:var(--sky3);font-family:var(--fL);font-weight:700;font-size:.78rem;padding:.3rem .65rem;border-radius:6px;cursor:pointer;transition:all .2s}
+.lang-primary:hover,.lang-primary.open{background:var(--sky);color:#fff;border-color:var(--sky)}
+.lang-dd-wrap{position:relative}
+.lang-dd{display:none;position:absolute;top:calc(100% + 6px);right:0;background:#fff;border:1px solid var(--border);border-radius:10px;padding:.35rem;box-shadow:var(--shadowL);min-width:155px;z-index:300}
+[dir=rtl] .lang-dd{right:auto;left:0}
+.lang-dd.open{display:block}
+.lang-dd button{display:flex;align-items:center;gap:.55rem;width:100%;padding:.45rem .65rem;border:none;background:none;color:var(--text2);font-size:.81rem;font-family:inherit;border-radius:6px;cursor:pointer;transition:all .15s;text-align:left}
+[dir=rtl] .lang-dd button{text-align:right}
+.lang-dd button:hover{background:var(--pale);color:var(--sky)}
+.lang-dd button.active{background:var(--pale);color:var(--sky);font-weight:700}
 
-/* ========== HEADER ========== */
-header {
-  position:fixed; top:0; left:0; right:0; z-index:999;
-  background:rgba(8,12,20,0.85);
-  backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--border);
-  transition:all 0.3s;
-}
-nav {
-  max-width:1400px; margin:0 auto;
-  padding:0 2rem;
-  display:flex; align-items:center; gap:2rem;
-  height:70px;
-}
-.logo {
-  display:flex; align-items:center; gap:0.7rem;
-  text-decoration:none; flex-shrink:0;
-}
-.logo-mark {
-  width:36px; height:36px;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  border-radius:8px;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.1rem; font-weight:900; color:#fff;
-  letter-spacing:-1px;
-}
-.logo-name { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800; color:var(--text); letter-spacing:-0.3px; }
-.logo-name span { color:var(--blue2); }
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;display:block}
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(255,255,255,.99);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:.4rem;z-index:999;padding:2rem}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--fH);font-size:1.4rem;font-weight:700;color:var(--text);padding:.6rem 2rem;border-radius:10px;width:100%;text-align:center;transition:all .2s}
+.mob-menu a:hover{background:var(--pale);color:var(--sky)}
+.mob-cta{background:var(--sky)!important;color:#fff!important;margin-top:.8rem}
 
-.nav-links {
-  display:flex; gap:0.2rem; list-style:none; margin-right:auto;
-}
-[data-lang="fa"] .nav-links, [data-lang="ar"] .nav-links { margin-right:0; margin-left:auto; }
-.nav-links a {
-  color:var(--text2); text-decoration:none; font-size:0.88rem; font-weight:500;
-  padding:0.45rem 0.9rem; border-radius:8px; transition:all 0.2s;
-  display:block;
-}
-.nav-links a:hover { color:var(--text); background:var(--surface); }
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1600&q=80');background-size:cover;background-position:center}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(110deg,rgba(13,71,161,.78) 0%,rgba(25,118,210,.55) 50%,rgba(66,165,245,.25) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:8rem 1.5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:50px;padding:.3rem .9rem;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:1.2rem;backdrop-filter:blur(8px)}
+.hero-badge::before{content:'';width:7px;height:7px;background:var(--sky2);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-family:var(--fH);font-weight:900;font-size:clamp(2.6rem,5.5vw,4.4rem);line-height:1.04;color:#fff;margin-bottom:1.2rem;letter-spacing:-.3px}
+.hero-title .accent{color:var(--sky2)}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,.82);line-height:1.85;margin-bottom:2rem;max-width:490px}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-white{background:#fff;color:var(--sky3);padding:.85rem 1.8rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+.btn-ghost-white{border:2px solid rgba(255,255,255,.5);color:#fff;padding:.83rem 1.5rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;background:transparent}
+.btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.hstat-num{font-family:var(--fH);font-weight:800;font-size:2rem;color:var(--sky2);line-height:1}
+.hstat-label{font-size:.76rem;color:rgba(255,255,255,.65);margin-top:.2rem;font-weight:500}
 
-/* Language switcher */
-.lang-switcher {
-  display:flex; align-items:center; gap:0.3rem; flex-shrink:0;
-}
-.lang-btn {
-  display:flex; align-items:center; gap:0.35rem;
-  background:none; border:1px solid var(--border);
-  color:var(--text2); font-size:0.78rem; font-family:inherit;
-  padding:0.3rem 0.6rem; border-radius:6px; cursor:pointer;
-  transition:all 0.2s; white-space:nowrap;
-}
-.lang-btn:hover, .lang-btn.active { border-color:var(--blue); color:var(--blue2); background:rgba(41,98,255,0.08); }
-.lang-btn .flag { font-size:1rem; }
-.nav-cta {
-  background:var(--blue); color:#fff !important; border-radius:8px;
-  padding:0.45rem 1.1rem !important; font-size:0.85rem !important; font-weight:600 !important;
-  transition:all 0.2s !important;
-}
-.nav-cta:hover { background:#1a4fd6 !important; box-shadow:var(--glow); transform:none !important; }
+/* HERO CARDS */
+.hero-visual{display:flex;flex-direction:column;gap:1rem}
+.hv-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:1.3rem 1.5rem;backdrop-filter:blur(14px);transition:all .3s;display:flex;align-items:center;gap:1.1rem}
+.hv-card:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4)}
+.hv-img{width:62px;height:62px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.hv-num{font-family:var(--fH);font-weight:800;font-size:1.7rem;color:#fff;line-height:1}
+.hv-title{font-weight:700;font-size:.88rem;color:rgba(255,255,255,.9)}
+.hv-sub{font-size:.74rem;color:rgba(255,255,255,.6);margin-top:.1rem}
 
-/* ========== HERO ========== */
-.hero {
-  min-height:100vh;
-  display:flex; align-items:center;
-  position:relative; overflow:hidden;
-  background:var(--bg);
-}
-.hero-grid {
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(41,98,255,0.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(41,98,255,0.05) 1px,transparent 1px);
-  background-size:50px 50px;
-}
-.hero-glow {
-  position:absolute;
-  top:-20%; left:50%; transform:translateX(-50%);
-  width:900px; height:600px;
-  background:radial-gradient(ellipse,rgba(41,98,255,0.12) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-content {
-  position:relative; z-index:2;
-  max-width:1400px; margin:0 auto; padding:7rem 2rem 4rem;
-  display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; width:100%;
-}
-.hero-badge {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  background:rgba(41,98,255,0.1); border:1px solid rgba(41,98,255,0.3);
-  border-radius:50px; padding:0.35rem 1rem;
-  font-size:0.75rem; color:var(--blue3); margin-bottom:1.5rem; width:fit-content;
-}
-.hero-badge::before { content:''; width:6px; height:6px; background:var(--cyan); border-radius:50%; animation:blink 2s infinite; }
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+/* STATS BAR */
+.stats-bar{background:var(--sky)}
+.stats-grid{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid rgba(255,255,255,.2)}
+.stat-cell{padding:2rem 1.5rem;text-align:center;border-right:1px solid rgba(255,255,255,.2)}
+.stat-num{font-family:var(--fH);font-weight:800;font-size:2.5rem;color:#fff;line-height:1;display:block;margin-bottom:.3rem}
+.stat-label{font-size:.8rem;color:rgba(255,255,255,.78);font-weight:500}
 
-.hero-title { font-family:'Syne',sans-serif; font-size:3.8rem; font-weight:800; line-height:1.1; margin-bottom:1.2rem; }
-.hero-title .line2 { color:var(--blue2); }
-.hero-desc { font-size:1.05rem; color:var(--text2); line-height:1.85; margin-bottom:2rem; max-width:500px; }
-.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
-.btn-primary {
-  background:var(--blue); color:#fff;
-  padding:0.85rem 1.8rem; border-radius:10px;
-  text-decoration:none; font-weight:600; font-size:0.95rem;
-  display:inline-flex; align-items:center; gap:0.5rem;
-  transition:all 0.25s; box-shadow:0 4px 24px rgba(41,98,255,0.3);
-}
-.btn-primary:hover { background:#1a4fd6; transform:translateY(-2px); box-shadow:0 8px 32px rgba(41,98,255,0.45); }
-.btn-ghost {
-  color:var(--text2); padding:0.85rem 1.5rem; border-radius:10px;
-  text-decoration:none; font-weight:500; font-size:0.95rem;
-  border:1px solid var(--border2);
-  display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.25s;
-}
-.btn-ghost:hover { color:var(--text); border-color:var(--blue); background:rgba(41,98,255,0.06); }
+/* SECTIONS */
+.section{padding:5rem 0}
+.section-alt{background:var(--off)}
+.container{max-width:1360px;margin:0 auto;padding:0 1.5rem}
+.section-eye{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);margin-bottom:.7rem;font-family:var(--fL)}
+.section-eye::before{content:'';width:20px;height:2px;background:var(--sky);border-radius:2px}
+.section-title{font-family:var(--fH);font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.12;color:var(--text);margin-bottom:.8rem;letter-spacing:-.2px}
+.section-title span{color:var(--sky)}
+.section-desc{font-size:.94rem;color:var(--text2);line-height:1.82;max-width:580px}
+.sh-center{text-align:center}
+.sh-center .section-desc{margin:0 auto}
+.sh-center .section-eye{justify-content:center}
+.sh-center .section-eye::before{display:none}
 
-.hero-stats { display:flex; gap:2rem; flex-wrap:wrap; }
-.hstat { }
-.hstat-num { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--blue2); line-height:1; }
-.hstat-label { font-size:0.78rem; color:var(--text3); margin-top:0.2rem; }
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:all .3s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadowL);border-color:var(--sky2)}
+.svc-bar{height:3px;background:linear-gradient(90deg,var(--sky),var(--sky2))}
+.svc-img{width:100%;height:180px;object-fit:cover}
+.svc-body{padding:1.4rem}
+.svc-title{font-family:var(--fH);font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:.5rem}
+.svc-desc{font-size:.84rem;color:var(--text2);line-height:1.7;margin-bottom:.9rem}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.svc-tag{background:var(--pale);border:1px solid var(--border2);color:var(--sky3);font-size:.7rem;font-weight:600;padding:.18rem .6rem;border-radius:4px}
 
-.hero-visual { display:flex; flex-direction:column; gap:1rem; }
-.hero-card {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:14px; padding:1.4rem 1.6rem;
-  transition:all 0.3s; position:relative; overflow:hidden;
-}
-.hero-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);
-  opacity:0; transition:opacity 0.3s;
-}
-.hero-card:hover { border-color:var(--border2); }
-.hero-card:hover::before { opacity:1; }
-.hcard-row { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.5rem; }
-.hcard-icon { font-size:1.3rem; width:38px; height:38px; background:rgba(41,98,255,0.12); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.hcard-title { font-size:0.85rem; font-weight:600; color:var(--text); }
-.hcard-val { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; color:var(--cyan); line-height:1; }
-.hcard-sub { font-size:0.75rem; color:var(--text3); margin-top:0.15rem; }
-.hcard-row2 { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; }
+/* MAP */
+.map-wrap{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadowL);margin-top:2rem}
+.map-legend{display:flex;gap:1.8rem;flex-wrap:wrap;padding:1rem 1.4rem;border-bottom:1px solid var(--border);background:var(--pale)}
+.leg-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--text2);font-weight:500}
+.leg-line{width:28px;height:2.5px;border-radius:2px}
+.leg-road{background:var(--sky)}
+.leg-rail{background:#7c3aed}
+.leg-sea{background:#059669}
+svg#rmap{display:block;width:100%;background:#deeffe}
 
-/* ========== SECTION COMMON ========== */
-.section { padding:5rem 0; }
-.container { max-width:1400px; margin:0 auto; padding:0 2rem; }
-.section-header { margin-bottom:3rem; }
-.section-header.center { text-align:center; }
-.section-header.center .section-desc { margin:0 auto; }
-.section-eyebrow {
-  display:inline-flex; align-items:center; gap:0.5rem;
-  font-size:0.72rem; font-weight:700; letter-spacing:2px;
-  text-transform:uppercase; color:var(--blue2);
-  margin-bottom:0.8rem;
-}
-.section-eyebrow::before { content:''; width:20px; height:1.5px; background:var(--blue); }
-.section-title { font-family:'Syne',sans-serif; font-size:2.4rem; font-weight:800; line-height:1.15; margin-bottom:0.8rem; }
-.section-title span { color:var(--blue2); }
-.section-desc { font-size:0.95rem; color:var(--text2); line-height:1.8; max-width:600px; }
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.why-img{border-radius:18px;overflow:hidden;box-shadow:var(--shadowL);position:relative}
+.why-img img{width:100%;height:420px;object-fit:cover;display:block}
+.why-badge{position:absolute;bottom:1.4rem;left:1.4rem;background:#fff;border-radius:12px;padding:.8rem 1.1rem;box-shadow:var(--shadowL);display:flex;align-items:center;gap:.8rem}
+[dir=rtl] .why-badge{left:auto;right:1.4rem}
+.why-badge-num{font-family:var(--fH);font-weight:800;font-size:1.7rem;color:var(--sky)}
+.why-badge-lbl{font-size:.74rem;color:var(--text2);font-weight:500}
+.why-feats{display:flex;flex-direction:column;gap:.9rem;margin-top:2rem}
+.why-feat{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.1rem;box-shadow:var(--shadow);transition:all .3s}
+.why-feat:hover{border-color:var(--sky2);box-shadow:var(--shadowL)}
+.why-icon{width:34px;height:34px;border-radius:9px;background:var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
+.why-feat-t{font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:.18rem}
+.why-feat-d{font-size:.81rem;color:var(--text2);line-height:1.6}
 
-/* ========== STATS BAR ========== */
-.stats-bar {
-  background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-}
-.stats-grid {
-  max-width:1400px; margin:0 auto; padding:2rem;
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--border);
-}
-.stat-cell {
-  background:var(--bg2); padding:2rem 1.5rem; text-align:center;
-}
-.stat-num { font-family:'Syne',sans-serif; font-size:2.6rem; font-weight:800; color:var(--blue2); line-height:1; margin-bottom:0.4rem; }
-.stat-label { font-size:0.82rem; color:var(--text3); }
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.5rem}
+.testi-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;box-shadow:var(--shadow);transition:all .3s;position:relative;overflow:hidden}
+.testi-card::before{content:'\201C';position:absolute;top:.6rem;right:1rem;font-size:4.5rem;color:var(--sky);opacity:.1;font-family:Georgia,serif;line-height:1}
+[dir=rtl] .testi-card::before{right:auto;left:1rem}
+.testi-card:hover{transform:translateY(-4px);box-shadow:var(--shadowL);border-color:var(--sky2)}
+.testi-stars{color:#f59e0b;font-size:.85rem;letter-spacing:1px;margin-bottom:.7rem}
+.testi-txt{font-size:.86rem;color:var(--text2);line-height:1.8;margin-bottom:1.2rem;font-style:italic}
+.testi-auth{display:flex;align-items:center;gap:.75rem}
+.testi-av{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--sky),var(--sky3));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:#fff;font-family:var(--fH)}
+.testi-name{font-size:.86rem;font-weight:700;color:var(--text)}
+.testi-meta{font-size:.73rem;color:var(--text3);margin-top:.1rem}
 
-/* ========== SERVICES ========== */
-.services-section { background:var(--bg2); border-top:1px solid var(--border); }
-.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-.svc-card {
-  background:var(--bg2); padding:2rem;
-  transition:all 0.3s; cursor:default; position:relative; overflow:hidden;
-}
-.svc-card:hover { background:var(--surface); }
-.svc-card::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
-  background:linear-gradient(90deg,var(--blue),var(--cyan));
-  transform:scaleX(0); transition:transform 0.3s; transform-origin:left;
-}
-.svc-card:hover::after { transform:scaleX(1); }
-.svc-icon { font-size:2rem; margin-bottom:1rem; display:block; }
-.svc-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:0.6rem; }
-.svc-desc { font-size:0.87rem; color:var(--text2); line-height:1.7; margin-bottom:1rem; }
-.svc-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
-.svc-tag { background:rgba(41,98,255,0.1); border:1px solid rgba(41,98,255,0.2); color:var(--blue3); font-size:0.72rem; padding:0.2rem 0.6rem; border-radius:4px; }
+/* TEAM */
+.team-section{background:var(--ultra)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.5rem}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:all .35s;cursor:pointer}
+.team-card:hover{transform:translateY(-6px);box-shadow:var(--shadowL);border-color:var(--sky2)}
+.team-photo{width:100%;aspect-ratio:1;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--pale),var(--ultra));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.3rem}
+.team-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.team-initials{font-family:var(--fH);font-weight:800;font-size:2.2rem;color:var(--sky);z-index:1}
+.team-psize{font-size:.62rem;color:var(--text3);font-weight:600;letter-spacing:.8px;z-index:1}
+.team-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(25,118,210,.85),transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:.8rem;z-index:2}
+.team-card:hover .team-ov{opacity:1}
+.team-ov-txt{color:#fff;font-size:.74rem;font-weight:600}
+.team-body{padding:.95rem 1rem}
+.team-name{font-family:var(--fH);font-weight:700;font-size:.9rem;color:var(--text)}
+.team-role{font-size:.74rem;color:var(--sky);font-weight:600;margin-top:.12rem}
+.team-loc{font-size:.7rem;color:var(--text3);margin-top:.1rem}
+.team-btn{margin-top:.6rem;font-size:.73rem;color:var(--sky);font-weight:600;cursor:pointer;background:none;border:none;font-family:inherit;padding:0;display:flex;align-items:center;gap:.22rem}
 
-/* ========== ROUTES MAP ========== */
-.map-section { background:var(--bg); }
-.map-wrap {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:20px; overflow:hidden; position:relative;
-}
-.map-legend {
-  display:flex; gap:1.5rem; flex-wrap:wrap;
-  padding:1.2rem 1.5rem; border-bottom:1px solid var(--border);
-  background:var(--bg2);
-}
-.legend-item { display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color:var(--text2); }
-.legend-line { width:28px; height:2px; border-radius:2px; }
-.legend-line.container { background:#2962ff; }
-.legend-line.petro { background:#00d4ff; }
-.legend-line.fuel { background:#ff6b2b; }
-svg#routeMap { display:block; width:100%; }
+/* MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(13,27,46,.68);backdrop-filter:blur(8px);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.2rem}
+.modal-ov.open{display:flex}
+.modal{background:#fff;border:1px solid var(--border2);border-radius:20px;max-width:560px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(25,118,210,.22);animation:mIn .3s ease;position:relative}
+@keyframes mIn{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:none}}
+.modal-top{background:linear-gradient(135deg,var(--sky3),var(--sky));padding:1.8rem;display:flex;gap:1.3rem;align-items:center}
+.modal-av{width:68px;height:68px;border-radius:12px;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-family:var(--fH);font-weight:800;font-size:1.5rem;color:#fff;flex-shrink:0}
+.modal-name{font-family:var(--fH);font-weight:800;font-size:1.25rem;color:#fff}
+.modal-role{color:rgba(255,255,255,.85);font-size:.86rem;margin-top:.18rem}
+.modal-loc{color:rgba(255,255,255,.62);font-size:.76rem;margin-top:.12rem}
+.modal-body{padding:1.6rem}
+.modal-note{background:var(--pale);border:1px dashed var(--border2);border-radius:8px;padding:.6rem .9rem;font-size:.76rem;color:var(--sky3);font-weight:600;margin-bottom:1.1rem}
+.modal-bio{font-size:.87rem;color:var(--text2);line-height:1.8;margin-bottom:1.2rem}
+.modal-skills{display:flex;flex-wrap:wrap;gap:.45rem}
+.modal-skill{background:var(--pale);border:1px solid var(--border2);color:var(--sky3);font-size:.73rem;font-weight:600;padding:.27rem .75rem;border-radius:6px}
+.modal-x{position:absolute;top:.9rem;right:.9rem;background:rgba(255,255,255,.22);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+[dir=rtl] .modal-x{right:auto;left:.9rem}
+.modal-x:hover{background:rgba(255,255,255,.4)}
 
-/* ========== WHY US ========== */
-.why-section { background:var(--bg2); border-top:1px solid var(--border); }
-.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-.why-features { display:flex; flex-direction:column; gap:1.2rem; margin-top:2rem; }
-.why-feat {
-  display:flex; gap:1rem; align-items:flex-start;
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:12px; padding:1.2rem; transition:all 0.3s;
-}
-.why-feat:hover { border-color:var(--border2); }
-.why-feat-icon { font-size:1.4rem; flex-shrink:0; margin-top:0.1rem; }
-.why-feat-title { font-weight:600; font-size:0.95rem; margin-bottom:0.2rem; }
-.why-feat-desc { font-size:0.84rem; color:var(--text2); line-height:1.6; }
-.why-boxes { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-.why-box {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:14px; padding:1.8rem 1.4rem; text-align:center; transition:all 0.3s;
-}
-.why-box:hover { border-color:var(--blue); box-shadow:0 0 30px rgba(41,98,255,0.1); }
-.why-box-icon { font-size:2rem; margin-bottom:0.8rem; display:block; }
-.why-box-num { font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:var(--cyan); display:block; }
-.why-box-label { font-size:0.78rem; color:var(--text3); margin-top:0.2rem; }
+/* TRACKING */
+.track-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.track-img{border-radius:18px;overflow:hidden;box-shadow:var(--shadowL)}
+.track-img img{width:100%;height:360px;object-fit:cover;display:block}
+.track-form{display:flex;flex-direction:column;gap:.75rem}
+.track-input{background:#fff;border:1.5px solid var(--border);color:var(--text);font-family:var(--fL);font-size:.88rem;padding:.82rem 1rem;border-radius:10px;outline:none;transition:border .2s;width:100%}
+.track-input:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(25,118,210,.11)}
+.track-input::placeholder{color:var(--text3)}
+.track-btn{background:var(--sky);color:#fff;border:none;padding:.88rem 1.4rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:.45rem;letter-spacing:.4px}
+.track-btn:hover{background:var(--sky3);box-shadow:0 6px 22px rgba(25,118,210,.32)}
+.track-feats{display:flex;flex-direction:column;gap:.6rem;margin-top:1.1rem}
+.track-feat{display:flex;align-items:center;gap:.65rem;font-size:.84rem;color:var(--text2);font-weight:500}
+.track-dot{width:7px;height:7px;background:var(--sky);border-radius:50%;flex-shrink:0}
 
-/* ========== TESTIMONIALS ========== */
-.testi-section { background:var(--bg); border-top:1px solid var(--border); }
-.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem; }
-.testi-card {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:14px; padding:1.6rem; transition:all 0.3s;
-}
-.testi-card:hover { border-color:var(--border2); transform:translateY(-3px); }
-.testi-stars { color:#fbbf24; font-size:0.9rem; margin-bottom:0.8rem; letter-spacing:2px; }
-.testi-text { font-size:0.88rem; color:var(--text2); line-height:1.75; margin-bottom:1.2rem; font-style:italic; }
-.testi-author { display:flex; align-items:center; gap:0.8rem; }
-.testi-av {
-  width:40px; height:40px; border-radius:50%;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; font-size:0.85rem; flex-shrink:0; color:#fff;
-}
-.testi-name { font-size:0.88rem; font-weight:600; }
-.testi-meta { font-size:0.75rem; color:var(--text3); margin-top:0.1rem; }
-.testi-flag { font-size:1rem; }
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--sky3) 0%,var(--sky) 60%,var(--sky2) 100%);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-60%;right:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%)}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-inner h2{font-family:var(--fH);font-weight:800;font-size:clamp(1.8rem,3.5vw,2.9rem);color:#fff;margin-bottom:.75rem;letter-spacing:-.2px}
+.cta-inner p{font-size:.98rem;color:rgba(255,255,255,.83);margin-bottom:1.9rem}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.btn-sky{background:var(--sky);color:#fff;padding:.85rem 1.8rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;box-shadow:0 4px 20px rgba(25,118,210,.28)}
+.btn-sky:hover{background:var(--sky3);transform:translateY(-2px);box-shadow:0 8px 30px rgba(25,118,210,.42)}
+.btn-outline{border:2px solid var(--sky);color:var(--sky);padding:.83rem 1.5rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;background:transparent}
+.btn-outline:hover{background:var(--sky);color:#fff}
+.btn-wh{background:#fff;color:var(--sky3);padding:.88rem 2rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s}
+.btn-wh:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.btn-ow{border:2px solid rgba(255,255,255,.58);color:#fff;padding:.86rem 1.8rem;border-radius:10px;font-family:var(--fH);font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;background:transparent}
+.btn-ow:hover{border-color:#fff;background:rgba(255,255,255,.14)}
 
-/* ========== TEAM ========== */
-.team-section { background:var(--bg2); border-top:1px solid var(--border); }
-.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2.5rem; }
-.team-card {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:16px; overflow:hidden; transition:all 0.3s; cursor:pointer;
-}
-.team-card:hover { border-color:var(--border2); transform:translateY(-4px); box-shadow:0 12px 40px rgba(41,98,255,0.1); }
-.team-photo {
-  width:100%; aspect-ratio:1; object-fit:cover;
-  background:linear-gradient(135deg,var(--bg3),var(--surface2));
-  display:flex; align-items:center; justify-content:center;
-  font-size:3rem;
-}
-.team-photo-placeholder {
-  width:100%; aspect-ratio:1;
-  background:linear-gradient(135deg,var(--bg3),var(--surface2));
-  display:flex; align-items:center; justify-content:center;
-  flex-direction:column; gap:0.5rem; position:relative; overflow:hidden;
-}
-.team-photo-placeholder::before {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(135deg,rgba(41,98,255,0.05),rgba(0,212,255,0.05));
-}
-.team-avatar-initials {
-  font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800;
-  color:var(--blue2); z-index:1;
-}
-.team-photo-size { font-size:0.68rem; color:var(--text3); z-index:1; }
-.team-body { padding:1.2rem 1rem; }
-.team-name { font-weight:700; font-size:0.92rem; margin-bottom:0.2rem; }
-.team-role { font-size:0.78rem; color:var(--blue3); margin-bottom:0.5rem; }
-.team-bio-short { font-size:0.78rem; color:var(--text3); line-height:1.5; }
-.team-expand-btn {
-  display:flex; align-items:center; gap:0.3rem;
-  font-size:0.75rem; color:var(--blue2); margin-top:0.8rem;
-  background:none; border:none; cursor:pointer; font-family:inherit;
-  padding:0; transition:color 0.2s;
-}
-.team-expand-btn:hover { color:var(--cyan); }
+/* FOOTER */
+footer{background:var(--text);padding:3.5rem 0 1.5rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.footer-logo-name{font-family:var(--fH);font-weight:800;font-size:1.05rem;color:#fff}
+.footer-logo-name span{color:var(--sky2)}
+.footer-desc{font-size:.82rem;color:rgba(255,255,255,.42);line-height:1.8;margin-top:.65rem;max-width:255px}
+.footer-contacts{display:flex;flex-direction:column;gap:.42rem;margin-top:1.1rem}
+.footer-contact{font-size:.8rem;color:rgba(255,255,255,.48);display:flex;align-items:center;gap:.45rem}
+.footer-col h4{font-size:.67rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky2);margin-bottom:.95rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.45rem}
+.footer-col ul a{font-size:.81rem;color:rgba(255,255,255,.42);transition:color .2s}
+.footer-col ul a:hover{color:var(--sky2)}
+.footer-bot{border-top:1px solid rgba(255,255,255,.09);padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.footer-bot p{font-size:.76rem;color:rgba(255,255,255,.28)}
 
-/* Team modal */
-.modal-overlay {
-  position:fixed; inset:0; background:rgba(8,12,20,0.88);
-  backdrop-filter:blur(8px); z-index:9999;
-  display:none; align-items:center; justify-content:center; padding:2rem;
-}
-.modal-overlay.open { display:flex; }
-.modal {
-  background:var(--surface); border:1px solid var(--border2);
-  border-radius:20px; max-width:600px; width:100%; overflow:hidden;
-  animation:modalIn 0.3s ease;
-}
-@keyframes modalIn { from{opacity:0;transform:scale(0.95)translateY(10px)} to{opacity:1;transform:none} }
-.modal-header {
-  display:flex; gap:1.5rem; padding:2rem; align-items:center;
-  border-bottom:1px solid var(--border);
-}
-.modal-avatar {
-  width:80px; height:80px; border-radius:14px;
-  background:linear-gradient(135deg,var(--blue),var(--cyan));
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; color:#fff;
-  flex-shrink:0;
-}
-.modal-name { font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:800; margin-bottom:0.3rem; }
-.modal-role { color:var(--blue2); font-size:0.9rem; margin-bottom:0.5rem; }
-.modal-location { font-size:0.82rem; color:var(--text3); }
-.modal-body { padding:2rem; }
-.modal-bio { font-size:0.9rem; color:var(--text2); line-height:1.8; margin-bottom:1.5rem; }
-.modal-skills { display:flex; flex-wrap:wrap; gap:0.5rem; }
-.modal-skill { background:rgba(41,98,255,0.12); border:1px solid rgba(41,98,255,0.25); color:var(--blue3); font-size:0.78rem; padding:0.3rem 0.8rem; border-radius:6px; }
-.modal-close {
-  position:absolute; top:1rem; right:1rem;
-  background:var(--surface); border:1px solid var(--border);
-  color:var(--text2); width:32px; height:32px; border-radius:8px;
-  cursor:pointer; font-size:1.1rem; display:flex; align-items:center; justify-content:center;
-  transition:all 0.2s;
-}
-.modal-close:hover { border-color:var(--blue); color:var(--text); }
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.fu{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.fu.vis{opacity:1;transform:none}
 
-/* ========== TRACKING ========== */
-.tracking-section { background:var(--bg); border-top:1px solid var(--border); }
-.tracking-inner {
-  display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
-  background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:3rem;
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .why-img img{height:300px}
+  .testi-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .track-inner{grid-template-columns:1fr;gap:2rem}
 }
-.track-form { display:flex; flex-direction:column; gap:0.8rem; }
-.track-input {
-  background:var(--bg2); border:1px solid var(--border);
-  color:var(--text); font-family:inherit; font-size:0.9rem;
-  padding:0.85rem 1.1rem; border-radius:10px; outline:none; transition:border 0.2s;
+@media(max-width:768px){
+  html{font-size:15px}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-title{font-size:2.3rem}
+  .svc-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .section{padding:3.5rem 0}
+  .hero-content{padding:7rem 1rem 3rem}
+  .hero-btns{flex-direction:column}
+  .btn-white,.btn-ghost-white{width:100%;justify-content:center}
+  .footer-grid{grid-template-columns:1fr;gap:2rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .lang-wrap{gap:.2rem}
 }
-.track-input:focus { border-color:var(--blue); }
-.track-input::placeholder { color:var(--text3); }
-.track-btn {
-  background:var(--blue); color:#fff; border:none;
-  padding:0.9rem 1.5rem; border-radius:10px; font-family:inherit;
-  font-size:0.95rem; font-weight:600; cursor:pointer; transition:all 0.25s;
-  display:flex; align-items:center; justify-content:center; gap:0.5rem;
-}
-.track-btn:hover { background:#1a4fd6; box-shadow:var(--glow); }
-.track-feats { display:flex; flex-direction:column; gap:0.7rem; margin-top:1rem; }
-.track-feat { display:flex; align-items:center; gap:0.7rem; font-size:0.87rem; color:var(--text2); }
-.track-feat-dot { width:6px; height:6px; background:var(--cyan); border-radius:50%; flex-shrink:0; }
-
-/* ========== CTA ========== */
-.cta-section {
-  background:linear-gradient(135deg,#0a1628 0%,#0d1d3a 50%,#0a1628 100%);
-  border-top:1px solid var(--border); position:relative; overflow:hidden;
-}
-.cta-section::before {
-  content:''; position:absolute;
-  top:-50%; left:50%; transform:translateX(-50%);
-  width:800px; height:600px;
-  background:radial-gradient(ellipse,rgba(41,98,255,0.1) 0%,transparent 70%);
-}
-.cta-inner { text-align:center; position:relative; z-index:1; }
-.cta-inner h2 { font-family:'Syne',sans-serif; font-size:2.8rem; font-weight:800; margin-bottom:0.8rem; }
-.cta-inner p { font-size:1rem; color:var(--text2); margin-bottom:2rem; }
-.cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-
-/* ========== FOOTER ========== */
-footer { background:var(--bg2); border-top:1px solid var(--border); padding:3.5rem 0 2rem; }
-.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; }
-.footer-brand-desc { font-size:0.85rem; color:var(--text3); line-height:1.8; margin-top:0.8rem; max-width:260px; }
-.footer-col h4 { font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--blue2); margin-bottom:1rem; }
-.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
-.footer-col ul a { font-size:0.85rem; color:var(--text3); text-decoration:none; transition:color 0.2s; }
-.footer-col ul a:hover { color:var(--blue2); }
-.footer-contacts { display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem; }
-.footer-contact { display:flex; align-items:center; gap:0.5rem; font-size:0.83rem; color:var(--text3); }
-.footer-bottom { border-top:1px solid var(--border); padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
-.footer-bottom p { font-size:0.8rem; color:var(--text3); }
-
-/* ========== ANIMATIONS ========== */
-@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
-.fade-up { opacity:0; }
-.fade-up.visible { animation:fadeUp 0.6s ease forwards; }
-
-/* ========== RESPONSIVE ========== */
-@media(max-width:1024px) {
-  .hero-content { grid-template-columns:1fr; }
-  .services-grid { grid-template-columns:1fr 1fr; }
-  .why-grid { grid-template-columns:1fr; }
-  .testi-grid { grid-template-columns:1fr 1fr; }
-  .team-grid { grid-template-columns:repeat(3,1fr); }
-  .footer-grid { grid-template-columns:1fr 1fr; }
-  .stats-grid { grid-template-columns:repeat(2,1fr); }
-  .tracking-inner { grid-template-columns:1fr; gap:2rem; }
-}
-@media(max-width:768px) {
-  .hero-title { font-size:2.6rem; }
-  .services-grid { grid-template-columns:1fr; }
-  .testi-grid { grid-template-columns:1fr; }
-  .team-grid { grid-template-columns:1fr 1fr; }
-  .nav-links { display:none; }
-  .section-title { font-size:1.9rem; }
+@media(max-width:480px){
+  .hero-title{font-size:2rem}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:1.9rem}
+  .why-img img{height:240px}
 }
 </style>
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
-<header>
+<!-- HEADER -->
+<header id="hdr">
   <nav>
     <a href="#" class="logo">
       <div class="logo-mark">TG</div>
-      <span class="logo-name">Transit<span>Gold</span></span>
+      <div class="logo-txt">
+        <span class="logo-name">Transit<span>Gold</span></span>
+        <span class="logo-sub">International Logistics</span>
+      </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#services" data-i18n="nav_services">Services</a></li>
-      <li><a href="#routes" data-i18n="nav_routes">Routes</a></li>
-      <li><a href="#why" data-i18n="nav_why">Why Us</a></li>
-      <li><a href="#team" data-i18n="nav_team">Team</a></li>
-      <li><a href="#tracking" data-i18n="nav_track">Tracking</a></li>
-      <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="#services" data-i="nav_s">Services</a></li>
+      <li><a href="#routes"   data-i="nav_r">Routes</a></li>
+      <li><a href="#why"      data-i="nav_w">Why Us</a></li>
+      <li><a href="#team"     data-i="nav_t">Team</a></li>
+      <li><a href="#tracking" data-i="nav_tr">Tracking</a></li>
+      <li><a href="#contact"  class="nav-cta" data-i="nav_c">Get a Quote</a></li>
     </ul>
-    <div class="lang-switcher" id="langSwitcher">
-      <button class="lang-btn active" onclick="setLang('en')"><span class="flag">🇺🇸</span> EN</button>
-      <button class="lang-btn" onclick="setLang('fa')"><span class="flag">🇮🇷</span> FA</button>
-      <button class="lang-btn" onclick="setLang('ar')"><span class="flag">🇸🇦</span> AR</button>
-      <button class="lang-btn" onclick="setLang('zh')"><span class="flag">🇨🇳</span> ZH</button>
-      <button class="lang-btn" onclick="setLang('hi')"><span class="flag">🇮🇳</span> HI</button>
-      <button class="lang-btn" onclick="setLang('ur')"><span class="flag">🇵🇰</span> UR</button>
-      <button class="lang-btn" onclick="setLang('hy')"><span class="flag">🇦🇲</span> HY</button>
-      <button class="lang-btn" onclick="setLang('tr')"><span class="flag">🇹🇷</span> TR</button>
-      <button class="lang-btn" onclick="setLang('ko')"><span class="flag">🇰🇷</span> KO</button>
-      <button class="lang-btn" onclick="setLang('ja')"><span class="flag">🇯🇵</span> JA</button>
+    <div class="lang-wrap">
+      <button class="lang-primary" id="lpBtn" onclick="toggleLD()">
+        <span id="lpFlag">🇺🇸</span><span id="lpName">EN</span><span>▾</span>
+      </button>
+      <div class="lang-dd-wrap">
+        <div class="lang-dd" id="ldd">
+          <button onclick="setL('en')" class="active"><span>🇺🇸</span>English</button>
+          <button onclick="setL('fa')"><span>🇮🇷</span>فارسی</button>
+          <button onclick="setL('ar')"><span>🇸🇦</span>العربية</button>
+          <button onclick="setL('zh')"><span>🇨🇳</span>中文</button>
+          <button onclick="setL('hi')"><span>🇮🇳</span>हिन्दी</button>
+          <button onclick="setL('ur')"><span>🇵🇰</span>اردو</button>
+          <button onclick="setL('hy')"><span>🇦🇲</span>Հայերեն</button>
+          <button onclick="setL('tr')"><span>🇹🇷</span>Türkçe</button>
+          <button onclick="setL('ko')"><span>🇰🇷</span>한국어</button>
+          <button onclick="setL('ja')"><span>🇯🇵</span>日本語</button>
+        </div>
+      </div>
     </div>
+    <button class="hamburger" id="hbg" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+<div class="mob-menu" id="mmenu">
+  <a href="#services" onclick="closeMob()" data-i="nav_s">Services</a>
+  <a href="#routes"   onclick="closeMob()" data-i="nav_r">Routes</a>
+  <a href="#why"      onclick="closeMob()" data-i="nav_w">Why Us</a>
+  <a href="#team"     onclick="closeMob()" data-i="nav_t">Team</a>
+  <a href="#tracking" onclick="closeMob()" data-i="nav_tr">Tracking</a>
+  <a href="#contact"  onclick="closeMob()" data-i="nav_c" class="mob-cta">Get a Quote</a>
+</div>
 
-<!-- ============ HERO ============ -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
   <div class="hero-content">
     <div>
-      <div class="hero-badge" data-i18n="hero_badge">● Active since 2013 · Mashhad, Iran</div>
+      <div class="hero-badge" data-i="h_badge">Established 2013 · Mashhad, Iran</div>
       <h1 class="hero-title">
-        <span data-i18n="hero_title1">Your Cargo,</span><br>
-        <span class="line2" data-i18n="hero_title2">Our Guarantee</span>
+        <span data-i="h_t1">Your Cargo.</span><br>
+        <span class="accent" data-i="h_t2">Our Guarantee.</span>
       </h1>
-      <p class="hero-desc" data-i18n="hero_desc">
-        Container transit, fuel, gas & petrochemical cargo from Iran to neighboring countries by truck, train or sea — with over a decade of proven expertise.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary" data-i18n="hero_cta1">→ Request a Quote</a>
-        <a href="#tracking" class="btn-ghost" data-i18n="hero_cta2">📍 Track Shipment</a>
+      <p class="hero-desc" data-i="h_desc">Container transit, fuel, natural gas and petrochemical cargo from Iran to neighboring countries — by truck, train or sea. Trusted by 850+ clients across 18 active corridors.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-white" data-i="h_c1">Request a Quote</a>
+        <a href="#tracking" class="btn-ghost-white" data-i="h_c2">Track Shipment</a>
       </div>
       <div class="hero-stats">
-        <div class="hstat"><div class="hstat-num">12+</div><div class="hstat-label" data-i18n="stat1">Years Experience</div></div>
-        <div class="hstat"><div class="hstat-num">850+</div><div class="hstat-label" data-i18n="stat2">Clients Served</div></div>
-        <div class="hstat"><div class="hstat-num">18</div><div class="hstat-label" data-i18n="stat3">Active Routes</div></div>
+        <div><div class="hstat-num">12+</div><div class="hstat-label" data-i="hs1">Years Experience</div></div>
+        <div><div class="hstat-num">850+</div><div class="hstat-label" data-i="hs2">Active Clients</div></div>
+        <div><div class="hstat-num">18</div><div class="hstat-label" data-i="hs3">Trade Corridors</div></div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hcard-row">
-          <div class="hcard-icon">🚛</div>
-          <div>
-            <div class="hcard-title" data-i18n="hc1_title">Container Transit</div>
-            <div class="hcard-val">500+</div>
-            <div class="hcard-sub" data-i18n="hc1_sub">Containers dispatched per year</div>
-          </div>
-        </div>
+      <div class="hv-card">
+        <img class="hv-img" src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=200&q=80" alt="Container">
+        <div><div class="hv-num">500+</div><div class="hv-title" data-i="hvc1t">Container Transit</div><div class="hv-sub" data-i="hvc1s">Containers handled per year</div></div>
       </div>
-      <div class="hcard-row2">
-        <div class="hero-card">
-          <div class="hcard-icon">⛽</div>
-          <div class="hcard-val" style="font-size:1.3rem">2M+</div>
-          <div class="hcard-sub" data-i18n="hc2_sub">Tons of fuel/petrochem exported</div>
-        </div>
-        <div class="hero-card">
-          <div class="hcard-icon">🚂</div>
-          <div class="hcard-val" style="font-size:1.3rem">98%</div>
-          <div class="hcard-sub" data-i18n="hc3_sub">On-time delivery rate</div>
-        </div>
+      <div class="hv-card">
+        <img class="hv-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=200&q=80" alt="Fuel">
+        <div><div class="hv-num">2M+</div><div class="hv-title" data-i="hvc2t">Fuel & Petrochem</div><div class="hv-sub" data-i="hvc2s">Tonnes exported annually</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ STATS BAR ============ -->
+<!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stats-grid">
-    <div class="stat-cell fade-up"><div class="stat-num" id="cnt1">0</div><div class="stat-label" data-i18n="sbar1">Years of International Logistics</div></div>
-    <div class="stat-cell fade-up"><div class="stat-num" id="cnt2">0</div><div class="stat-label" data-i18n="sbar2">Satisfied Business Clients</div></div>
-    <div class="stat-cell fade-up"><div class="stat-num" id="cnt3">0</div><div class="stat-label" data-i18n="sbar3">Active Corridors &amp; Routes</div></div>
-    <div class="stat-cell fade-up"><div class="stat-num" id="cnt4">0</div><div class="stat-label" data-i18n="sbar4">On-Time Delivery Rate</div></div>
+    <div class="stat-cell"><span class="stat-num" id="c1">0</span><span class="stat-label" data-i="sb1">Years in Logistics</span></div>
+    <div class="stat-cell"><span class="stat-num" id="c2">0</span><span class="stat-label" data-i="sb2">Satisfied Clients</span></div>
+    <div class="stat-cell"><span class="stat-num" id="c3">0</span><span class="stat-label" data-i="sb3">Active Corridors</span></div>
+    <div class="stat-cell"><span class="stat-num" id="c4">0</span><span class="stat-label" data-i="sb4">On-Time Delivery</span></div>
   </div>
 </div>
 
-<!-- ============ SERVICES ============ -->
-<section class="section services-section" id="services">
+<!-- SERVICES -->
+<section class="section" id="services">
   <div class="container">
-    <div class="section-header center fade-up">
-      <div class="section-eyebrow" data-i18n="svc_eye">Our Services</div>
-      <h2 class="section-title" data-i18n="svc_title">End-to-End <span>Logistics Solutions</span></h2>
-      <p class="section-desc" data-i18n="svc_desc">From Iran's borders to global destinations — by road, rail, and sea.</p>
+    <div class="sh-center fu">
+      <div class="section-eye" data-i="se1">Our Services</div>
+      <h2 class="section-title" data-i="st1">Complete <span>Logistics Solutions</span></h2>
+      <p class="section-desc" data-i="sd1">From Iran's borders to global markets — reliable, insured, and on time.</p>
     </div>
-    <div class="services-grid fade-up">
-      <div class="svc-card">
-        <span class="svc-icon">📦</span>
-        <div class="svc-title" data-i18n="s1_title">Container Transit</div>
-        <div class="svc-desc" data-i18n="s1_desc">Full (FCL) and partial (LCL) container shipments across Iran's road and rail network to Turkey, Iraq, Afghanistan, Pakistan and Central Asia.</div>
-        <div class="svc-tags"><span class="svc-tag">FCL</span><span class="svc-tag">LCL</span><span class="svc-tag">TIR</span><span class="svc-tag">CIM</span></div>
+    <div class="svc-grid">
+      <div class="svc-card fu"><div class="svc-bar"></div>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&q=80" alt="Container">
+        <div class="svc-body"><div class="svc-title" data-i="s1t">Container Transit</div><p class="svc-desc" data-i="s1d">FCL and LCL shipments via Iran's road and rail network to Turkey, Iraq, Afghanistan, Pakistan and Central Asia. TIR Convention compliant.</p><div class="svc-tags"><span class="svc-tag">FCL/LCL</span><span class="svc-tag">TIR</span><span class="svc-tag">CIM/SMGS</span></div></div>
       </div>
-      <div class="svc-card">
-        <span class="svc-icon">⛽</span>
-        <div class="svc-title" data-i18n="s2_title">Fuel & Gas Export</div>
-        <div class="svc-desc" data-i18n="s2_desc">Export of diesel, LPG and natural gas to Iraq, Afghanistan, Armenia and Turkey. Certified tanker trucks and dedicated rail wagons with full compliance.</div>
-        <div class="svc-tags"><span class="svc-tag">LPG</span><span class="svc-tag">Diesel</span><span class="svc-tag">Natural Gas</span><span class="svc-tag">ADR Certified</span></div>
+      <div class="svc-card fu"><div class="svc-bar"></div>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Fuel">
+        <div class="svc-body"><div class="svc-title" data-i="s2t">Fuel &amp; Gas Export</div><p class="svc-desc" data-i="s2d">Diesel, LPG and natural gas export to Iraq, Afghanistan, Armenia and Turkey via ADR-certified tanker trucks and rail wagons.</p><div class="svc-tags"><span class="svc-tag">LPG</span><span class="svc-tag">Diesel</span><span class="svc-tag">Natural Gas</span><span class="svc-tag">ADR Certified</span></div></div>
       </div>
-      <div class="svc-card">
-        <span class="svc-icon">🧪</span>
-        <div class="svc-title" data-i18n="s3_title">Petrochemicals</div>
-        <div class="svc-desc" data-i18n="s3_desc">Bulk export of petrochemical products — polymers, methanol, urea — from Bandar Abbas and Persian Gulf ports to India, China and Southeast Asia.</div>
-        <div class="svc-tags"><span class="svc-tag">Polymers</span><span class="svc-tag">Methanol</span><span class="svc-tag">Urea</span><span class="svc-tag">Bulk</span></div>
+      <div class="svc-card fu"><div class="svc-bar"></div>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Petrochem">
+        <div class="svc-body"><div class="svc-title" data-i="s3t">Petrochemicals</div><p class="svc-desc" data-i="s3d">Bulk export of polymers, methanol and urea from Bandar Abbas and Persian Gulf ports to India, China and Southeast Asia.</p><div class="svc-tags"><span class="svc-tag">Polymers</span><span class="svc-tag">Methanol</span><span class="svc-tag">Urea</span></div></div>
       </div>
-      <div class="svc-card">
-        <span class="svc-icon">🚂</span>
-        <div class="svc-title" data-i18n="s4_title">Rail Freight</div>
-        <div class="svc-desc" data-i18n="s4_desc">INSTC and Silk Road rail corridors — India to Russia via Iran, and China to Europe via Central Asia. Cost-effective for heavy and bulk cargoes.</div>
-        <div class="svc-tags"><span class="svc-tag">INSTC</span><span class="svc-tag">Silk Road</span><span class="svc-tag">Block Train</span></div>
+      <div class="svc-card fu"><div class="svc-bar"></div>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&q=80" alt="Rail">
+        <div class="svc-body"><div class="svc-title" data-i="s4t">Rail Freight</div><p class="svc-desc" data-i="s4d">INSTC North–South corridor (India–Iran–Russia) and Silk Road rail (China–Central Asia–Europe). Cost-effective for bulk and heavy cargo.</p><div class="svc-tags"><span class="svc-tag">INSTC</span><span class="svc-tag">Silk Road</span><span class="svc-tag">Block Train</span></div></div>
       </div>
-      <div class="svc-card">
-        <span class="svc-icon">📋</span>
-        <div class="svc-title" data-i18n="s5_title">Customs Clearance</div>
-        <div class="svc-desc" data-i18n="s5_desc">Full customs brokerage across all Iranian border crossings — Bazargan, Mehran, Islam Qala, Mirjaveh — with a certified legal team on-site.</div>
-        <div class="svc-tags"><span class="svc-tag">Iran Customs</span><span class="svc-tag">Transit Permit</span><span class="svc-tag">HS Code</span></div>
+      <div class="svc-card fu"><div class="svc-bar"></div>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Customs">
+        <div class="svc-body"><div class="svc-title" data-i="s5t">Customs Clearance</div><p class="svc-desc" data-i="s5d">Full customs brokerage at Bazargan, Mehran, Islam Qala and Mirjaveh with IRICA-certified specialists on-site.</p><div class="svc-tags"><span class="svc-tag">IRICA</span><span class="svc-tag">Transit Permit</span><span class="svc-tag">HS Code</span></div></div>
       </div>
-      <div class="svc-card">
-        <span class="svc-icon">🛡️</span>
-        <div class="svc-title" data-i18n="s6_title">Cargo Insurance</div>
-        <div class="svc-desc" data-i18n="s6_desc">Comprehensive all-risk marine and road cargo insurance for every shipment, with rapid claims processing through our international insurance partners.</div>
-        <div class="svc-tags"><span class="svc-tag">All-Risk</span><span class="svc-tag">Marine</span><span class="svc-tag">CMR</span></div>
+      <div class="svc-card fu"><div class="svc-bar"></div>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&q=80" alt="Insurance">
+        <div class="svc-body"><div class="svc-title" data-i="s6t">Cargo Insurance</div><p class="svc-desc" data-i="s6d">All-risk marine and road cargo insurance on every shipment, with rapid international claims processing.</p><div class="svc-tags"><span class="svc-tag">All-Risk</span><span class="svc-tag">Marine</span><span class="svc-tag">CMR/CIM</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ROUTES MAP ============ -->
-<section class="section map-section" id="routes">
+<!-- ROUTE MAP -->
+<section class="section section-alt" id="routes">
   <div class="container">
-    <div class="section-header fade-up">
-      <div class="section-eyebrow" data-i18n="map_eye">Trade Corridors</div>
-      <h2 class="section-title" data-i18n="map_title">Iran's Export & Import <span>Network</span></h2>
-      <p class="section-desc" data-i18n="map_desc">Live routes: containers, fuel, petrochemicals — from Iran to neighboring countries and beyond.</p>
+    <div class="fu">
+      <div class="section-eye" data-i="se2">Trade Corridors</div>
+      <h2 class="section-title" data-i="st2">Iran Export &amp; Import <span>Network</span></h2>
+      <p class="section-desc" data-i="sd2">Active road, rail and sea routes — containers, fuel and petrochemicals from Iran to the world.</p>
     </div>
-    <div class="map-wrap fade-up">
+    <div class="map-wrap fu">
       <div class="map-legend">
-        <div class="legend-item"><div class="legend-line container"></div><span data-i18n="leg1">Container / General Cargo</span></div>
-        <div class="legend-item"><div class="legend-line petro"></div><span data-i18n="leg2">Petrochemicals (Sea/Rail)</span></div>
-        <div class="legend-item"><div class="legend-line fuel"></div><span data-i18n="leg3">Fuel & Gas (Truck/Rail)</span></div>
+        <div class="leg-item"><div class="leg-line leg-road"></div><span data-i="l1">Road · Truck / TIR</span></div>
+        <div class="leg-item"><div class="leg-line leg-rail"></div><span data-i="l2">Rail · INSTC / Silk Road</span></div>
+        <div class="leg-item"><div class="leg-line leg-sea"></div><span data-i="l3">Sea · Persian Gulf / Indian Ocean</span></div>
       </div>
-      <svg id="routeMap" viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg">
+      <svg id="rmap" viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <marker id="arr-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#2962ff"/>
-          </marker>
-          <marker id="arr-cyan" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#00d4ff"/>
-          </marker>
-          <marker id="arr-orange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#ff6b2b"/>
-          </marker>
-          <filter id="glow-blue">
-            <feGaussianBlur stdDeviation="2" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <!-- Dash animation patterns -->
+          <marker id="mb" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7Z" fill="#1976d2"/></marker>
+          <marker id="mp" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7Z" fill="#7c3aed"/></marker>
+          <marker id="mg" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7Z" fill="#059669"/></marker>
+          <pattern id="dp" patternUnits="userSpaceOnUse" width="14" height="14"><circle cx="7" cy="7" r="1.2" fill="#90caf9" opacity=".55"/></pattern>
           <style>
-            .route-anim { stroke-dasharray:8,6; animation:dash 2.5s linear infinite; }
-            .route-anim-slow { stroke-dasharray:12,8; animation:dash 4s linear infinite; }
-            .route-anim-fast { stroke-dasharray:6,5; animation:dash 1.8s linear infinite; }
-            @keyframes dash { to { stroke-dashoffset:-100; } }
-            .city-pulse { animation:cpulse 2s ease-in-out infinite; }
-            @keyframes cpulse { 0%,100%{r:6;opacity:0.8} 50%{r:9;opacity:0.3} }
-            .city-dot { transition:all 0.2s; }
-            .city-dot:hover { r:9; }
+            .rr{stroke-dasharray:10,6;animation:da 2.4s linear infinite}
+            .rl{stroke-dasharray:14,5;animation:da 3.4s linear infinite}
+            .rs{stroke-dasharray:6,10;animation:da 4.2s linear infinite}
+            @keyframes da{to{stroke-dashoffset:-120}}
+            .cp{animation:cp 2.6s ease-in-out infinite}
+            @keyframes cp{0%,100%{opacity:.45;r:8}50%{opacity:.12;r:13}}
           </style>
         </defs>
+        <!-- sea -->
+        <ellipse cx="530" cy="430" rx="260" ry="38" fill="#b3d9f8" opacity=".65"/>
+        <text x="530" y="436" fill="#42a5f5" font-size="8.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600" opacity=".8">PERSIAN GULF · ARABIAN SEA</text>
+        <ellipse cx="820" cy="455" rx="130" ry="26" fill="#b3d9f8" opacity=".45"/>
+        <text x="820" y="460" fill="#42a5f5" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" opacity=".65">INDIAN OCEAN</text>
+        <!-- countries dotted -->
+        <rect x="360" y="18" width="300" height="72" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="508" y="55" fill="#7a95b0" font-size="10" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">RUSSIA</text>
+        <rect x="650" y="115" width="195" height="95" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="748" y="165" fill="#7a95b0" font-size="9" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">CENTRAL ASIA</text>
+        <rect x="820" y="78" width="160" height="130" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="900" y="145" fill="#7a95b0" font-size="10" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">CHINA</text>
+        <rect x="42" y="155" width="185" height="78" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="135" y="197" fill="#7a95b0" font-size="10" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">TURKEY</text>
+        <rect x="300" y="148" width="118" height="62" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="359" y="182" fill="#7a95b0" font-size="8" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">CAUCASUS</text>
+        <rect x="110" y="272" width="155" height="96" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="188" y="324" fill="#7a95b0" font-size="10" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">IRAQ</text>
+        <!-- IRAN highlighted -->
+        <rect x="410" y="238" width="215" height="148" rx="14" fill="#deeffe" stroke="#1976d2" stroke-width="2"/>
+        <text x="518" y="316" fill="#1976d2" font-size="15" text-anchor="middle" font-family="Barlow Condensed,Barlow,Arial" font-weight="900" letter-spacing="2">IRAN</text>
+        <text x="518" y="334" fill="#42a5f5" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">TRANSIT HUB</text>
+        <rect x="628" y="238" width="138" height="106" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="697" y="294" fill="#7a95b0" font-size="9" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">AFGHANISTAN</text>
+        <rect x="662" y="336" width="138" height="88" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="731" y="383" fill="#7a95b0" font-size="9" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">PAKISTAN</text>
+        <rect x="748" y="392" width="132" height="72" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="814" y="432" fill="#7a95b0" font-size="10" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">INDIA</text>
+        <rect x="400" y="388" width="115" height="46" rx="9" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="458" y="415" fill="#7a95b0" font-size="8" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">UAE / GULF</text>
+        <rect x="18" y="28" width="155" height="98" rx="10" fill="url(#dp)" stroke="#90caf9" stroke-width=".7" opacity=".85"/>
+        <text x="96" y="80" fill="#7a95b0" font-size="10" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">EUROPE</text>
 
-        <!-- Background -->
-        <rect width="1000" height="520" fill="#0d1420"/>
+        <!-- ROAD routes (blue) -->
+        <path d="M415,278 C340,258 250,230 230,222" fill="none" stroke="#1976d2" stroke-width="2.5" marker-end="url(#mb)" class="rr"/>
+        <path d="M415,318 C355,318 305,318 270,318" fill="none" stroke="#1976d2" stroke-width="2.5" marker-end="url(#mb)" class="rr"/>
+        <path d="M625,275 C650,268 668,265 680,264" fill="none" stroke="#1976d2" stroke-width="2.5" marker-end="url(#mb)" class="rr"/>
+        <path d="M610,350 C645,358 675,362 715,365" fill="none" stroke="#1976d2" stroke-width="2" marker-end="url(#mb)" class="rr" style="animation-duration:2.8s"/>
+        <path d="M430,250 C405,222 385,205 382,200" fill="none" stroke="#1976d2" stroke-width="2" marker-end="url(#mb)" class="rr" style="animation-duration:1.8s"/>
+        <path d="M312,170 C270,192 240,210 232,215" fill="none" stroke="#1976d2" stroke-width="1.6" marker-end="url(#mb)" class="rr" style="animation-duration:3s" opacity=".7"/>
+        <path d="M70,188 C62,158 56,128 58,120" fill="none" stroke="#1976d2" stroke-width="1.5" marker-end="url(#mb)" class="rr" style="animation-duration:3.6s" opacity=".55"/>
 
-        <!-- Simplified country shapes as regions -->
-        <!-- Russia -->
-        <ellipse cx="600" cy="80" rx="220" ry="55" fill="rgba(41,98,255,0.04)" stroke="rgba(41,98,255,0.1)" stroke-width="0.5"/>
-        <text x="600" y="85" fill="#4a5a7a" font-size="11" text-anchor="middle" font-family="Inter">RUSSIA</text>
+        <!-- RAIL routes (purple) -->
+        <path d="M516,240 C505,185 500,135 495,90" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#mp)" class="rl"/>
+        <path d="M625,260 C695,222 754,196 822,172" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#mp)" class="rl" style="animation-duration:4.2s"/>
+        <path d="M820,158 C715,118 570,72 415,64 C250,56 130,82 72,78" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#mp)" class="rl" style="animation-duration:5.5s" opacity=".5"/>
 
-        <!-- Central Asia -->
-        <ellipse cx="750" cy="200" rx="130" ry="60" fill="rgba(41,98,255,0.04)" stroke="rgba(41,98,255,0.08)" stroke-width="0.5"/>
-        <text x="750" y="205" fill="#4a5a7a" font-size="9" text-anchor="middle" font-family="Inter">CENTRAL ASIA</text>
+        <!-- SEA routes (green) -->
+        <path d="M500,386 C550,416 680,440 790,430" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#mg)" class="rs"/>
+        <path d="M468,386 C462,404 458,418 458,422" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#mg)" class="rs" style="animation-duration:2.6s"/>
+        <path d="M862,428 C910,416 960,390 968,355" fill="none" stroke="#059669" stroke-width="1.5" marker-end="url(#mg)" class="rs" style="animation-duration:5.2s" opacity=".55"/>
 
-        <!-- China -->
-        <ellipse cx="870" cy="180" rx="90" ry="70" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.1)" stroke-width="0.5"/>
-        <text x="870" y="185" fill="#4a5a7a" font-size="10" text-anchor="middle" font-family="Inter">CHINA</text>
-
-        <!-- Turkey -->
-        <ellipse cx="260" cy="220" rx="100" ry="45" fill="rgba(41,98,255,0.04)" stroke="rgba(41,98,255,0.08)" stroke-width="0.5"/>
-        <text x="260" y="225" fill="#4a5a7a" font-size="10" text-anchor="middle" font-family="Inter">TURKEY</text>
-
-        <!-- Caucasus (Armenia/Azerbaijan/Georgia) -->
-        <ellipse cx="440" cy="195" rx="60" ry="30" fill="rgba(41,98,255,0.04)" stroke="rgba(41,98,255,0.08)" stroke-width="0.5"/>
-        <text x="440" y="200" fill="#4a5a7a" font-size="8" text-anchor="middle" font-family="Inter">CAUCASUS</text>
-
-        <!-- Iraq/Syria -->
-        <ellipse cx="340" cy="310" rx="80" ry="50" fill="rgba(255,107,43,0.04)" stroke="rgba(255,107,43,0.08)" stroke-width="0.5"/>
-        <text x="340" y="315" fill="#4a5a7a" font-size="9" text-anchor="middle" font-family="Inter">IRAQ</text>
-
-        <!-- Iran (central, prominent) -->
-        <ellipse cx="560" cy="285" rx="100" ry="65" fill="rgba(41,98,255,0.1)" stroke="rgba(41,98,255,0.35)" stroke-width="1.5"/>
-        <text x="560" y="290" fill="#5c8aff" font-size="13" font-weight="700" text-anchor="middle" font-family="Syne,Inter">IRAN</text>
-
-        <!-- Afghanistan -->
-        <ellipse cx="700" cy="285" rx="65" ry="45" fill="rgba(255,107,43,0.04)" stroke="rgba(255,107,43,0.08)" stroke-width="0.5"/>
-        <text x="700" y="290" fill="#4a5a7a" font-size="9" text-anchor="middle" font-family="Inter">AFGHANISTAN</text>
-
-        <!-- Pakistan -->
-        <ellipse cx="740" cy="370" rx="70" ry="45" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.08)" stroke-width="0.5"/>
-        <text x="740" y="375" fill="#4a5a7a" font-size="9" text-anchor="middle" font-family="Inter">PAKISTAN</text>
-
-        <!-- India -->
-        <ellipse cx="790" cy="430" rx="75" ry="55" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.1)" stroke-width="0.5"/>
-        <text x="790" y="435" fill="#4a5a7a" font-size="10" text-anchor="middle" font-family="Inter">INDIA</text>
-
-        <!-- UAE/Gulf -->
-        <ellipse cx="520" cy="400" rx="60" ry="30" fill="rgba(0,212,255,0.04)" stroke="rgba(0,212,255,0.08)" stroke-width="0.5"/>
-        <text x="520" y="405" fill="#4a5a7a" font-size="8" text-anchor="middle" font-family="Inter">UAE / GULF</text>
-
-        <!-- Europe -->
-        <ellipse cx="130" cy="150" rx="90" ry="60" fill="rgba(41,98,255,0.04)" stroke="rgba(41,98,255,0.08)" stroke-width="0.5"/>
-        <text x="130" y="155" fill="#4a5a7a" font-size="10" text-anchor="middle" font-family="Inter">EUROPE</text>
-
-        <!-- ===== ANIMATED ROUTES ===== -->
-        <!-- Container: Iran → Turkey (road) -->
-        <path d="M 460,270 Q 380,240 285,225" fill="none" stroke="#2962ff" stroke-width="2" marker-end="url(#arr-blue)" class="route-anim"/>
-        <!-- Container: Iran → Iraq -->
-        <path d="M 470,300 Q 420,310 365,310" fill="none" stroke="#2962ff" stroke-width="2" marker-end="url(#arr-blue)" class="route-anim"/>
-        <!-- Container: Iran → Afghanistan -->
-        <path d="M 655,278 Q 678,281 700,282" fill="none" stroke="#2962ff" stroke-width="2" marker-end="url(#arr-blue)" class="route-anim-fast"/>
-        <!-- Container: Iran → Pakistan -->
-        <path d="M 640,300 Q 690,330 710,355" fill="none" stroke="#2962ff" stroke-width="2" marker-end="url(#arr-blue)" class="route-anim"/>
-        <!-- Container: Iran → Caucasus -->
-        <path d="M 490,250 Q 470,225 450,210" fill="none" stroke="#2962ff" stroke-width="1.5" marker-end="url(#arr-blue)" class="route-anim-fast"/>
-        <!-- Container: Caucasus → Russia (INSTC) -->
-        <path d="M 450,180 Q 500,130 580,90" fill="none" stroke="#2962ff" stroke-width="1.5" marker-end="url(#arr-blue)" class="route-anim-slow"/>
-        <!-- Container: Turkey → Europe -->
-        <path d="M 185,220 Q 165,190 150,175" fill="none" stroke="#2962ff" stroke-width="1.5" marker-end="url(#arr-blue)" class="route-anim-slow" stroke-dasharray="4,8" style="animation-duration:3s"/>
-        <!-- Rail: Iran → Central Asia → China (Silk Road) -->
-        <path d="M 650,265 Q 720,230 810,200 Q 860,190 875,185" fill="none" stroke="#2962ff" stroke-width="1.5" marker-end="url(#arr-blue)" class="route-anim-slow" opacity="0.7"/>
-
-        <!-- Petrochem: Iran (south) → India via sea -->
-        <path d="M 555,345 Q 600,390 700,410 Q 750,425 790,430" fill="none" stroke="#00d4ff" stroke-width="2" marker-end="url(#arr-cyan)" class="route-anim"/>
-        <!-- Petrochem: Iran (south) → UAE -->
-        <path d="M 530,345 Q 530,375 522,395" fill="none" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arr-cyan)" class="route-anim-fast"/>
-        <!-- Petrochem: Iran → China via sea (long arc) -->
-        <path d="M 590,350 Q 700,450 800,440 Q 860,435 875,390" fill="none" stroke="#00d4ff" stroke-width="1.5" marker-end="url(#arr-cyan)" class="route-anim-slow" opacity="0.7"/>
-
-        <!-- Fuel: Iran → Iraq (pipeline+truck) -->
-        <path d="M 465,295 Q 415,305 360,308" fill="none" stroke="#ff6b2b" stroke-width="2.5" marker-end="url(#arr-orange)" class="route-anim-fast"/>
-        <!-- Fuel: Iran → Afghanistan -->
-        <path d="M 655,290 Q 680,295 700,295" fill="none" stroke="#ff6b2b" stroke-width="2" marker-end="url(#arr-orange)" class="route-anim"/>
-        <!-- Fuel: Iran → Armenia/Caucasus -->
-        <path d="M 495,248 Q 468,222 448,203" fill="none" stroke="#ff6b2b" stroke-width="1.5" marker-end="url(#arr-orange)" class="route-anim-fast" opacity="0.8"/>
-        <!-- Fuel: Iran → Turkey -->
-        <path d="M 463,268 Q 380,248 288,228" fill="none" stroke="#ff6b2b" stroke-width="1.5" marker-end="url(#arr-orange)" class="route-anim-slow" opacity="0.7"/>
-
-        <!-- ===== CITY DOTS ===== -->
-        <!-- Iran - Mashhad (HQ) -->
-        <circle cx="620" cy="255" r="8" fill="#2962ff" opacity="0.3" class="city-pulse"/>
-        <circle cx="620" cy="255" r="5" fill="#2962ff" filter="url(#glow-blue)"/>
-        <text x="620" y="244" fill="#82aaff" font-size="9" text-anchor="middle" font-family="Inter" font-weight="600">Mashhad ★</text>
-
-        <!-- Tehran -->
-        <circle cx="540" cy="268" r="6" fill="#2962ff" opacity="0.25" class="city-pulse"/>
-        <circle cx="540" cy="268" r="4" fill="#5c8aff"/>
-        <text x="540" y="260" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Tehran</text>
-
-        <!-- Bandar Abbas -->
-        <circle cx="565" cy="345" r="5" fill="#00d4ff" opacity="0.3"/>
-        <circle cx="565" cy="345" r="3.5" fill="#00d4ff"/>
-        <text x="565" y="358" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Bandar Abbas</text>
-
-        <!-- Istanbul -->
-        <circle cx="265" cy="218" r="5" fill="#2962ff" opacity="0.25"/>
-        <circle cx="265" cy="218" r="3.5" fill="#5c8aff"/>
-        <text x="265" y="210" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Istanbul</text>
-
-        <!-- Baghdad -->
-        <circle cx="345" cy="300" r="5" fill="#ff6b2b" opacity="0.25"/>
-        <circle cx="345" cy="300" r="3.5" fill="#ff6b2b"/>
-        <text x="345" y="292" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Baghdad</text>
-
-        <!-- Kabul -->
-        <circle cx="705" cy="275" r="4.5" fill="#2962ff" opacity="0.25"/>
-        <circle cx="705" cy="275" r="3" fill="#5c8aff"/>
-        <text x="705" y="267" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Kabul</text>
-
-        <!-- Karachi -->
-        <circle cx="735" cy="360" r="4.5" fill="#2962ff" opacity="0.25"/>
-        <circle cx="735" cy="360" r="3" fill="#5c8aff"/>
-        <text x="735" y="352" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Karachi</text>
-
-        <!-- Mumbai (India) -->
-        <circle cx="790" cy="425" r="5" fill="#00d4ff" opacity="0.25"/>
-        <circle cx="790" cy="425" r="3.5" fill="#00d4ff"/>
-        <text x="790" y="418" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Mumbai</text>
-
-        <!-- Moscow -->
-        <circle cx="575" cy="80" r="5" fill="#2962ff" opacity="0.25"/>
-        <circle cx="575" cy="80" r="3.5" fill="#5c8aff"/>
-        <text x="575" y="72" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Moscow</text>
-
-        <!-- Ashgabat -->
-        <circle cx="720" cy="205" r="4" fill="#2962ff" opacity="0.2"/>
-        <circle cx="720" cy="205" r="2.8" fill="#5c8aff"/>
-        <text x="720" y="198" fill="#8899bb" font-size="7" text-anchor="middle" font-family="Inter">Ashgabat</text>
-
-        <!-- Yerevan -->
-        <circle cx="445" cy="198" r="4" fill="#ff6b2b" opacity="0.3"/>
-        <circle cx="445" cy="198" r="3" fill="#ff6b2b"/>
-        <text x="445" y="190" fill="#8899bb" font-size="7" text-anchor="middle" font-family="Inter">Yerevan</text>
-
-        <!-- Beijing -->
-        <circle cx="870" cy="175" r="5" fill="#00d4ff" opacity="0.25"/>
-        <circle cx="870" cy="175" r="3.5" fill="#00d4ff"/>
-        <text x="870" y="167" fill="#8899bb" font-size="8" text-anchor="middle" font-family="Inter">Beijing</text>
-
-        <!-- Dubai -->
-        <circle cx="520" cy="398" r="4.5" fill="#00d4ff" opacity="0.25"/>
-        <circle cx="520" cy="398" r="3" fill="#00d4ff"/>
-        <text x="520" y="390" fill="#8899bb" font-size="7" text-anchor="middle" font-family="Inter">Dubai</text>
-
-        <!-- Brussels (Europe) -->
-        <circle cx="140" cy="148" r="4.5" fill="#2962ff" opacity="0.2"/>
-        <circle cx="140" cy="148" r="3" fill="#5c8aff"/>
-        <text x="140" y="141" fill="#8899bb" font-size="7" text-anchor="middle" font-family="Inter">Europe</text>
-
-        <!-- HQ star label -->
-        <rect x="580" y="250" width="64" height="14" rx="4" fill="rgba(41,98,255,0.15)" stroke="rgba(41,98,255,0.4)" stroke-width="0.5"/>
-        <text x="612" y="260" fill="#82aaff" font-size="7.5" text-anchor="middle" font-family="Inter">HQ · Transit Gold</text>
+        <!-- City dots -->
+        <circle cx="572" cy="258" r="10" fill="#1976d2" opacity=".2" class="cp"/>
+        <circle cx="572" cy="258" r="6" fill="#1976d2"/>
+        <circle cx="572" cy="258" r="2.5" fill="#fff"/>
+        <rect x="534" y="240" width="76" height="14" rx="5" fill="#1976d2"/>
+        <text x="572" y="250" fill="#fff" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="700">HQ · Mashhad</text>
+        <circle cx="464" cy="278" r="5" fill="#1976d2" opacity=".25"/><circle cx="464" cy="278" r="3.5" fill="#1976d2"/>
+        <text x="464" y="270" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Tehran</text>
+        <circle cx="492" cy="386" r="4.5" fill="#059669" opacity=".3"/><circle cx="492" cy="386" r="3" fill="#059669"/>
+        <text x="492" y="378" fill="#37516b" font-size="7" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Bandar Abbas</text>
+        <circle cx="148" cy="215" r="4.5" fill="#1976d2" opacity=".25"/><circle cx="148" cy="215" r="3" fill="#1976d2"/>
+        <text x="148" y="207" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Istanbul</text>
+        <circle cx="193" cy="310" r="4.5" fill="#1976d2" opacity=".25"/><circle cx="193" cy="310" r="3" fill="#1976d2"/>
+        <text x="193" y="302" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Baghdad</text>
+        <circle cx="692" cy="268" r="4" fill="#1976d2" opacity=".25"/><circle cx="692" cy="268" r="2.8" fill="#1976d2"/>
+        <text x="692" y="260" fill="#37516b" font-size="7" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Kabul</text>
+        <circle cx="800" cy="428" r="4.5" fill="#059669" opacity=".3"/><circle cx="800" cy="428" r="3" fill="#059669"/>
+        <text x="800" y="420" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Mumbai</text>
+        <circle cx="496" cy="88" r="4.5" fill="#7c3aed" opacity=".3"/><circle cx="496" cy="88" r="3" fill="#7c3aed"/>
+        <text x="496" y="80" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Moscow</text>
+        <circle cx="896" cy="162" r="4.5" fill="#7c3aed" opacity=".3"/><circle cx="896" cy="162" r="3" fill="#7c3aed"/>
+        <text x="896" y="154" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Beijing</text>
+        <circle cx="355" cy="190" r="3.8" fill="#1976d2" opacity=".3"/><circle cx="355" cy="190" r="2.6" fill="#1976d2"/>
+        <text x="355" y="182" fill="#37516b" font-size="7" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Yerevan</text>
+        <circle cx="700" cy="168" r="3.8" fill="#7c3aed" opacity=".3"/><circle cx="700" cy="168" r="2.6" fill="#7c3aed"/>
+        <text x="700" y="160" fill="#37516b" font-size="7" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Ashgabat</text>
+        <circle cx="718" cy="362" r="4" fill="#1976d2" opacity=".25"/><circle cx="718" cy="362" r="2.8" fill="#1976d2"/>
+        <text x="718" y="354" fill="#37516b" font-size="7" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Karachi</text>
+        <circle cx="460" cy="420" r="3.8" fill="#059669" opacity=".3"/><circle cx="460" cy="420" r="2.6" fill="#059669"/>
+        <text x="460" y="413" fill="#37516b" font-size="7" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Dubai</text>
+        <circle cx="60" cy="78" r="4" fill="#1976d2" opacity=".22"/><circle cx="60" cy="78" r="2.8" fill="#1976d2"/>
+        <text x="60" y="70" fill="#37516b" font-size="7.5" text-anchor="middle" font-family="Barlow,Arial" font-weight="600">Europe</text>
       </svg>
     </div>
   </div>
 </section>
 
-<!-- ============ WHY US ============ -->
-<section class="section why-section" id="why">
+<!-- WHY US -->
+<section class="section" id="why">
   <div class="container">
     <div class="why-grid">
-      <div>
-        <div class="section-eyebrow" data-i18n="why_eye">Why Transit Gold</div>
-        <h2 class="section-title" data-i18n="why_title">The Difference is in the <span>Details</span></h2>
-        <p class="section-desc" data-i18n="why_desc">A decade of on-the-ground expertise across Iran's border crossings — built on relationships, speed, and zero-compromise reliability.</p>
-        <div class="why-features">
-          <div class="why-feat fade-up">
-            <div class="why-feat-icon">🛡️</div>
-            <div><div class="why-feat-title" data-i18n="wf1t">Full Cargo Insurance</div><div class="why-feat-desc" data-i18n="wf1d">Every shipment covered all-risk, from pickup to final delivery, with rapid international claims processing.</div></div>
-          </div>
-          <div class="why-feat fade-up">
-            <div class="why-feat-icon">📡</div>
-            <div><div class="why-feat-title" data-i18n="wf2t">Real-Time GPS Tracking</div><div class="why-feat-desc" data-i18n="wf2d">Live location for all trucks and trains. WhatsApp, SMS and web portal updates 24/7.</div></div>
-          </div>
-          <div class="why-feat fade-up">
-            <div class="why-feat-icon">⚡</div>
-            <div><div class="why-feat-title" data-i18n="wf3t">Priority Border Clearance</div><div class="why-feat-desc" data-i18n="wf3d">Dedicated agents at Bazargan, Mehran, Islam Qala and Mirjaveh — faster clearance, fewer delays.</div></div>
-          </div>
-          <div class="why-feat fade-up">
-            <div class="why-feat-icon">🤝</div>
-            <div><div class="why-feat-title" data-i18n="wf4t">Long-Term Contract Benefits</div><div class="why-feat-desc" data-i18n="wf4d">Volume discounts, dedicated account manager and priority scheduling for regular partners.</div></div>
-          </div>
+      <div class="why-img fu">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80" alt="Logistics">
+        <div class="why-badge">
+          <div><div class="why-badge-num">98%</div><div class="why-badge-lbl" data-i="wb_b">On-time delivery</div></div>
         </div>
       </div>
-      <div class="why-boxes">
-        <div class="why-box fade-up"><span class="why-box-icon">⚡</span><span class="why-box-num">48h</span><span class="why-box-label" data-i18n="wb1">Quote Response Time</span></div>
-        <div class="why-box fade-up"><span class="why-box-icon">🌐</span><span class="why-box-num">30+</span><span class="why-box-label" data-i18n="wb2">Global Partners</span></div>
-        <div class="why-box fade-up"><span class="why-box-icon">📦</span><span class="why-box-num">5K+</span><span class="why-box-label" data-i18n="wb3">Shipments Handled</span></div>
-        <div class="why-box fade-up"><span class="why-box-icon">⭐</span><span class="why-box-num">4.9</span><span class="why-box-label" data-i18n="wb4">Client Rating</span></div>
+      <div class="fu">
+        <div class="section-eye" data-i="se3">Why Transit Gold</div>
+        <h2 class="section-title" data-i="st3">The Difference is in the <span>Details</span></h2>
+        <p class="section-desc" data-i="sd3">A decade of on-the-ground expertise at Iran's busiest border crossings — built on trusted relationships, speed and zero-compromise reliability.</p>
+        <div class="why-feats">
+          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="why-feat-t" data-i="wf1t">Full Cargo Insurance</div><div class="why-feat-d" data-i="wf1d">Every shipment covered all-risk from pickup to final delivery, with rapid international claims processing.</div></div></div>
+          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="why-feat-t" data-i="wf2t">Real-Time GPS Tracking</div><div class="why-feat-d" data-i="wf2d">Live location for all trucks and trains. WhatsApp, SMS and web portal updates around the clock.</div></div></div>
+          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div><div><div class="why-feat-t" data-i="wf3t">Priority Border Clearance</div><div class="why-feat-d" data-i="wf3d">Dedicated agents at Bazargan, Mehran, Islam Qala and Mirjaveh for faster clearance and fewer delays.</div></div></div>
+          <div class="why-feat"><div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div><div class="why-feat-t" data-i="wf4t">Dedicated Account Management</div><div class="why-feat-d" data-i="wf4d">Volume discounts, a named account manager and priority scheduling for long-term partners.</div></div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section class="section testi-section" id="testimonials">
+<!-- TESTIMONIALS -->
+<section class="section section-alt" id="testimonials">
   <div class="container">
-    <div class="section-header center fade-up">
-      <div class="section-eyebrow" data-i18n="testi_eye">Client Reviews</div>
-      <h2 class="section-title" data-i18n="testi_title">What Our <span>Clients Say</span></h2>
+    <div class="sh-center fu">
+      <div class="section-eye" data-i="se4">Client Reviews</div>
+      <h2 class="section-title" data-i="st4">Trusted by Businesses <span>Across the Region</span></h2>
     </div>
     <div class="testi-grid">
-      <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Transit Gold handled our polymer exports from Bandar Abbas to Mumbai flawlessly. Customs clearance was faster than any previous operator we've used."</p>
-        <div class="testi-author">
-          <div class="testi-av">RK</div>
-          <div>
-            <div class="testi-name"><span class="testi-flag">🇮🇳</span> Rajesh Kumar</div>
-            <div class="testi-meta">Logistics Manager — Mumbai, India</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"我们的石化产品从伊朗出口到中国，Transit Gold团队专业、高效，每次准时交货，强烈推荐。"</p>
-        <div class="testi-author">
-          <div class="testi-av">WL</div>
-          <div>
-            <div class="testi-name"><span class="testi-flag">🇨🇳</span> Wang Lei</div>
-            <div class="testi-meta">Import Director — Shanghai, China</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"ترانزیت گلد در ۳ سال همکاری هیچ‌وقت محموله‌ای با تأخیر نداشت. تیم گمرکی‌شان واقعاً حرفه‌ایه."</p>
-        <div class="testi-author">
-          <div class="testi-av">رخ</div>
-          <div>
-            <div class="testi-name"><span class="testi-flag">🇮🇷</span> رضا خانی</div>
-            <div class="testi-meta">مدیر واردات — تهران، ایران</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Transit Gold'un Türkiye'ye konteyner transitindeki hızı ve güvenilirliği bizi çok etkiledi. Gümrük süreçlerini mükemmel yönetiyorlar."</p>
-        <div class="testi-author">
-          <div class="testi-av">AY</div>
-          <div>
-            <div class="testi-name"><span class="testi-flag">🇹🇷</span> Ahmet Yılmaz</div>
-            <div class="testi-meta">Trade Manager — Istanbul, Turkey</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"ٹرانزٹ گولڈ نے ہمارے پاکستان کارگو کی ترسیل کو بالکل درست وقت پر مکمل کیا۔ ان کی خدمات بے مثال ہیں۔"</p>
-        <div class="testi-author">
-          <div class="testi-av">FA</div>
-          <div>
-            <div class="testi-name"><span class="testi-flag">🇵🇰</span> Farhan Ali</div>
-            <div class="testi-meta">CEO — Karachi, Pakistan</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"ترانزيت جولد وفّر لنا أفضل خدمات نقل الوقود من إيران إلى العراق. الكفاءة والسرعة لا مثيل لهما في المنطقة."</p>
-        <div class="testi-author">
-          <div class="testi-av">KM</div>
-          <div>
-            <div class="testi-name"><span class="testi-flag">🇮🇶</span> Khalid Mohammed</div>
-            <div class="testi-meta">Operations Director — Baghdad, Iraq</div>
-          </div>
-        </div>
-      </div>
+      <div class="testi-card fu"><div class="testi-stars">★★★★★</div><p class="testi-txt">"Transit Gold handled our polymer exports from Bandar Abbas to Mumbai flawlessly. Customs clearance was faster than any operator we've used before."</p><div class="testi-auth"><div class="testi-av">RK</div><div><div class="testi-name">🇮🇳 Rajesh Kumar</div><div class="testi-meta">Logistics Manager · Mumbai, India</div></div></div></div>
+      <div class="testi-card fu"><div class="testi-stars">★★★★★</div><p class="testi-txt">"我们的石化产品从伊朗出口到中国，Transit Gold团队专业、高效，每次准时交货，强烈推荐。"</p><div class="testi-auth"><div class="testi-av">WL</div><div><div class="testi-name">🇨🇳 Wang Lei</div><div class="testi-meta">Import Director · Shanghai, China</div></div></div></div>
+      <div class="testi-card fu"><div class="testi-stars">★★★★★</div><p class="testi-txt">"ترانزیت گلد در ۳ سال همکاری هیچ‌وقت محموله‌ای با تأخیر نداشت. تیم گمرکی‌شان واقعاً حرفه‌ایه."</p><div class="testi-auth"><div class="testi-av" style="font-family:'Noto Sans Arabic'">رخ</div><div><div class="testi-name">🇮🇷 رضا خانی</div><div class="testi-meta">مدیر واردات · تهران، ایران</div></div></div></div>
+      <div class="testi-card fu"><div class="testi-stars">★★★★★</div><p class="testi-txt">"Transit Gold'un Türkiye'ye konteyner transitindeki hız ve güvenilirliği bizi çok etkiledi. Gümrük süreçlerini mükemmel yönetiyorlar."</p><div class="testi-auth"><div class="testi-av">AY</div><div><div class="testi-name">🇹🇷 Ahmet Yılmaz</div><div class="testi-meta">Trade Manager · Istanbul, Turkey</div></div></div></div>
+      <div class="testi-card fu"><div class="testi-stars">★★★★★</div><p class="testi-txt">"ٹرانزٹ گولڈ نے ہمارے کارگو کو بالکل درست وقت پر پہنچایا۔ ان کی خدمات بے مثال ہیں۔"</p><div class="testi-auth"><div class="testi-av">FA</div><div><div class="testi-name">🇵🇰 Farhan Ali</div><div class="testi-meta">CEO · Karachi, Pakistan</div></div></div></div>
+      <div class="testi-card fu"><div class="testi-stars">★★★★★</div><p class="testi-txt">"ترانزيت جولد وفّر لنا أفضل خدمات نقل الوقود من إيران إلى العراق. الكفاءة والسرعة لا مثيل لهما."</p><div class="testi-auth"><div class="testi-av" style="font-family:'Noto Sans Arabic'">KM</div><div><div class="testi-name">🇮🇶 Khalid Mohammed</div><div class="testi-meta">Operations Director · Baghdad, Iraq</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ TEAM ============ -->
+<!-- TEAM -->
 <section class="section team-section" id="team">
   <div class="container">
-    <div class="section-header center fade-up">
-      <div class="section-eyebrow" data-i18n="team_eye">Leadership</div>
-      <h2 class="section-title" data-i18n="team_title">Meet Our <span>Management Team</span></h2>
-      <p class="section-desc" data-i18n="team_desc">Click on any team member to learn more about their background and expertise.</p>
+    <div class="sh-center fu">
+      <div class="section-eye" data-i="se5">Leadership</div>
+      <h2 class="section-title" data-i="st5">Our <span>Management Team</span></h2>
+      <p class="section-desc" data-i="sd5">Click any card to view the full profile and background.</p>
     </div>
-    <div class="team-grid" id="teamGrid"></div>
+    <div class="team-grid" id="tGrid"></div>
   </div>
 </section>
-
-<!-- Team Modal -->
-<div class="modal-overlay" id="teamModal" onclick="if(event.target===this)closeModal()">
-  <div class="modal" style="position:relative">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-header">
-      <div class="modal-avatar" id="modalAvatar"></div>
-      <div>
-        <div class="modal-name" id="modalName"></div>
-        <div class="modal-role" id="modalRole"></div>
-        <div class="modal-location" id="modalLoc"></div>
-      </div>
+<div class="modal-ov" id="tModal" onclick="if(event.target===this)closeM()">
+  <div class="modal">
+    <button class="modal-x" onclick="closeM()">✕</button>
+    <div class="modal-top">
+      <div class="modal-av" id="mAv"></div>
+      <div><div class="modal-name" id="mName"></div><div class="modal-role" id="mRole"></div><div class="modal-loc" id="mLoc"></div></div>
     </div>
     <div class="modal-body">
-      <p class="modal-bio" id="modalBio"></p>
-      <div class="modal-skills" id="modalSkills"></div>
+      <div class="modal-note">Photo placeholder · Size: <span id="mSz"></span></div>
+      <p class="modal-bio" id="mBio"></p>
+      <div class="modal-skills" id="mSk"></div>
     </div>
   </div>
 </div>
 
-<!-- ============ TRACKING ============ -->
-<section class="section tracking-section" id="tracking">
+<!-- TRACKING -->
+<section class="section" id="tracking">
   <div class="container">
-    <div class="section-header center fade-up">
-      <div class="section-eyebrow" data-i18n="track_eye">Live Tracking</div>
-      <h2 class="section-title" data-i18n="track_title">Track Your <span>Shipment</span></h2>
+    <div class="sh-center fu">
+      <div class="section-eye" data-i="se6">Live Tracking</div>
+      <h2 class="section-title" data-i="st6">Track Your <span>Shipment</span></h2>
     </div>
-    <div class="tracking-inner fade-up">
+    <div class="track-inner fu">
+      <div class="track-img"><img src="https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?w=800&q=80" alt="Tracking"></div>
       <div>
-        <h3 style="font-family:'Syne',sans-serif;font-size:1.4rem;margin-bottom:0.8rem" data-i18n="track_h3">Real-Time Cargo Intelligence</h3>
-        <p style="font-size:0.88rem;color:var(--text2);line-height:1.8;margin-bottom:1.2rem" data-i18n="track_p">Enter your tracking code to see live location, customs status, estimated delivery and full transit history.</p>
-        <div class="track-feats">
-          <div class="track-feat"><div class="track-feat-dot"></div><span data-i18n="tf1">GPS live location on map</span></div>
-          <div class="track-feat"><div class="track-feat-dot"></div><span data-i18n="tf2">Customs clearance status</span></div>
-          <div class="track-feat"><div class="track-feat-dot"></div><span data-i18n="tf3">Estimated time of arrival</span></div>
-          <div class="track-feat"><div class="track-feat-dot"></div><span data-i18n="tf4">WhatsApp & SMS notifications</span></div>
-        </div>
-      </div>
-      <div>
+        <h3 style="font-family:var(--fH);font-weight:700;font-size:1.4rem;margin-bottom:.7rem" data-i="trh">Real-Time Cargo Intelligence</h3>
+        <p style="font-size:.86rem;color:var(--text2);line-height:1.8;margin-bottom:1.1rem" data-i="trp">Enter your tracking code to see GPS location, customs status and estimated arrival time.</p>
         <div class="track-form">
-          <input class="track-input" type="text" placeholder="Tracking code (e.g. TG-2024-001234)" dir="ltr" data-i18n-placeholder="track_ph1">
-          <input class="track-input" type="text" placeholder="Company name (optional)" data-i18n-placeholder="track_ph2">
-          <button class="track-btn" data-i18n="track_btn">🔍 Track Shipment</button>
+          <input class="track-input" type="text" placeholder="Tracking code — e.g. TG-2024-001234" dir="ltr" data-iph="tr_ph1">
+          <input class="track-input" type="text" placeholder="Company name (optional)" data-iph="tr_ph2">
+          <button class="track-btn" data-i="tr_btn">Track Shipment</button>
         </div>
-        <p style="font-size:0.78rem;color:var(--text3);margin-top:0.8rem;text-align:center" data-i18n="track_note">Need a tracking code? Contact us: <strong style="color:var(--blue2)">+98 915 529 1700</strong></p>
+        <div class="track-feats">
+          <div class="track-feat"><div class="track-dot"></div><span data-i="tf1">GPS live position on map</span></div>
+          <div class="track-feat"><div class="track-dot"></div><span data-i="tf2">Customs clearance status</span></div>
+          <div class="track-feat"><div class="track-dot"></div><span data-i="tf3">Estimated time of arrival</span></div>
+          <div class="track-feat"><div class="track-dot"></div><span data-i="tf4">WhatsApp &amp; SMS notifications</span></div>
+        </div>
+        <p style="font-size:.76rem;color:var(--text3);margin-top:.9rem" data-i="tr_note">Need a code? Call: <strong style="color:var(--sky3)">+98 915 529 1700</strong></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA ============ -->
+<!-- CTA -->
 <section class="section cta-section" id="contact">
   <div class="container">
     <div class="cta-inner">
-      <h2 data-i18n="cta_title">Ready to Move Your Cargo?</h2>
-      <p data-i18n="cta_desc">Get a quote in 48 hours. Our team is available around the clock.</p>
+      <h2 data-i="ct_t">Ready to Move Your Cargo?</h2>
+      <p data-i="ct_d">Get a quote within 48 hours. Our team is available around the clock.</p>
       <div class="cta-btns">
-        <a href="tel:+989155291700" class="btn-primary" data-i18n="cta_call">📞 +98 915 529 1700</a>
-        <a href="contact.html" class="btn-ghost" data-i18n="cta_form">Send Inquiry →</a>
+        <a href="tel:+989155291700" class="btn-wh" data-i="ct_c">Call +98 915 529 1700</a>
+        <a href="contact.html" class="btn-ow" data-i="ct_f">Send an Inquiry</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="logo" style="margin-bottom:0.5rem">
-          <div class="logo-mark">TG</div>
-          <span class="logo-name">Transit<span>Gold</span></span>
+        <div class="logo" style="margin-bottom:.55rem">
+          <div class="logo-mark" style="width:34px;height:34px;font-size:.88rem">TG</div>
+          <span class="footer-logo-name">Transit<span>Gold</span></span>
         </div>
-        <p class="footer-brand-desc" data-i18n="foot_desc">International container transit, fuel, gas and petrochemical logistics — from Iran to neighboring countries and beyond.</p>
+        <p class="footer-desc" data-i="fd">International container transit, fuel, gas and petrochemical logistics from Iran to neighboring countries and beyond.</p>
         <div class="footer-contacts">
-          <div class="footer-contact">📞 +98 915 529 1700</div>
-          <div class="footer-contact">📱 WhatsApp: +98 915 126 9099</div>
-          <div class="footer-contact">📍 Mashhad, Khorasan Razavi, Iran</div>
+          <div class="footer-contact">+98 915 529 1700</div>
+          <div class="footer-contact">WhatsApp: +98 915 126 9099</div>
+          <div class="footer-contact">Mashhad, Khorasan Razavi, Iran</div>
         </div>
       </div>
-      <div class="footer-col">
-        <h4 data-i18n="foot_s1">Services</h4>
-        <ul>
-          <li><a href="#services" data-i18n="fs1">Container Transit</a></li>
-          <li><a href="#services" data-i18n="fs2">Fuel & Gas Export</a></li>
-          <li><a href="#services" data-i18n="fs3">Petrochemicals</a></li>
-          <li><a href="#services" data-i18n="fs4">Rail Freight</a></li>
-          <li><a href="#services" data-i18n="fs5">Customs Clearance</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="foot_s2">Corridors</h4>
-        <ul>
-          <li><a href="#routes">Iran → Turkey</a></li>
-          <li><a href="#routes">Iran → Iraq</a></li>
-          <li><a href="#routes">Iran → Afghanistan</a></li>
-          <li><a href="#routes">Iran → Pakistan</a></li>
-          <li><a href="#routes">INSTC (India–Russia)</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="foot_s3">Company</h4>
-        <ul>
-          <li><a href="#why" data-i18n="fc1">Why Us</a></li>
-          <li><a href="#team" data-i18n="fc2">Our Team</a></li>
-          <li><a href="#testimonials" data-i18n="fc3">Reviews</a></li>
-          <li><a href="#tracking" data-i18n="fc4">Track Shipment</a></li>
-          <li><a href="contact.html" data-i18n="fc5">Contact</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4 data-i="fc1">Services</h4><ul>
+        <li><a href="#services" data-i="s1t">Container Transit</a></li>
+        <li><a href="#services" data-i="s2t">Fuel &amp; Gas</a></li>
+        <li><a href="#services" data-i="s3t">Petrochemicals</a></li>
+        <li><a href="#services" data-i="s4t">Rail Freight</a></li>
+        <li><a href="#services" data-i="s5t">Customs</a></li>
+      </ul></div>
+      <div class="footer-col"><h4 data-i="fc2">Corridors</h4><ul>
+        <li><a href="#routes">Iran → Turkey</a></li>
+        <li><a href="#routes">Iran → Iraq</a></li>
+        <li><a href="#routes">Iran → Afghanistan</a></li>
+        <li><a href="#routes">Iran → Pakistan</a></li>
+        <li><a href="#routes">INSTC (India–Russia)</a></li>
+      </ul></div>
+      <div class="footer-col"><h4 data-i="fc3">Company</h4><ul>
+        <li><a href="#why" data-i="nav_w">Why Us</a></li>
+        <li><a href="#team" data-i="nav_t">Team</a></li>
+        <li><a href="#testimonials" data-i="se4">Reviews</a></li>
+        <li><a href="#tracking" data-i="nav_tr">Tracking</a></li>
+        <li><a href="#contact" data-i="nav_c">Contact</a></li>
+      </ul></div>
     </div>
-    <div class="footer-bottom">
-      <p data-i18n="foot_copy">© 2025 Transit Gold · All rights reserved</p>
-      <p data-i18n="foot_made">Made with ❤️ in Mashhad, Iran</p>
+    <div class="footer-bot">
+      <p data-i="f_c">© 2025 Transit Gold · All rights reserved</p>
+      <p data-i="f_m">Mashhad, Iran · Est. 2013</p>
     </div>
   </div>
 </footer>
-
 <script>
-/* ========== TEAM DATA ========== */
-const teamMembers = [
-  {
-    initials:'AM', name:'Amir Ghassemi', role:'Chief Executive Officer',
-    location:'📍 Mashhad, Iran', photoSize:'400×400 px',
-    bio:'Over 18 years in international trade and logistics across the Middle East and Central Asia. Founded Transit Gold in 2013 with a vision to modernize Iran-based freight operations. Fluent in Persian, English and Arabic.',
-    skills:['Strategic Planning','Business Development','International Trade Law','Persian · English · Arabic']
-  },
-  {
-    initials:'SR', name:'Sara Rezaei', role:'Chief Operations Officer',
-    location:'📍 Mashhad, Iran', photoSize:'400×400 px',
-    bio:'Logistics engineer with 14 years of experience managing multi-modal freight corridors. Specialist in TIR Convention operations and border management across Turkey, Iraq and Afghanistan.',
-    skills:['Operations Management','TIR Routing','Border Logistics','Supply Chain']
-  },
-  {
-    initials:'MK', name:'Mohammad Karimi', role:'Head of Customs & Legal',
-    location:'📍 Tehran, Iran', photoSize:'400×400 px',
-    bio:'Senior customs broker and trade lawyer with 16 years specializing in Iranian customs law, HS classification, and transit documentation. Certified by IRICA (Iran Customs Administration).',
-    skills:['Customs Law','HS Classification','Transit Permits','IRICA Certified']
-  },
-  {
-    initials:'FN', name:'Fatimah Nouri', role:'Director of Petrochemical Logistics',
-    location:'📍 Bandar Abbas, Iran', photoSize:'400×400 px',
-    bio:'Chemical engineer turned logistics specialist with 12 years managing bulk petrochemical and tanker shipments from Persian Gulf ports to Asia and Europe. ADR/RID certified.',
-    skills:['Petrochemical Logistics','Port Operations','ADR Certified','IMDG Code']
-  },
-  {
-    initials:'RH', name:'Reza Hosseini', role:'Head of Rail Freight',
-    location:'📍 Mashhad, Iran', photoSize:'400×400 px',
-    bio:'Rail freight expert with 11 years of experience on the INSTC and Trans-Caspian corridors. Deep knowledge of CIM/SMGS wagon regulations and block train operations from China to Europe via Iran.',
-    skills:['INSTC Corridor','CIM/SMGS','Block Train','Trans-Caspian']
-  },
-  {
-    initials:'LK', name:'Lena Kazaryan', role:'Armenia & Caucasus Representative',
-    location:'📍 Yerevan, Armenia', photoSize:'400×400 px',
-    bio:'Armenian logistics coordinator with 9 years managing cargo flows between Iran, Armenia, Georgia and Azerbaijan. Key account manager for Caucasus region partners.',
-    skills:['Caucasus Logistics','Armenian Market','Georgia Corridor','Azerbaijan Routes']
-  },
-  {
-    initials:'PJ', name:'Pawan Joshi', role:'India & South Asia Liaison',
-    location:'📍 Mumbai, India', photoSize:'400×400 px',
-    bio:'Indian trade specialist with 10 years of experience on the INSTC North-South Corridor. Manages relationships with Indian shipping companies, port authorities and petrochemical importers.',
-    skills:['INSTC North-South','Port of Mumbai','Petrochemical Import','Hindi · English']
-  },
-  {
-    initials:'WZ', name:'Wei Zhang', role:'China & East Asia Director',
-    location:'📍 Shanghai, China', photoSize:'400×400 px',
-    bio:'Chinese market specialist with 13 years in cross-border trade along the Silk Road Economic Belt. Oversees Transit Gold\'s partnerships with Chinese logistics firms and manages rail container flows.',
-    skills:['Belt & Road','China Customs','Rail Silk Road','Mandarin · English']
-  }
+/* TEAM */
+const TD=[
+  {i:'AM',n:'Amir Ghassemi',r:'Chief Executive Officer',l:'Mashhad, Iran',sz:'400×400 px',b:'18+ years in international trade across Middle East and Central Asia. Founded Transit Gold in 2013 to modernize Iran-based freight operations. Fluent in Persian, English and Arabic.',sk:['Strategic Planning','International Trade Law','Business Development','Persian · English · Arabic']},
+  {i:'SR',n:'Sara Rezaei',r:'Chief Operations Officer',l:'Mashhad, Iran',sz:'400×400 px',b:'14 years managing multi-modal freight corridors. Specialist in TIR Convention operations and border management across Turkey, Iraq and Afghanistan.',sk:['Operations Management','TIR Routing','Border Logistics','Supply Chain']},
+  {i:'MK',n:'Mohammad Karimi',r:'Head of Customs & Legal',l:'Tehran, Iran',sz:'400×400 px',b:'Senior customs broker and trade lawyer, 16 years in Iranian customs law and HS classification. IRICA certified specialist.',sk:['Customs Law','HS Classification','Transit Permits','IRICA Certified']},
+  {i:'FN',n:'Fatimah Nouri',r:'Director, Petrochemical Logistics',l:'Bandar Abbas, Iran',sz:'400×400 px',b:'Chemical engineer turned logistics specialist, 12 years managing bulk petrochemical and tanker shipments from Persian Gulf ports to Asia.',sk:['Petrochemical Logistics','Port Operations','ADR Certified','IMDG Code']},
+  {i:'RH',n:'Reza Hosseini',r:'Head of Rail Freight',l:'Mashhad, Iran',sz:'400×400 px',b:'Rail freight expert, 11 years on INSTC and Trans-Caspian corridors. Deep knowledge of CIM/SMGS and block train operations.',sk:['INSTC Corridor','CIM/SMGS','Block Train','Trans-Caspian']},
+  {i:'LK',n:'Lena Kazaryan',r:'Armenia & Caucasus Rep.',l:'Yerevan, Armenia',sz:'400×400 px',b:'9 years coordinating cargo flows between Iran, Armenia, Georgia and Azerbaijan. Key account manager for Caucasus region.',sk:['Caucasus Logistics','Armenian Market','Georgia Corridor','Azerbaijan Routes']},
+  {i:'PJ',n:'Pawan Joshi',r:'India & South Asia Liaison',l:'Mumbai, India',sz:'400×400 px',b:'10 years on INSTC North-South Corridor. Manages Indian shipping, port authorities and petrochemical importer relationships.',sk:['INSTC North-South','Port of Mumbai','Petrochemical Import','Hindi · English']},
+  {i:'WZ',n:'Wei Zhang',r:'China & East Asia Director',l:'Shanghai, China',sz:'400×400 px',b:'13 years in cross-border trade along the Silk Road. Oversees Transit Gold partnerships with Chinese logistics firms and rail container flows.',sk:['Belt & Road','China Customs','Rail Silk Road','Mandarin · English']}
 ];
-
-function buildTeam() {
-  const grid = document.getElementById('teamGrid');
-  teamMembers.forEach((m,i) => {
-    grid.innerHTML += `
-    <div class="team-card fade-up" onclick="openModal(${i})">
-      <div class="team-photo-placeholder">
-        <div class="team-avatar-initials">${m.initials}</div>
-        <div class="team-photo-size">Photo: ${m.photoSize}</div>
-      </div>
-      <div class="team-body">
-        <div class="team-name">${m.name}</div>
-        <div class="team-role">${m.role}</div>
-        <div class="team-bio-short">${m.location}</div>
-        <button class="team-expand-btn">View Profile →</button>
-      </div>
-    </div>`;
+(function buildTeam(){
+  const g=document.getElementById('tGrid');
+  TD.forEach((m,i)=>{
+    const d=document.createElement('div');
+    d.className='team-card fu';
+    d.onclick=()=>openM(i);
+    d.innerHTML=`<div class="team-photo"><div class="team-initials">${m.i}</div><div class="team-psize">Photo: ${m.sz}</div><div class="team-ov"><span class="team-ov-txt">View Profile →</span></div></div><div class="team-body"><div class="team-name">${m.n}</div><div class="team-role">${m.r}</div><div class="team-loc">📍 ${m.l}</div><button class="team-btn">View Profile →</button></div>`;
+    g.appendChild(d);
   });
-}
-buildTeam();
+})();
+function openM(i){const m=TD[i];document.getElementById('mAv').textContent=m.i;document.getElementById('mName').textContent=m.n;document.getElementById('mRole').textContent=m.r;document.getElementById('mLoc').textContent='📍 '+m.l;document.getElementById('mSz').textContent=m.sz;document.getElementById('mBio').textContent=m.b;document.getElementById('mSk').innerHTML=m.sk.map(s=>`<span class="modal-skill">${s}</span>`).join('');document.getElementById('tModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeM(){document.getElementById('tModal').classList.remove('open');document.body.style.overflow='';}
 
-function openModal(i) {
-  const m = teamMembers[i];
-  document.getElementById('modalAvatar').textContent = m.initials;
-  document.getElementById('modalName').textContent = m.name;
-  document.getElementById('modalRole').textContent = m.role;
-  document.getElementById('modalLoc').textContent = m.location + '  ·  Photo: ' + m.photoSize;
-  document.getElementById('modalBio').textContent = m.bio;
-  document.getElementById('modalSkills').innerHTML = m.skills.map(s=>`<span class="modal-skill">${s}</span>`).join('');
-  document.getElementById('teamModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal() {
-  document.getElementById('teamModal').classList.remove('open');
-  document.body.style.overflow='';
-}
+/* SCROLL ANIMATIONS */
+const io=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*65);});},{threshold:.08});
+document.querySelectorAll('.fu').forEach(el=>io.observe(el));
 
-/* ========== SCROLL ANIMATIONS ========== */
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting) {
-      setTimeout(()=>e.target.classList.add('visible'), i*80);
-    }
-  });
-},{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+/* COUNTERS */
+const CD=[{id:'c1',v:12,s:'+'},{id:'c2',v:850,s:'+'},{id:'c3',v:18,s:''},{id:'c4',v:98,s:'%'}];
+const cio=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){CD.forEach(c=>{const el=document.getElementById(c.id);if(!el)return;let n=0;const st=c.v/55;const t=setInterval(()=>{n+=st;if(n>=c.v){n=c.v;clearInterval(t);}el.textContent=Math.floor(n)+c.s;},22);});cio.disconnect();}});},{threshold:.3});
+const sb=document.querySelector('.stats-bar');if(sb)cio.observe(sb);
 
-/* ========== COUNTER ANIMATION ========== */
-const counters = [{id:'cnt1',target:12,suffix:'+'},{id:'cnt2',target:850,suffix:'+'},{id:'cnt3',target:18,suffix:''},{id:'cnt4',target:98,suffix:'%'}];
-const cObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      counters.forEach(c=>{
-        const el=document.getElementById(c.id); if(!el)return;
-        let v=0; const step=c.target/60;
-        const t=setInterval(()=>{
-          v+=step; if(v>=c.target){v=c.target;clearInterval(t);}
-          el.textContent=Math.floor(v)+c.suffix;
-        },25);
-      });
-      cObs.disconnect();
-    }
-  });
-},{threshold:0.3});
-const sb=document.querySelector('.stats-bar');
-if(sb)cObs.observe(sb);
+/* HEADER SCROLL */
+window.addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('scrolled',scrollY>60));
 
-/* ========== TRANSLATIONS ========== */
-const i18n = {
-  en:{
-    nav_services:'Services',nav_routes:'Routes',nav_why:'Why Us',nav_team:'Team',nav_track:'Tracking',nav_contact:'Contact',
-    hero_badge:'● Active since 2013 · Mashhad, Iran',
-    hero_title1:'Your Cargo,',hero_title2:'Our Guarantee',
-    hero_desc:'Container transit, fuel, gas & petrochemical cargo from Iran to neighboring countries by truck, train or sea — with over a decade of proven expertise.',
-    hero_cta1:'→ Request a Quote',hero_cta2:'📍 Track Shipment',
-    stat1:'Years Experience',stat2:'Clients Served',stat3:'Active Routes',
-    sbar1:'Years of International Logistics',sbar2:'Satisfied Business Clients',sbar3:'Active Corridors & Routes',sbar4:'On-Time Delivery Rate',
-    svc_eye:'Our Services',svc_title:'End-to-End Logistics Solutions',svc_desc:'From Iran\'s borders to global destinations — by road, rail, and sea.',
-    s1_title:'Container Transit',s1_desc:'Full (FCL) and partial (LCL) container shipments across Iran\'s road and rail network to Turkey, Iraq, Afghanistan, Pakistan and Central Asia.',
-    s2_title:'Fuel & Gas Export',s2_desc:'Export of diesel, LPG and natural gas to Iraq, Afghanistan, Armenia and Turkey.',
-    s3_title:'Petrochemicals',s3_desc:'Bulk export of petrochemical products — polymers, methanol, urea — from Bandar Abbas to India, China and Southeast Asia.',
-    s4_title:'Rail Freight',s4_desc:'INSTC and Silk Road rail corridors — India to Russia via Iran, and China to Europe via Central Asia.',
-    s5_title:'Customs Clearance',s5_desc:'Full customs brokerage across all Iranian border crossings with a certified legal team.',
-    s6_title:'Cargo Insurance',s6_desc:'Comprehensive all-risk insurance for every shipment with rapid international claims processing.',
-    map_eye:'Trade Corridors',map_title:'Iran\'s Export & Import Network',map_desc:'Live routes: containers, fuel, petrochemicals — from Iran to neighboring countries and beyond.',
-    leg1:'Container / General Cargo',leg2:'Petrochemicals (Sea/Rail)',leg3:'Fuel & Gas (Truck/Rail)',
-    why_eye:'Why Transit Gold',why_title:'The Difference is in the Details',why_desc:'A decade of on-the-ground expertise across Iran\'s border crossings.',
-    wf1t:'Full Cargo Insurance',wf1d:'Every shipment covered all-risk, from pickup to final delivery.',
-    wf2t:'Real-Time GPS Tracking',wf2d:'Live location for all trucks and trains. WhatsApp, SMS and web portal updates 24/7.',
-    wf3t:'Priority Border Clearance',wf3d:'Dedicated agents at Bazargan, Mehran, Islam Qala and Mirjaveh.',
-    wf4t:'Long-Term Contract Benefits',wf4d:'Volume discounts and dedicated account manager for regular partners.',
-    wb1:'Quote Response Time',wb2:'Global Partners',wb3:'Shipments Handled',wb4:'Client Rating',
-    testi_eye:'Client Reviews',testi_title:'What Our Clients Say',
-    team_eye:'Leadership',team_title:'Meet Our Management Team',team_desc:'Click on any team member to learn more about their background.',
-    track_eye:'Live Tracking',track_title:'Track Your Shipment',
-    track_h3:'Real-Time Cargo Intelligence',track_p:'Enter your tracking code to see live location, customs status and estimated delivery.',
-    tf1:'GPS live location on map',tf2:'Customs clearance status',tf3:'Estimated time of arrival',tf4:'WhatsApp & SMS notifications',
-    track_ph1:'Tracking code (e.g. TG-2024-001234)',track_ph2:'Company name (optional)',
-    track_btn:'🔍 Track Shipment',track_note:'Need a tracking code? Contact: +98 915 529 1700',
-    cta_title:'Ready to Move Your Cargo?',cta_desc:'Get a quote in 48 hours. Our team is available around the clock.',
-    cta_call:'📞 +98 915 529 1700',cta_form:'Send Inquiry →',
-    hc1_title:'Container Transit',hc1_sub:'Containers dispatched per year',hc2_sub:'Tons of fuel/petrochem exported',hc3_sub:'On-time delivery rate',
-    foot_desc:'International container transit, fuel, gas and petrochemical logistics from Iran to neighboring countries.',
-    foot_s1:'Services',foot_s2:'Corridors',foot_s3:'Company',
-    fs1:'Container Transit',fs2:'Fuel & Gas',fs3:'Petrochemicals',fs4:'Rail Freight',fs5:'Customs',
-    fc1:'Why Us',fc2:'Our Team',fc3:'Reviews',fc4:'Track Shipment',fc5:'Contact',
-    foot_copy:'© 2025 Transit Gold · All rights reserved',foot_made:'Made with ❤️ in Mashhad, Iran',
-  },
-  fa:{
-    nav_services:'خدمات',nav_routes:'مسیرها',nav_why:'چرا ما',nav_team:'تیم',nav_track:'پیگیری بار',nav_contact:'تماس',
-    hero_badge:'● فعال از سال ۱۳۹۲ · مشهد، ایران',
-    hero_title1:'بار شما،',hero_title2:'اطمینان ما',
-    hero_desc:'ترانزیت کانتینری، سوخت، گاز و مواد پتروشیمی از ایران به کشورهای همسایه با تریلی، قطار یا دریا — با بیش از یک دهه تجربه.',
-    hero_cta1:'→ درخواست قیمت',hero_cta2:'📍 پیگیری بار',
-    stat1:'سال تجربه',stat2:'مشتری راضی',stat3:'مسیر فعال',
-    sbar1:'سال در لجستیک بین‌الملل',sbar2:'مشتری تجاری راضی',sbar3:'کریدور و مسیر فعال',sbar4:'نرخ تحویل به موقع',
-    svc_eye:'خدمات ما',svc_title:'راه‌حل‌های جامع لجستیک',svc_desc:'از مرزهای ایران به مقاصد جهانی — زمینی، ریلی و دریایی.',
-    s1_title:'ترانزیت کانتینری',s1_desc:'ارسال کانتینر کامل (FCL) و نیمه‌کامل (LCL) از طریق شبکه جاده‌ای و ریلی ایران به ترکیه، عراق، افغانستان، پاکستان و آسیای میانه.',
-    s2_title:'صادرات سوخت و گاز',s2_desc:'صادرات گازوئیل، LPG و گاز طبیعی به عراق، افغانستان، ارمنستان و ترکیه.',
-    s3_title:'پتروشیمی',s3_desc:'صادرات انبوه محصولات پتروشیمی — پلیمرها، متانول، اوره — از بندرعباس به هند، چین و جنوب‌شرقی آسیا.',
-    s4_title:'باربری ریلی',s4_desc:'کریدورهای ریلی INSTC و جاده ابریشم — از هند به روسیه از طریق ایران و از چین به اروپا.',
-    s5_title:'ترخیص گمرکی',s5_desc:'خدمات کامل گمرکی در تمامی گمرکات مرزی ایران با تیم حقوقی مجاز.',
-    s6_title:'بیمه بار',s6_desc:'بیمه جامع تمام‌خطر برای هر محموله با پردازش سریع خسارت.',
-    map_eye:'کریدورهای تجاری',map_title:'شبکه صادرات و واردات ایران',map_desc:'مسیرهای فعال: کانتینر، سوخت، پتروشیمی — از ایران به کشورهای همسایه و فراتر.',
-    leg1:'کانتینر / بار عمومی',leg2:'پتروشیمی (دریایی/ریلی)',leg3:'سوخت و گاز (تریلی/ریل)',
-    why_eye:'چرا ترانزیت گلد',why_title:'تفاوت در جزئیات است',why_desc:'یک دهه تجربه عملی در مرزهای ایران — بر اساس روابط، سرعت و قابلیت اطمینان.',
-    wf1t:'بیمه کامل بار',wf1d:'هر محموله تمام‌خطر، از تحویل تا دریافت نهایی.',
-    wf2t:'پیگیری GPS لحظه‌ای',wf2d:'موقعیت زنده همه تریلی‌ها و قطارها. اطلاع‌رسانی واتساپ و SMS.',
-    wf3t:'ترخیص اولویتی گمرک',wf3d:'نمایندگان اختصاصی در بازرگان، مهران، اسلام قلعه و میرجاوه.',
-    wf4t:'مزایای قرارداد بلندمدت',wf4d:'تخفیف حجمی و مدیر حساب اختصاصی برای شرکای ثابت.',
-    wb1:'زمان پاسخ به استعلام',wb2:'شریک جهانی',wb3:'محموله ارسالی',wb4:'امتیاز مشتریان',
-    testi_eye:'نظرات مشتریان',testi_title:'مشتریان ما چه می‌گویند',
-    team_eye:'مدیریت',team_title:'با تیم مدیریتی ما آشنا شوید',team_desc:'روی هر کارت کلیک کنید تا بیشتر بدانید.',
-    track_eye:'پیگیری زنده',track_title:'بار خود را پیگیری کنید',
-    track_h3:'اطلاعات لحظه‌ای بار',track_p:'کد رهگیری خود را وارد کنید تا موقعیت زنده، وضعیت گمرک و زمان تخمینی تحویل را ببینید.',
-    tf1:'موقعیت GPS روی نقشه',tf2:'وضعیت ترخیص گمرکی',tf3:'زمان تخمینی تحویل',tf4:'اطلاع‌رسانی واتساپ و پیامک',
-    track_ph1:'کد رهگیری (مثال: TG-2024-001234)',track_ph2:'نام شرکت (اختیاری)',
-    track_btn:'🔍 پیگیری بار',track_note:'برای دریافت کد رهگیری تماس بگیرید: ۰۹۱۵-۵۲۹-۱۷۰۰',
-    cta_title:'آماده ارسال بار هستید؟',cta_desc:'ظرف ۴۸ ساعت قیمت دریافت کنید. تیم ما ۲۴ ساعته در دسترس است.',
-    cta_call:'📞 ۰۹۱۵-۵۲۹-۱۷۰۰',cta_form:'ارسال استعلام →',
-    hc1_title:'ترانزیت کانتینری',hc1_sub:'کانتینر ارسالی در سال',hc2_sub:'تن سوخت/پتروشیمی صادرشده',hc3_sub:'نرخ تحویل به موقع',
-    foot_desc:'ترانزیت بین‌المللی کانتینر، سوخت، گاز و پتروشیمی از ایران به کشورهای همسایه.',
-    foot_s1:'خدمات',foot_s2:'مسیرها',foot_s3:'شرکت',
-    fs1:'ترانزیت کانتینری',fs2:'سوخت و گاز',fs3:'پتروشیمی',fs4:'باربری ریلی',fs5:'گمرک',
-    fc1:'چرا ما',fc2:'تیم ما',fc3:'نظرات',fc4:'پیگیری بار',fc5:'تماس',
-    foot_copy:'© ۱۴۰۴ ترانزیت گلد · تمامی حقوق محفوظ',foot_made:'ساخته شده با ❤️ در مشهد، ایران',
-  },
-  ar:{
-    nav_services:'الخدمات',nav_routes:'المسارات',nav_why:'لماذا نحن',nav_team:'الفريق',nav_track:'تتبع الشحنة',nav_contact:'اتصل بنا',
-    hero_badge:'● نشط منذ 2013 · مشهد، إيران',
-    hero_title1:'شحنتك،',hero_title2:'ضماننا',
-    hero_desc:'ترانزيت الحاويات والوقود والغاز والبتروكيماويات من إيران إلى الدول المجاورة — بخبرة تزيد عن عقد كامل.',
-    hero_cta1:'→ طلب عرض سعر',hero_cta2:'📍 تتبع الشحنة',
-    stat1:'سنوات خبرة',stat2:'عملاء نشطين',stat3:'مسارات فعالة',
-    sbar1:'سنوات في الخدمات اللوجستية الدولية',sbar2:'عميل أعمال راضٍ',sbar3:'ممرات ومسارات فعالة',sbar4:'معدل التسليم في الوقت المحدد',
-    svc_eye:'خدماتنا',svc_title:'حلول لوجستية متكاملة',svc_desc:'من حدود إيران إلى الوجهات العالمية.',
-    cta_title:'مستعد لشحن بضائعك؟',cta_desc:'احصل على عرض أسعار في 48 ساعة.',
-    cta_call:'📞 +98 915 529 1700',cta_form:'إرسال استفسار →',
-    foot_copy:'© 2025 Transit Gold · جميع الحقوق محفوظة',
-  },
-  zh:{
-    nav_services:'服务',nav_routes:'路线',nav_why:'为什么选我们',nav_team:'团队',nav_track:'货物追踪',nav_contact:'联系我们',
-    hero_badge:'● 自2013年运营 · 伊朗马什哈德',
-    hero_title1:'您的货物，',hero_title2:'我们的保障',
-    hero_desc:'通过卡车、火车或海运，将集装箱货物、燃料、天然气和石化产品从伊朗运往邻国——拥有十年以上的丰富经验。',
-    hero_cta1:'→ 获取报价',hero_cta2:'📍 货物追踪',
-    stat1:'年经验',stat2:'服务客户',stat3:'活跃路线',
-    cta_title:'准备好运输您的货物了吗？',cta_desc:'48小时内获得报价，我们的团队全天候待命。',
-    cta_call:'📞 +98 915 529 1700',cta_form:'发送询盘 →',
-    foot_copy:'© 2025 Transit Gold · 版权所有',
-  },
-  hi:{
-    nav_services:'सेवाएं',nav_routes:'मार्ग',nav_why:'क्यों चुनें',nav_team:'टीम',nav_track:'शिपमेंट ट्रैक',nav_contact:'संपर्क करें',
-    hero_badge:'● 2013 से सक्रिय · मशहद, ईरान',
-    hero_title1:'आपका माल,',hero_title2:'हमारी गारंटी',
-    hero_desc:'कंटेनर ट्रांजिट, ईंधन, गैस और पेट्रोकेमिकल कार्गो ईरान से पड़ोसी देशों तक — एक दशक से अधिक की विशेषज्ञता के साथ।',
-    hero_cta1:'→ कोटेशन लें',hero_cta2:'📍 शिपमेंट ट्रैक करें',
-    stat1:'वर्षों का अनुभव',stat2:'संतुष्ट ग्राहक',stat3:'सक्रिय मार्ग',
-    cta_title:'अपना माल भेजने के लिए तैयार?',cta_desc:'48 घंटे में कोटेशन पाएं।',
-    cta_call:'📞 +98 915 529 1700',cta_form:'पूछताछ भेजें →',
-    foot_copy:'© 2025 Transit Gold · सर्वाधिकार सुरक्षित',
-  },
-  ur:{
-    nav_services:'خدمات',nav_routes:'راستے',nav_why:'کیوں ہم',nav_team:'ٹیم',nav_track:'شپمنٹ ٹریک',nav_contact:'رابطہ کریں',
-    hero_badge:'● 2013 سے فعال · مشہد، ایران',
-    hero_title1:'آپ کا کارگو،',hero_title2:'ہماری گارنٹی',
-    hero_desc:'کنٹینر ٹرانزٹ، ایندھن، گیس اور پیٹروکیمیکل کارگو ایران سے پڑوسی ممالک تک — دس سال سے زیادہ کے تجربے کے ساتھ۔',
-    hero_cta1:'→ قیمت درخواست کریں',hero_cta2:'📍 شپمنٹ ٹریک کریں',
-    stat1:'سال کا تجربہ',stat2:'مطمئن کلائنٹس',stat3:'فعال راستے',
-    cta_title:'اپنا مال بھیجنے کے لیے تیار؟',cta_desc:'48 گھنٹوں میں قیمت پائیں۔',
-    cta_call:'📞 +98 915 529 1700',cta_form:'استفسار بھیجیں →',
-    foot_copy:'© 2025 Transit Gold · جملہ حقوق محفوظ ہیں',
-  },
-  hy:{
-    nav_services:'Ծառայություններ',nav_routes:'Երթուղիներ',nav_why:'Ինչու մենք',nav_team:'Թիմ',nav_track:'Հետևել բեռին',nav_contact:'Կապ',
-    hero_badge:'● Գործում է 2013-ից · Մաշհադ, Իրան',
-    hero_title1:'Ձեր բեռը,',hero_title2:'Մեր երաշխիքն',
-    hero_desc:'Կոնտեյներային տրանզիտ, վառելիք, գազ և նավթաքիմիական բեռ Իրանից դեպի հարևան երկրներ — ավելի քան մեկ տասնամյակ փորձով:',
-    hero_cta1:'→ Ստացեք գնանշում',hero_cta2:'📍 Հետևել բեռին',
-    stat1:'Տարվա փորձ',stat2:'Հաճախորդ',stat3:'Ակտիվ երթուղի',
-    cta_title:'Պատրա՞ ստ եք ուղարկել ձեր բեռը:',cta_desc:'Ստացեք գնանշում 48 ժամում:',
-    cta_call:'📞 +98 915 529 1700',cta_form:'Ուղարկել հարցում →',
-    foot_copy:'© 2025 Transit Gold · Բոլոր իրավունքները պաhպանված են',
-  },
-  tr:{
-    nav_services:'Hizmetler',nav_routes:'Güzergahlar',nav_why:'Neden Biz',nav_team:'Ekip',nav_track:'Gönderi Takip',nav_contact:'İletişim',
-    hero_badge:'● 2013\'ten beri aktif · Meşhed, İran',
-    hero_title1:'Kargonuz,',hero_title2:'Güvencemiz',
-    hero_desc:'İran\'dan komşu ülkelere konteyner transitı, yakıt, gaz ve petrokimyasal kargo — on yılı aşkın kanıtlanmış uzmanlıkla.',
-    hero_cta1:'→ Teklif İste',hero_cta2:'📍 Gönderiyi Takip Et',
-    stat1:'Yıllık Deneyim',stat2:'Memnun Müşteri',stat3:'Aktif Güzergah',
-    cta_title:'Kargonuzu Taşımaya Hazır mısınız?',cta_desc:'48 saat içinde fiyat teklifi alın.',
-    cta_call:'📞 +98 915 529 1700',cta_form:'Talep Gönder →',
-    foot_copy:'© 2025 Transit Gold · Tüm hakları saklıdır',
-  },
-  ko:{
-    nav_services:'서비스',nav_routes:'노선',nav_why:'왜 우리인가',nav_team:'팀',nav_track:'화물 추적',nav_contact:'문의',
-    hero_badge:'● 2013년부터 운영 · 이란 마슈하드',
-    hero_title1:'귀하의 화물,',hero_title2:'우리의 보장',
-    hero_desc:'이란에서 인접국까지 컨테이너 운송, 연료, 가스 및 석유화학 화물 — 10년 이상의 검증된 전문성.',
-    hero_cta1:'→ 견적 요청',hero_cta2:'📍 화물 추적',
-    stat1:'년 경험',stat2:'고객사',stat3:'활성 노선',
-    cta_title:'화물 운송 준비 되셨나요?',cta_desc:'48시간 내에 견적을 받으세요.',
-    cta_call:'📞 +98 915 529 1700',cta_form:'문의 보내기 →',
-    foot_copy:'© 2025 Transit Gold · All rights reserved',
-  },
-  ja:{
-    nav_services:'サービス',nav_routes:'ルート',nav_why:'なぜ私たち',nav_team:'チーム',nav_track:'貨物追跡',nav_contact:'お問い合わせ',
-    hero_badge:'● 2013年から運営 · イラン・マシュハド',
-    hero_title1:'お客様の貨物、',hero_title2:'私たちの保証',
-    hero_desc:'イランから隣国へのコンテナ輸送、燃料、ガス、石油化学製品の貨物輸送 — 10年以上の実績。',
-    hero_cta1:'→ 見積もりを依頼',hero_cta2:'📍 貨物を追跡',
-    stat1:'年の経験',stat2:'顧客数',stat3:'活動ルート',
-    cta_title:'貨物を輸送する準備はできていますか？',cta_desc:'48時間以内に見積もりをお届けします。',
-    cta_call:'📞 +98 915 529 1700',cta_form:'お問い合わせ →',
-    foot_copy:'© 2025 Transit Gold · All rights reserved',
-  }
+/* MOBILE */
+function toggleMob(){document.getElementById('mmenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mmenu').classList.contains('open')?'hidden':'';}
+function closeMob(){document.getElementById('mmenu').classList.remove('open');document.body.style.overflow='';}
+
+/* LANG DROPDOWN */
+function toggleLD(){document.getElementById('ldd').classList.toggle('open');document.getElementById('lpBtn').classList.toggle('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.lang-wrap')){document.getElementById('ldd').classList.remove('open');document.getElementById('lpBtn').classList.remove('open');}});
+
+/* I18N DATA */
+const T={
+en:{flag:'🇺🇸',name:'EN',nav_s:'Services',nav_r:'Routes',nav_w:'Why Us',nav_t:'Team',nav_tr:'Tracking',nav_c:'Get a Quote',h_badge:'Established 2013 · Mashhad, Iran',h_t1:'Your Cargo.',h_t2:'Our Guarantee.',h_desc:'Container transit, fuel, natural gas and petrochemical cargo from Iran to neighboring countries — by truck, train or sea. Trusted by 850+ clients across 18 active corridors.',h_c1:'Request a Quote',h_c2:'Track Shipment',hs1:'Years Experience',hs2:'Active Clients',hs3:'Trade Corridors',sb1:'Years in Logistics',sb2:'Satisfied Clients',sb3:'Active Corridors',sb4:'On-Time Delivery',se1:'Our Services',st1:'Complete Logistics Solutions',sd1:"From Iran's borders to global markets — reliable, insured, and on time.",s1t:'Container Transit',s1d:"FCL and LCL shipments via Iran's road and rail network to Turkey, Iraq, Afghanistan, Pakistan and Central Asia. TIR Convention compliant.",s2t:'Fuel & Gas Export',s2d:'Diesel, LPG and natural gas export to Iraq, Afghanistan, Armenia and Turkey via ADR-certified tanker trucks and rail wagons.',s3t:'Petrochemicals',s3d:'Bulk export of polymers, methanol and urea from Bandar Abbas to India, China and Southeast Asia.',s4t:'Rail Freight',s4d:'INSTC North–South corridor (India–Iran–Russia) and Silk Road rail (China–Central Asia–Europe).',s5t:'Customs Clearance',s5d:'Full customs brokerage at Bazargan, Mehran, Islam Qala and Mirjaveh with IRICA-certified specialists.',s6t:'Cargo Insurance',s6d:'All-risk marine and road cargo insurance on every shipment with rapid international claims processing.',se2:'Trade Corridors',st2:'Iran Export & Import Network',sd2:'Active road, rail and sea routes — containers, fuel and petrochemicals from Iran to the world.',l1:'Road · Truck / TIR',l2:'Rail · INSTC / Silk Road',l3:'Sea · Persian Gulf / Indian Ocean',se3:'Why Transit Gold',st3:'The Difference is in the Details',sd3:"A decade of on-the-ground expertise at Iran's busiest border crossings.",wb_b:'On-time delivery',wf1t:'Full Cargo Insurance',wf1d:'Every shipment covered all-risk from pickup to final delivery.',wf2t:'Real-Time GPS Tracking',wf2d:'Live location for all trucks and trains. WhatsApp, SMS and web portal 24/7.',wf3t:'Priority Border Clearance',wf3d:'Dedicated agents at Bazargan, Mehran, Islam Qala and Mirjaveh.',wf4t:'Dedicated Account Management',wf4d:'Volume discounts and named account manager for long-term partners.',se4:'Client Reviews',st4:'Trusted by Businesses Across the Region',se5:'Leadership',st5:'Our Management Team',sd5:'Click any card to view full profile.',se6:'Live Tracking',st6:'Track Your Shipment',trh:'Real-Time Cargo Intelligence',trp:'Enter your tracking code to see GPS location, customs status and estimated arrival time.',tr_ph1:'Tracking code — e.g. TG-2024-001234',tr_ph2:'Company name (optional)',tr_btn:'Track Shipment',tr_note:'Need a code? Call: +98 915 529 1700',tf1:'GPS live position on map',tf2:'Customs clearance status',tf3:'Estimated time of arrival',tf4:'WhatsApp & SMS notifications',ct_t:'Ready to Move Your Cargo?',ct_d:'Get a quote within 48 hours. Our team is available around the clock.',ct_c:'Call +98 915 529 1700',ct_f:'Send an Inquiry',hvc1t:'Container Transit',hvc1s:'Containers handled per year',hvc2t:'Fuel & Petrochem',hvc2s:'Tonnes exported annually',fd:'International container transit, fuel, gas and petrochemical logistics from Iran.',fc1:'Services',fc2:'Corridors',fc3:'Company',f_c:'© 2025 Transit Gold · All rights reserved',f_m:'Mashhad, Iran · Est. 2013'},
+fa:{flag:'🇮🇷',name:'FA',dir:'rtl',nav_s:'خدمات',nav_r:'مسیرها',nav_w:'چرا ما',nav_t:'تیم',nav_tr:'پیگیری بار',nav_c:'درخواست قیمت',h_badge:'فعال از ۱۳۹۲ · مشهد، ایران',h_t1:'بار شما.',h_t2:'اطمینان ما.',h_desc:'ترانزیت کانتینری، سوخت، گاز طبیعی و مواد پتروشیمی از ایران به کشورهای همسایه — با تریلی، قطار یا دریا.',h_c1:'درخواست قیمت',h_c2:'پیگیری بار',hs1:'سال تجربه',hs2:'مشتری فعال',hs3:'کریدور تجاری',sb1:'سال در لجستیک',sb2:'مشتری راضی',sb3:'مسیر فعال',sb4:'تحویل به موقع',se1:'خدمات ما',st1:'راه‌حل‌های جامع لجستیک',sd1:'از مرزهای ایران به بازارهای جهانی — مطمئن، بیمه‌شده و به موقع.',s1t:'ترانزیت کانتینری',s1d:'ارسال کانتینر کامل و نیمه‌کامل از طریق شبکه جاده‌ای و ریلی ایران به ترکیه، عراق، افغانستان، پاکستان و آسیای میانه.',s2t:'صادرات سوخت و گاز',s2d:'صادرات گازوئیل، LPG و گاز طبیعی به عراق، افغانستان، ارمنستان و ترکیه با تانکرهای مجاز ADR.',s3t:'پتروشیمی',s3d:'صادرات انبوه پلیمرها، متانول و اوره از بندرعباس به هند، چین و جنوب‌شرق آسیا.',s4t:'باربری ریلی',s4d:'کریدور شمال-جنوب INSTC (هند-ایران-روسیه) و ریل جاده ابریشم.',s5t:'ترخیص گمرکی',s5d:'خدمات کامل گمرکی در بازرگان، مهران، اسلام قلعه و میرجاوه با متخصصان مجاز IRICA.',s6t:'بیمه بار',s6d:'بیمه تمام‌خطر دریایی و زمینی برای هر محموله.',se2:'کریدورهای تجاری',st2:'شبکه صادرات و واردات ایران',sd2:'مسیرهای فعال زمینی، ریلی و دریایی — از ایران به جهان.',l1:'جاده‌ای · تریلی / TIR',l2:'ریلی · INSTC / جاده ابریشم',l3:'دریایی · خلیج فارس / اقیانوس هند',se3:'چرا ترانزیت گلد',st3:'تفاوت در جزئیات است',sd3:'یک دهه تجربه عملی در مرزهای پرتردد ایران.',wb_b:'نرخ تحویل به موقع',wf1t:'بیمه کامل بار',wf1d:'هر محموله از تحویل تا دریافت نهایی تحت پوشش تمام‌خطر.',wf2t:'پیگیری GPS لحظه‌ای',wf2d:'موقعیت زنده همه تریلی‌ها و قطارها. واتساپ، پیامک و پورتال وب ۲۴/۷.',wf3t:'ترخیص اولویتی گمرک',wf3d:'نمایندگان اختصاصی در بازرگان، مهران، اسلام قلعه و میرجاوه.',wf4t:'مدیریت حساب اختصاصی',wf4d:'تخفیف حجمی و مدیر حساب اختصاصی برای شرکای بلندمدت.',se4:'نظرات مشتریان',st4:'مورد اعتماد کسب‌وکارهای سراسر منطقه',se5:'مدیریت',st5:'تیم مدیریتی ما',sd5:'روی هر کارت کلیک کنید تا پروفایل کامل را ببینید.',se6:'پیگیری زنده',st6:'بار خود را پیگیری کنید',trh:'اطلاعات لحظه‌ای بار',trp:'کد رهگیری خود را وارد کنید تا موقعیت GPS، وضعیت گمرک و زمان تخمینی تحویل را ببینید.',tr_ph1:'کد رهگیری — مثال: TG-2024-001234',tr_ph2:'نام شرکت (اختیاری)',tr_btn:'پیگیری بار',tr_note:'برای دریافت کد تماس بگیرید: ۰۹۱۵-۵۲۹-۱۷۰۰',tf1:'موقعیت GPS روی نقشه',tf2:'وضعیت ترخیص گمرکی',tf3:'زمان تخمینی تحویل',tf4:'هشدار واتساپ و پیامک',ct_t:'آماده ارسال بار هستید؟',ct_d:'ظرف ۴۸ ساعت قیمت دریافت کنید. تیم ما ۲۴ ساعته در دسترس است.',ct_c:'تماس: ۰۹۱۵-۵۲۹-۱۷۰۰',ct_f:'ارسال استعلام',hvc1t:'ترانزیت کانتینری',hvc1s:'کانتینر ارسالی در سال',hvc2t:'سوخت و پتروشیمی',hvc2s:'تن صادرشده در سال',fd:'ترانزیت بین‌المللی کانتینر، سوخت، گاز و پتروشیمی از ایران.',fc1:'خدمات',fc2:'مسیرها',fc3:'شرکت',f_c:'© ۱۴۰۴ ترانزیت گلد · تمامی حقوق محفوظ',f_m:'مشهد، ایران · تأسیس ۱۳۹۲'},
+ar:{flag:'🇸🇦',name:'AR',dir:'rtl',nav_s:'الخدمات',nav_r:'المسارات',nav_w:'لماذا نحن',nav_t:'الفريق',nav_tr:'تتبع الشحنة',nav_c:'اطلب عرض سعر',h_badge:'منذ 2013 · مشهد، إيران',h_t1:'شحنتك.',h_t2:'ضماننا.',h_desc:'ترانزيت الحاويات والوقود والغاز الطبيعي والبتروكيماويات من إيران إلى الدول المجاورة — بثقة أكثر من 850 عميل.',h_c1:'اطلب عرض سعر',h_c2:'تتبع الشحنة',hs1:'سنوات خبرة',hs2:'عملاء نشطون',hs3:'ممرات تجارية',sb1:'سنوات في اللوجستيك',sb2:'عميل راضٍ',sb3:'ممرات فعالة',sb4:'التسليم في الوقت',se1:'خدماتنا',st1:'حلول لوجستية متكاملة',sd1:'من حدود إيران إلى الأسواق العالمية.',s1t:'ترانزيت الحاويات',s2t:'تصدير الوقود والغاز',s3t:'البتروكيماويات',s4t:'الشحن بالقطار',s5t:'التخليص الجمركي',s6t:'تأمين الشحن',s1d:'شحنات FCL وLCL إلى تركيا والعراق وأفغانستان وباكستان.',s2d:'تصدير الديزل وغاز البترول المسال والغاز الطبيعي إلى العراق وأفغانستان وأرمينيا وتركيا.',s3d:'تصدير البوليمرات والميثانول واليوريا من بندر عباس.',s4d:'ممر INSTC وسكة الحرير.',s5d:'وساطة جمركية في جميع المعابر الإيرانية.',s6d:'تأمين شامل لجميع الشحنات.',se2:'الممرات التجارية',st2:'شبكة تصدير واستيراد إيران',sd2:'المسارات البرية والسككية والبحرية الفعالة.',l1:'برى · شاحنة / TIR',l2:'سككي · INSTC / طريق الحرير',l3:'بحري · الخليج الفارسي',se3:'لماذا ترانزيت جولد',st3:'الفرق في التفاصيل',sd3:'عقد من الخبرة الميدانية.',wb_b:'معدل التسليم في الوقت',wf1t:'تأمين شامل',wf1d:'كل شحنة مؤمنة بالكامل.',wf2t:'تتبع GPS فوري',wf2d:'الموقع المباشر. إشعارات واتساب ورسائل نصية.',wf3t:'تخليص جمركي ذو أولوية',wf3d:'مندوبون مخصصون في المعابر الرئيسية.',wf4t:'إدارة حساب مخصصة',wf4d:'خصومات على الحجم للشركاء.',se4:'آراء العملاء',st4:'موثوق به من الشركات في المنطقة',se5:'القيادة',st5:'فريق الإدارة',sd5:'انقر على أي بطاقة لعرض الملف الكامل.',se6:'التتبع المباشر',st6:'تتبع شحنتك',trh:'معلومات الشحنة الآنية',trp:'أدخل رمز التتبع.',tr_ph1:'رمز التتبع',tr_ph2:'اسم الشركة (اختياري)',tr_btn:'تتبع الشحنة',tr_note:'اتصل: +98 915 529 1700',tf1:'الموقع على الخريطة',tf2:'حالة التخليص الجمركي',tf3:'وقت الوصول المتوقع',tf4:'تنبيهات واتساب',ct_t:'هل أنت مستعد لشحن بضاعتك؟',ct_d:'احصل على عرض أسعار في 48 ساعة.',ct_c:'+98 915 529 1700',ct_f:'إرسال استفسار',hvc1t:'ترانزيت الحاويات',hvc1s:'حاويات سنوياً',hvc2t:'وقود وبتروكيماويات',hvc2s:'طن يُصدَّر سنوياً',fd:'لوجستيك دولي من إيران.',fc1:'الخدمات',fc2:'الممرات',fc3:'الشركة',f_c:'© 2025 Transit Gold',f_m:'مشهد، إيران · 2013'},
+zh:{flag:'🇨🇳',name:'ZH',nav_s:'服务',nav_r:'线路',nav_w:'为何选择我们',nav_t:'团队',nav_tr:'货物追踪',nav_c:'获取报价',h_badge:'成立于2013年 · 伊朗马什哈德',h_t1:'您的货物。',h_t2:'我们的保障。',h_desc:'通过卡车、火车或海运，将集装箱、燃料、天然气和石化产品从伊朗运往邻国——850+家客户的信赖。',h_c1:'获取报价',h_c2:'追踪货物',hs1:'年经验',hs2:'活跃客户',hs3:'贸易走廊',sb1:'年国际物流',sb2:'满意客户',sb3:'活跃走廊',sb4:'准时交货率',se1:'我们的服务',st1:'完整物流解决方案',sd1:'从伊朗边境到全球市场。',s1t:'集装箱运输',s2t:'燃料和天然气出口',s3t:'石化产品',s4t:'铁路货运',s5t:'清关服务',s6t:'货物保险',s1d:'通过伊朗公路和铁路网向土耳其、伊拉克、阿富汗、巴基斯坦和中亚运输。',s2d:'向伊拉克、阿富汗、亚美尼亚、土耳其出口柴油、液化石油气和天然气。',s3d:'从班达尔阿巴斯向印度、中国和东南亚出口聚合物、甲醇和尿素。',s4d:'INSTC南北走廊和丝绸之路铁路。',s5d:'在所有伊朗边境口岸提供完整清关服务。',s6d:'每批货物均有全险保障。',se2:'贸易走廊',st2:'伊朗进出口网络',sd2:'活跃的公路、铁路和海运线路。',l1:'公路（卡车/TIR）',l2:'铁路（INSTC/丝绸之路）',l3:'海运（波斯湾/印度洋）',se3:'为什么选择Transit Gold',st3:'差异在于细节',sd3:'十年在伊朗边境口岸的实地经验。',wb_b:'准时交货率',wf1t:'全额货物保险',wf1d:'每批货物均有全险保障。',wf2t:'实时GPS追踪',wf2d:'全天候WhatsApp和短信更新。',wf3t:'优先清关',wf3d:'所有边境口岸设有专属代理。',wf4t:'专属客户管理',wf4d:'长期合作伙伴享有批量折扣。',se4:'客户评价',st4:'深受区域内企业信赖',se5:'领导团队',st5:'我们的管理团队',sd5:'点击任意卡片查看完整档案。',se6:'实时追踪',st6:'追踪您的货物',trh:'实时货物信息',trp:'输入追踪代码。',tr_ph1:'追踪代码 — 例：TG-2024-001234',tr_ph2:'公司名称（可选）',tr_btn:'追踪货物',tr_note:'需要代码？致电：+98 915 529 1700',tf1:'地图实时GPS位置',tf2:'清关状态',tf3:'预计到达时间',tf4:'WhatsApp和短信提醒',ct_t:'准备好运输货物了吗？',ct_d:'48小时内获得报价。',ct_c:'+98 915 529 1700',ct_f:'发送询盘',hvc1t:'集装箱运输',hvc1s:'每年处理集装箱',hvc2t:'燃料和石化产品',hvc2s:'每年出口吨数',fd:'伊朗国际物流。',fc1:'服务',fc2:'走廊',fc3:'公司',f_c:'© 2025 Transit Gold · 版权所有',f_m:'伊朗马什哈德 · 成立2013'},
+hi:{flag:'🇮🇳',name:'HI',nav_s:'सेवाएं',nav_r:'मार्ग',nav_w:'क्यों हम',nav_t:'टीम',nav_tr:'ट्रैकिंग',nav_c:'कोटेशन पाएं',h_badge:'2013 से स्थापित · मशहद, ईरान',h_t1:'आपका माल।',h_t2:'हमारी गारंटी।',h_desc:'ईरान से पड़ोसी देशों तक कंटेनर ट्रांजिट, ईंधन, गैस और पेट्रोकेमिकल कार्गो।',h_c1:'कोटेशन लें',h_c2:'शिपमेंट ट्रैक करें',hs1:'वर्षों का अनुभव',hs2:'सक्रिय ग्राहक',hs3:'व्यापार गलियारे',sb1:'अंतर्राष्ट्रीय लॉजिस्टिक्स वर्ष',sb2:'संतुष्ट ग्राहक',sb3:'सक्रिय गलियारे',sb4:'समय पर डिलीवरी',se1:'हमारी सेवाएं',st1:'संपूर्ण लॉजिस्टिक्स समाधान',sd1:'ईरान की सीमाओं से वैश्विक बाजारों तक।',s1t:'कंटेनर ट्रांजिट',s2t:'ईंधन और गैस निर्यात',s3t:'पेट्रोकेमिकल्स',s4t:'रेल माल',s5t:'सीमा शुल्क निकासी',s6t:'कार्गो बीमा',s1d:'ईरान के सड़क और रेल नेटवर्क से तुर्की, इराक, अफगानिस्तान तक।',s2d:'डीजल, एलपीजी और प्राकृतिक गैस का निर्यात।',s3d:'पॉलिमर, मेथनॉल और यूरिया का थोक निर्यात।',s4d:'INSTC उत्तर-दक्षिण गलियारा।',s5d:'सभी ईरानी सीमा चौकियों पर पूर्ण सेवा।',s6d:'हर शिपमेंट के लिए सर्व-जोखिम बीमा।',se2:'व्यापार गलियारे',st2:'ईरान निर्यात और आयात नेटवर्क',sd2:'सक्रिय सड़क, रेल और समुद्री मार्ग।',l1:'सड़क (ट्रक/TIR)',l2:'रेल (INSTC)',l3:'समुद्र (फारस की खाड़ी)',se3:'Transit Gold क्यों',st3:'अंतर विवरण में है',sd3:'ईरान की सीमाओं पर एक दशक की विशेषज्ञता।',wb_b:'समय पर डिलीवरी दर',wf1t:'पूर्ण कार्गो बीमा',wf1d:'हर शिपमेंट पूरी तरह से कवर।',wf2t:'रियल-टाइम GPS',wf2d:'24/7 WhatsApp और SMS।',wf3t:'प्राथमिकता निकासी',wf3d:'सभी प्रमुख सीमा चौकियों पर एजेंट।',wf4t:'समर्पित खाता प्रबंधन',wf4d:'दीर्घकालिक भागीदारों के लिए छूट।',se4:'ग्राहक समीक्षाएं',st4:'क्षेत्र भर के व्यवसायों द्वारा विश्वसनीय',se5:'नेतृत्व',st5:'हमारी प्रबंधन टीम',sd5:'पूर्ण प्रोफाइल के लिए क्लिक करें।',se6:'लाइव ट्रैकिंग',st6:'शिपमेंट ट्रैक करें',trh:'रियल-टाइम जानकारी',trp:'ट्रैकिंग कोड दर्ज करें।',tr_ph1:'ट्रैकिंग कोड',tr_ph2:'कंपनी का नाम (वैकल्पिक)',tr_btn:'ट्रैक करें',tr_note:'कोड चाहिए? कॉल: +98 915 529 1700',tf1:'GPS लाइव स्थिति',tf2:'सीमा शुल्क स्थिति',tf3:'अनुमानित आगमन',tf4:'WhatsApp और SMS',ct_t:'माल भेजने के लिए तैयार?',ct_d:'48 घंटे में कोटेशन।',ct_c:'+98 915 529 1700',ct_f:'पूछताछ भेजें',hvc1t:'कंटेनर ट्रांजिट',hvc1s:'वार्षिक कंटेनर',hvc2t:'ईंधन और पेट्रोकेम',hvc2s:'वार्षिक टन निर्यात',fd:'ईरान से अंतर्राष्ट्रीय लॉजिस्टिक्स।',fc1:'सेवाएं',fc2:'गलियारे',fc3:'कंपनी',f_c:'© 2025 Transit Gold',f_m:'मशहद, ईरान · 2013'},
+ur:{flag:'🇵🇰',name:'UR',dir:'rtl',nav_s:'خدمات',nav_r:'راستے',nav_w:'کیوں ہم',nav_t:'ٹیم',nav_tr:'ٹریکنگ',nav_c:'قیمت حاصل کریں',h_badge:'2013 سے قائم · مشہد، ایران',h_t1:'آپ کا کارگو۔',h_t2:'ہماری ضمانت۔',h_desc:'ایران سے پڑوسی ممالک تک کنٹینر ٹرانزٹ، ایندھن، گیس اور پیٹروکیمیکل کارگو۔',h_c1:'قیمت حاصل کریں',h_c2:'شپمنٹ ٹریک کریں',hs1:'سال کا تجربہ',hs2:'فعال مؤکل',hs3:'تجارتی راہداری',sb1:'لاجسٹکس سال',sb2:'مطمئن مؤکل',sb3:'فعال راہداری',sb4:'بروقت ترسیل',se1:'ہماری خدمات',st1:'مکمل لاجسٹکس حل',sd1:'ایران کی سرحدوں سے عالمی منڈیوں تک۔',s1t:'کنٹینر ٹرانزٹ',s2t:'ایندھن اور گیس برآمد',s3t:'پیٹروکیمیکلز',s4t:'ریل فریٹ',s5t:'کسٹمز کلیئرنس',s6t:'کارگو انشورنس',s1d:'ایران کے سڑک اور ریل نیٹ ورک سے ترکی، عراق تک۔',s2d:'ڈیزل، LPG اور قدرتی گیس کا برآمد۔',s3d:'بندر عباس سے ہندوستان اور چین کو برآمد۔',s4d:'INSTC اور سلک روڈ ریل۔',s5d:'تمام ایرانی سرحدوں پر مکمل خدمات۔',s6d:'ہر شپمنٹ کے لیے جامع انشورنس۔',se2:'تجارتی راہداری',st2:'ایران درآمد و برآمد نیٹ ورک',sd2:'فعال سڑک، ریل اور بحری راستے۔',l1:'سڑک (ٹرک/TIR)',l2:'ریل (INSTC)',l3:'سمندر (خلیج فارس)',se3:'Transit Gold کیوں',st3:'فرق تفصیلات میں ہے',sd3:'ایران کی سرحدوں پر ایک دہائی کا تجربہ۔',wb_b:'بروقت ترسیل کی شرح',wf1t:'مکمل کارگو انشورنس',wf1d:'ہر شپمنٹ مکمل طور پر محفوظ۔',wf2t:'ریئل ٹائم GPS',wf2d:'24/7 WhatsApp اور SMS۔',wf3t:'ترجیحی کسٹمز',wf3d:'تمام سرحدی گزرگاہوں پر ایجنٹ۔',wf4t:'سرشار اکاؤنٹ مینجمنٹ',wf4d:'طویل مدتی شراکت داروں کے لیے چھوٹ۔',se4:'مؤکل جائزے',st4:'پورے خطے کے کاروباروں کا اعتماد',se5:'قیادت',st5:'ہماری انتظامی ٹیم',sd5:'مکمل پروفائل کے لیے کلک کریں۔',se6:'لائیو ٹریکنگ',st6:'شپمنٹ ٹریک کریں',trh:'ریئل ٹائم معلومات',trp:'ٹریکنگ کوڈ درج کریں۔',tr_ph1:'ٹریکنگ کوڈ',tr_ph2:'کمپنی کا نام (اختیاری)',tr_btn:'ٹریک کریں',tr_note:'کوڈ چاہیے؟ +98 915 529 1700',tf1:'GPS لائیو مقام',tf2:'کسٹمز کی حیثیت',tf3:'متوقع آمد',tf4:'WhatsApp اور SMS',ct_t:'مال بھیجنے کے لیے تیار؟',ct_d:'48 گھنٹوں میں قیمت پائیں۔',ct_c:'+98 915 529 1700',ct_f:'استفسار بھیجیں',hvc1t:'کنٹینر ٹرانزٹ',hvc1s:'سالانہ کنٹینر',hvc2t:'ایندھن اور پیٹروکیم',hvc2s:'سالانہ ٹن برآمد',fd:'ایران سے بین الاقوامی لاجسٹکس۔',fc1:'خدمات',fc2:'راستے',fc3:'کمپنی',f_c:'© 2025 Transit Gold',f_m:'مشہد، ایران · 2013'},
+hy:{flag:'🇦🇲',name:'HY',nav_s:'Ծառայություններ',nav_r:'Երթուղիներ',nav_w:'Ինչու մենք',nav_t:'Թիմ',nav_tr:'Բեռի հետևում',nav_c:'Ստանալ գնանշում',h_badge:'Հիմնադրվել 2013-ին · Մաշhad',h_t1:'Ձեր բեռը.',h_t2:'Մեր երաշխիքն.',h_desc:'Կոնtainer transit, վaarrakan, gaz u nefthimikakan bern Iranits.',h_c1:'Ստանալ գnаnšum',h_c2:'Heteqel bern',hs1:'Tari pntrum',hs2:'Aktiv hačenordner',hs3:'Arqaynagrutyunner',sb1:'Tari logistikayum',sb2:'Bavar hačenordner',sb3:'Aktiv koridor',sb4:'Žamanakin matum',se1:'Mer zarut\'yunn\'er',st1:'Amboghjje lojistik lutsumner',sd1:'Iranits minčev asshardayin šuker.',s1t:'Konteynеr Tranzit',s2t:'Varrakan u Gaz',s3t:'Neftеhimikakanner',s4t:'Erkat\'ughayin bern',s5t:'Maqsayin maqragut\'yun',s6t:'Berni apsahovagr',s1d:'FCL u LCL Turqia, Irak, Afganistan.',s2d:'Dizel, SYuG ev bnorak gaz.',s3d:'Polymer, metanol Hndkastanits.',s4d:'INSTC ev Šelkeghin ughi rail.',s5d:'Tamakan gumrqayin bnagr.',s6d:'Amboghjj apsahovagr.',se2:'Ardyunqayin koridorner',st2:'Irani ardyunqayin cerevoy',sd2:'Aktiv čanaparher.',l1:'Čanapaghayin (TIR)',l2:'Erkat\'ughayin (INSTC)',l3:'Cov (Parskakayi)',se3:'Inchu Transit Gold',st3:'Tarberut\'yunn e manoramasnerum',sd3:'Tas\'amyaki patmutyun Irani serhanerum.',wb_b:'Žamanakin matum',wf1t:'Lriv berni apsahovagr',wf1d:'Amboxhj bern apsahoved.',wf2t:'Irakakan GPS',wf2d:'Lajv tarat\'er 24/7.',wf3t:'Arajet maqsayin',wf3d:'Nvirvats agentner.',wf4t:'Nvirvacc karon karan',wf4d:'Zegčuytyunner.',se4:'Hačenordneri kagkičner',st4:'Veradardz bantov tarsacac',se5:'Kov-akalu',st5:'Mer karavarchakan tima',sd5:'Seklec kartits.',se6:'Lajv',st6:'Heteqel dzez bern',trh:'Irakakan bern kov tarat\'er',trp:'Mteq tracking code.',tr_ph1:'Tracking cod',tr_ph2:'Čntker anun',tr_btn:'Hetevel bern',tr_note:'Codér keraqs: +98 915 529 1700',tf1:'GPS Kartezu vra',tf2:'Maqsayin vichak',tf3:'Gramarvay žamanak',tf4:'WhatsApp u SMS',ct_t:'Patrast ek?',ct_d:'Gnanšum 48 jam mej.',ct_c:'+98 915 529 1700',ct_f:'Harc ugharkel',hvc1t:'Konteyner tranzit',hvc1s:'Tarakan konteyner',hvc2t:'Varrakan u petro',hvc2s:'Tarakan ton',fd:'Irani logistik.',fc1:'Zarut\'yunn\'er',fc2:'Koridorner',fc3:'Endhanu',f_c:'© 2025 Transit Gold',f_m:'Mašhad, Iran · 2013'},
+tr:{flag:'🇹🇷',name:'TR',nav_s:'Hizmetler',nav_r:'Güzergahlar',nav_w:'Neden Biz',nav_t:'Ekip',nav_tr:'Takip',nav_c:'Teklif Al',h_badge:"2013'ten beri · Meşhed, İran",h_t1:'Kargonuz.',h_t2:'Güvencemiz.',h_desc:"İran'dan komşu ülkelere konteyner transitı, yakıt, doğal gaz ve petrokimyasal kargo — 850+ müşteri güveni.",h_c1:'Teklif Al',h_c2:'Kargo Takip',hs1:'Yıl Deneyim',hs2:'Aktif Müşteri',hs3:'Ticaret Koridoru',sb1:'Lojistikte Yıl',sb2:'Memnun Müşteri',sb3:'Aktif Koridor',sb4:'Zamanında Teslimat',se1:'Hizmetlerimiz',st1:'Kapsamlı Lojistik Çözümler',sd1:"İran'ın sınırlarından küresel pazarlara.",s1t:'Konteyner Transitı',s2t:'Yakıt ve Gaz İhracatı',s3t:'Petrokimyasallar',s4t:'Demiryolu Taşımacılığı',s5t:'Gümrük Müşavirliği',s6t:'Kargo Sigortası',s1d:"İran'ın ağı üzerinden Türkiye, Irak, Afganistan, Pakistan.",s2d:'Dizel, LPG ve doğal gaz ihracatı.',s3d:'Bandar Abbas\'tan polimer, metanol ve üre ihracatı.',s4d:'INSTC ve İpek Yolu demiryolu.',s5d:'Tüm İran sınır kapılarında gümrük.',s6d:'Her sevkiyat için sigorta.',se2:'Ticaret Koridorları',st2:'İran İhracat ve İthalat Ağı',sd2:'Aktif karayolu, demiryolu ve deniz güzergahları.',l1:'Karayolu (Tır/TIR)',l2:'Demiryolu (INSTC)',l3:'Deniz (Basra Körfezi)',se3:'Neden Transit Gold',st3:'Fark Detaylarda',sd3:"İran'ın en yoğun sınır kapılarında on yıllık deneyim.",wb_b:'Zamanında teslimat',wf1t:'Tam Kargo Sigortası',wf1d:'Her sevkiyat tam kapsamlı sigorta.',wf2t:'Gerçek Zamanlı GPS',wf2d:'7/24 WhatsApp ve SMS.',wf3t:'Öncelikli Gümrük',wf3d:'Tüm sınır kapılarında özel temsilciler.',wf4t:'Özel Hesap Yönetimi',wf4d:'Uzun vadeli ortaklar için indirimler.',se4:'Müşteri Yorumları',st4:'Bölge Genelinde Güvenilen',se5:'Liderlik',st5:'Yönetim Ekibimiz',sd5:'Tam profil için herhangi bir karta tıklayın.',se6:'Canlı Takip',st6:'Kargonuzu Takip Edin',trh:'Gerçek Zamanlı Bilgiler',trp:'Takip kodunuzu girin.',tr_ph1:'Takip kodu — örn. TG-2024-001234',tr_ph2:'Şirket adı (isteğe bağlı)',tr_btn:'Kargo Takip Et',tr_note:'Kod lazım mı? +98 915 529 1700',tf1:'Haritada GPS konumu',tf2:'Gümrük giriş durumu',tf3:'Tahmini varış',tf4:'WhatsApp ve SMS',ct_t:'Kargonuzu Taşımaya Hazır mısınız?',ct_d:'48 saat içinde teklif alın.',ct_c:'+98 915 529 1700',ct_f:'Talep Gönder',hvc1t:'Konteyner Transitı',hvc1s:'Yıllık konteyner',hvc2t:'Yakıt ve Petrokimya',hvc2s:'Yıllık ton ihracat',fd:"İran'dan uluslararası lojistik.",fc1:'Hizmetler',fc2:'Koridorlar',fc3:'Şirket',f_c:'© 2025 Transit Gold · Tüm hakları saklıdır',f_m:'Meşhed, İran · Kuruluş 2013'},
+ko:{flag:'🇰🇷',name:'KO',nav_s:'서비스',nav_r:'노선',nav_w:'왜 우리인가',nav_t:'팀',nav_tr:'화물 추적',nav_c:'견적 받기',h_badge:'2013년 설립 · 이란 마슈하드',h_t1:'귀하의 화물.',h_t2:'우리의 보장.',h_desc:'이란에서 인접국까지 컨테이너 운송, 연료, 천연가스 및 석유화학 화물.',h_c1:'견적 요청',h_c2:'화물 추적',hs1:'년 경험',hs2:'활성 고객',hs3:'무역 회랑',sb1:'물류 경력 년수',sb2:'만족 고객',sb3:'활성 회랑',sb4:'정시 배송률',se1:'서비스',st1:'완전한 물류 솔루션',sd1:'이란 국경에서 세계 시장까지.',s1t:'컨테이너 운송',s2t:'연료 및 가스 수출',s3t:'석유화학',s4t:'철도 화물',s5t:'통관 서비스',s6t:'화물 보험',s1d:'이란 도로·철도 네트워크를 통해 터키, 이라크, 아프가니스탄으로.',s2d:'디젤, LPG, 천연가스 수출.',s3d:'폴리머, 메탄올, 요소 벌크 수출.',s4d:'INSTC 남북 회랑 및 실크로드 철도.',s5d:'모든 이란 국경에서 완전한 통관.',s6d:'모든 화물에 포괄 보험.',se2:'무역 회랑',st2:'이란 수출입 네트워크',sd2:'활성 도로, 철도, 해상 노선.',l1:'도로(트럭/TIR)',l2:'철도(INSTC)',l3:'해상(페르시아만)',se3:'Transit Gold를 선택하는 이유',st3:'차이는 디테일에 있습니다',sd3:'이란의 주요 국경에서의 10년 경험.',wb_b:'정시 배송률',wf1t:'완전한 화물 보험',wf1d:'픽업부터 최종 배송까지 전 위험 보험.',wf2t:'실시간 GPS 추적',wf2d:'24/7 WhatsApp, SMS 업데이트.',wf3t:'우선 통관 처리',wf3d:'주요 국경에 전담 에이전트.',wf4t:'전담 계정 관리',wf4d:'장기 파트너 볼륨 할인.',se4:'고객 후기',st4:'지역 전역 기업 신뢰',se5:'리더십',st5:'경영진',sd5:'카드를 클릭하여 프로필 확인.',se6:'실시간 추적',st6:'화물 추적',trh:'실시간 화물 정보',trp:'추적 코드를 입력하세요.',tr_ph1:'추적 코드 — 예: TG-2024-001234',tr_ph2:'회사명 (선택사항)',tr_btn:'화물 추적',tr_note:'코드 필요? 전화: +98 915 529 1700',tf1:'지도 GPS 실시간 위치',tf2:'통관 처리 상태',tf3:'예상 도착 시간',tf4:'WhatsApp 및 SMS',ct_t:'화물 운송 준비됐나요?',ct_d:'48시간 내 견적.',ct_c:'+98 915 529 1700',ct_f:'문의 보내기',hvc1t:'컨테이너 운송',hvc1s:'연간 컨테이너',hvc2t:'연료 및 석유화학',hvc2s:'연간 톤 수출',fd:'이란 국제 물류.',fc1:'서비스',fc2:'회랑',fc3:'회사',f_c:'© 2025 Transit Gold · 모든 권리 보유',f_m:'이란 마슈하드 · 2013'},
+ja:{flag:'🇯🇵',name:'JA',nav_s:'サービス',nav_r:'ルート',nav_w:'なぜ当社',nav_t:'チーム',nav_tr:'貨物追跡',nav_c:'見積もり取得',h_badge:'2013年設立 · イラン・マシュハド',h_t1:'お客様の貨物。',h_t2:'私たちの保証。',h_desc:'イランから隣国へのコンテナ輸送、燃料、天然ガス、石油化学製品。850社以上が信頼。',h_c1:'見積もりを依頼',h_c2:'貨物を追跡',hs1:'年の経験',hs2:'活動中の顧客',hs3:'貿易回廊',sb1:'物流経験年数',sb2:'満足顧客',sb3:'活動中の回廊',sb4:'定時配達率',se1:'サービス',st1:'完全な物流ソリューション',sd1:'イランの国境からグローバル市場まで。',s1t:'コンテナ輸送',s2t:'燃料・ガス輸出',s3t:'石油化学製品',s4t:'鉄道貨物',s5t:'通関サービス',s6t:'貨物保険',s1d:'イランの道路・鉄道ネットワークを通じてトルコ、イラク、アフガニスタン。',s2d:'ディーゼル、LPG、天然ガスの輸出。',s3d:'ポリマー、メタノール、尿素のバルク輸出。',s4d:'INSTC南北回廊とシルクロード鉄道。',s5d:'全イラン国境通関所での完全サービス。',s6d:'全貨物への包括保険。',se2:'貿易回廊',st2:'イラン輸出入ネットワーク',sd2:'活動中の道路、鉄道、海上ルート。',l1:'道路（トラック/TIR）',l2:'鉄道（INSTC）',l3:'海上（ペルシャ湾）',se3:'Transit Goldを選ぶ理由',st3:'違いは細部にあります',sd3:'イランの主要国境での10年間の現場経験。',wb_b:'定時配達率',wf1t:'完全貨物保険',wf1d:'集荷から最終配達まで全リスク保険。',wf2t:'リアルタイムGPS',wf2d:'24/7 WhatsApp・SMS更新。',wf3t:'優先通関処理',wf3d:'全主要国境に専任エージェント。',wf4t:'専任アカウント管理',wf4d:'長期パートナーへのボリュームディスカウント。',se4:'お客様の声',st4:'地域全体の企業から信頼',se5:'リーダーシップ',st5:'経営チーム',sd5:'カードをクリックして詳細を表示。',se6:'リアルタイム追跡',st6:'貨物を追跡する',trh:'リアルタイム貨物情報',trp:'トラッキングコードを入力してください。',tr_ph1:'トラッキングコード — 例: TG-2024-001234',tr_ph2:'会社名（任意）',tr_btn:'貨物を追跡',tr_note:'コードが必要？お電話: +98 915 529 1700',tf1:'地図上のGPS位置',tf2:'通関処理状況',tf3:'予定到着時刻',tf4:'WhatsApp・SMSアラート',ct_t:'貨物を輸送する準備はできていますか？',ct_d:'48時間以内に見積もりをお届けします。',ct_c:'+98 915 529 1700',ct_f:'お問い合わせ',hvc1t:'コンテナ輸送',hvc1s:'年間コンテナ数',hvc2t:'燃料・石油化学製品',hvc2s:'年間輸出トン数',fd:'イランからの国際物流。',fc1:'サービス',fc2:'回廊',fc3:'会社',f_c:'© 2025 Transit Gold · 全権利留保',f_m:'イラン・マシュハド · 2013年設立'}
 };
 
-function setLang(lang) {
-  document.documentElement.setAttribute('data-lang', lang);
-  document.documentElement.setAttribute('lang', lang);
-  const dir = (lang==='fa'||lang==='ar'||lang==='ur') ? 'rtl' : 'ltr';
-  document.documentElement.setAttribute('dir', dir);
-  const t = i18n[lang] || i18n.en;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if(t[key]) el.textContent = t[key];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if(t[key]) el.setAttribute('placeholder', t[key]);
-  });
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  const active = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
-  if(active) active.classList.add('active');
+function setL(code){
+  const t=T[code]||T.en;
+  const dir=t.dir||'ltr';
+  document.documentElement.setAttribute('lang',code);
+  document.documentElement.setAttribute('dir',dir);
+  document.documentElement.setAttribute('data-lang',code);
+  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.getAttribute('data-i');if(t[k]!==undefined)el.textContent=t[k];});
+  document.querySelectorAll('[data-iph]').forEach(el=>{const k=el.getAttribute('data-iph');if(t[k])el.setAttribute('placeholder',t[k]);});
+  document.querySelectorAll('#ldd button').forEach(b=>{b.classList.toggle('active',b.getAttribute('onclick').includes("'"+code+"'"));});
+  document.getElementById('lpFlag').textContent=t.flag;
+  document.getElementById('lpName').textContent=t.name;
+  // Track input dir
+  document.querySelectorAll('.track-input[dir]').forEach(el=>el.setAttribute('dir',dir==='rtl'?'rtl':'ltr'));
 }
-
-/* ===== AUTO-DETECT LANGUAGE ===== */
-function detectLang() {
-  const nav = navigator.language || navigator.userLanguage || 'en';
-  const code = nav.split('-')[0].toLowerCase();
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-  if(code==='fa' || tz.includes('Tehran')) return 'fa';
-  if(code==='ar') return 'ar';
-  if(code==='zh') return 'zh';
-  if(code==='hi') return 'hi';
-  if(code==='ur' || tz.includes('Karachi')) return 'ur';
-  if(code==='hy' || tz.includes('Yerevan')) return 'hy';
-  if(code==='tr' || tz.includes('Istanbul')) return 'tr';
-  if(code==='ko' || tz.includes('Seoul')) return 'ko';
-  if(code==='ja' || tz.includes('Tokyo')) return 'ja';
-  return 'en';
+function detectL(){
+  const nav=(navigator.language||'en').split('-')[0].toLowerCase();
+  const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+  if(nav==='fa'||tz.includes('Tehran'))return'fa';
+  if(nav==='ar')return'ar';
+  if(nav==='zh')return'zh';
+  if(nav==='hi')return'hi';
+  if(nav==='ur'||tz.includes('Karachi'))return'ur';
+  if(nav==='hy'||tz.includes('Yerevan'))return'hy';
+  if(nav==='tr'||tz.includes('Istanbul'))return'tr';
+  if(nav==='ko'||tz.includes('Seoul'))return'ko';
+  if(nav==='ja'||tz.includes('Tokyo'))return'ja';
+  return'en';
 }
-setLang(detectLang());
+setL(detectL());
 </script>
 </body>
 </html>
