@@ -441,10 +441,10 @@ footer{background:var(--text);padding:3.5rem 0 1.5rem}
     </div>
     <div class="map-wrap fu">
       <div class="map-legend">
-        <div class="leg-item"><div class="leg-line leg-road"></div><span data-i="l1">Road · Truck / TIR</span></div>
-        <div class="leg-item"><div class="leg-line leg-rail"></div><span data-i="l2">Rail · INSTC / Silk Road</span></div>
-        <div class="leg-item"><div class="leg-line leg-sea"></div><span data-i="l3">Sea · Persian Gulf / Indian Ocean</span></div>
-      </div>
+  <div class="leg-item"><div class="leg-line" style="background:#059669;border-top:2px dashed #059669;height:0"></div><span data-i="l3">Sea — Imports via Dubai</span></div>
+  <div class="leg-item"><div class="leg-line" style="background:#1976d2;border-top:2px dashed #1976d2;height:0"></div><span data-i="l1">Road — Container Export</span></div>
+  <div class="leg-item"><div class="leg-line" style="background:#f97316;border-top:3px dotted #f97316;height:0"></div><span data-i="l2">Road — Fuel &amp; Gas Export</span></div>
+      
      <div id="imap" style="width:100%;height:500px;border-radius:0 0 20px 20px"></div>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -557,11 +557,7 @@ footer{background:var(--text);padding:3.5rem 0 1.5rem}
 .leaflet-control-zoom{border:none!important;box-shadow:0 2px 12px rgba(0,0,0,.1)!important;border-radius:8px!important}
 .leaflet-control-zoom a{color:#1976d2!important;font-weight:700!important}
 </style>
-.map-tip{background:#0d1b2e;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;padding:4px 10px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.map-tip::before{display:none}
-.leaflet-control-zoom{border:none!important;box-shadow:var(--shadow)!important}
-.leaflet-control-zoom a{border-radius:8px!important;font-size:16px!important;color:var(--sky3)!important}
-</style>
+
     </div>
   </div>
 </section>
